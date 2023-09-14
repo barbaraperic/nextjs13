@@ -1,30 +1,47 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-interface WordType {
+export interface WordType {
 	id: string;
 	word: string;
 	translation: string;
 	context: string;
 }
 
-async function getWords() {
-	const res = await fetch("http://localhost:4000/words", {
-		next: {
-			revalidate: 0, // use 0 to opt out of using cache
-		},
-	});
+export default function WordsList() {
+	const [words, setWords] = useState([]);
+	const [wordId, setWordId] = useState("");
+	const [loading, setLoading] = useState(true);
+	const [flipped, setFlipped] = useState(false);
 
-	return res.json();
-}
+	useEffect(() => {
+		fetch("http://localhost:4000/words")
+			.then((res) => res.json())
+			.then((data) => {
+				setWords(data);
+				setLoading(false);
+			});
+	}, []);
 
-export default async function WordsList() {
-	const words = await getWords();
+	function handleClick(id: string) {
+		setWordId(id);
+		setFlipped((flipped) => !flipped);
+	}
+
+	console.log("=== wordId WordsList.tsx [32] ===", wordId);
 
 	return (
 		<>
 			{words.map((word: WordType) => (
-				<div key={word.id} className="card my-5">
-					<p>{word.word}</p>
+				<div
+					key={word.id}
+					className={`${
+						flipped && wordId === word.id
+							? "rotate-360 text-secondary font-bold "
+							: "rotate-0 "
+					} card my-5`}
+					onClick={() => handleClick(word.id)}>
+					<p>{flipped && wordId === word.id ? word.translation : word.word}</p>
 				</div>
 			))}
 		</>

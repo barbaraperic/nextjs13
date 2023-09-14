@@ -1,25 +1,32 @@
 {
-	"words": [
-		{
-			"id": "1",
-			"word": "chateado",
-			"translation": "upset",
-			"context": "Estou chateado porque ela pede demasiado.",
-			"difficulty": "low"
-		},
-		{
-			"id": "2",
-			"word": "antigamente",
-			"translation": "in the past",
-			"context": "Já não os fabricam como antigamente",
-			"difficulty": "medium"
-		},
-		{
-			"id": "3",
-			"word": "dantes",
-			"translation": "before",
-			"context": "Não podem haver erros como dantes",
-			"difficulty": "medium"
-		}
-	]
+  "words": [
+    {
+      "id": "1",
+      "word": "chateado",
+      "translation": "upset",
+      "context": "Estou chateado porque ela pede demasiado.",
+      "difficulty": "low"
+    },
+    {
+      "id": "2",
+      "word": "antigamente",
+      "translation": "in the past",
+      "context": "Já não os fabricam como antigamente",
+      "difficulty": "medium"
+    },
+    {
+      "id": "3",
+      "word": "dantes",
+      "translation": "before",
+      "context": "Não podem haver erros como dantes",
+      "difficulty": "medium"
+    },
+    {
+      "word": "Ola",
+      "translation": "Hello",
+      "context": "Ola tudo bem",
+      "difficulty": "low",
+      "id": "58yQvTE"
+    }
+  ]
 }

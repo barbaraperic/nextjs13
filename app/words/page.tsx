@@ -1,6 +1,7 @@
+import CreateForm from "./CreateForm";
 import WordsList from "./WordsList";
 
-export default function Words() {
+export default async function Words() {
 	return (
 		<main>
 			<nav>
@@ -9,6 +10,9 @@ export default function Words() {
 				</div>
 			</nav>
 			<WordsList />
+			<div className="w-3/4">
+				<CreateForm />
+			</div>
 		</main>
 	);
 }
