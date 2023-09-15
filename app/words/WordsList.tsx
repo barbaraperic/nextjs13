@@ -28,8 +28,6 @@ export default function WordsList() {
 		setFlipped((flipped) => !flipped);
 	}
 
-	console.log("=== wordId WordsList.tsx [32] ===", wordId);
-
 	return (
 		<>
 			{words.map((word: WordType) => (

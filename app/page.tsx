@@ -1,5 +1,3 @@
-import WordsList from "./words/WordsList";
-
 export default function Home() {
 	return (
 		<main className="">

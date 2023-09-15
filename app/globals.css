@@ -81,3 +81,8 @@ h6 {
 .card {
 	@apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-hidden text-center uppercase cursor-pointer;
 }
+
+/* navbar style */
+.nav {
+	@apply border-b-2 border-black;
+}

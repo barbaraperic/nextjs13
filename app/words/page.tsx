@@ -4,13 +4,10 @@ import WordsList from "./WordsList";
 export default async function Words() {
 	return (
 		<main>
-			<nav>
-				<div>
-					<h2>Words</h2>
-				</div>
-			</nav>
+			<h2>Words</h2>
 			<WordsList />
-			<div className="w-3/4">
+			<h2>Add a new word</h2>
+			<div className="flex justify-center">
 				<CreateForm />
 			</div>
 		</main>
