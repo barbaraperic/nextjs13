@@ -12,7 +12,7 @@ module.exports = {
 				secondary: "#022601",
 			},
 			backgroundColor: {
-				primary: "#fbe9cc",
+				primary: "#F4F4EF",
 			},
 		},
 	},

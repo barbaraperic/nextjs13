@@ -36,5 +36,17 @@
 			"difficulty": "low",
 			"id": "QpLIM5o"
 		}
+	],
+	"prompts": [
+		{
+			"question": "Que queria ser quando tu era pequeno?",
+			"answer": "",
+			"verbTens": "Past"
+		},
+		{
+			"question": "Qual é o teu prato preferido?",
+			"answer": "",
+			"verbTens": "Present"
+		}
 	]
 }

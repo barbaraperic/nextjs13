@@ -38,17 +38,6 @@ export default function CreateConvoForm() {
 			onSubmit={handleSubmit}
 			className="flex flex-col space-y-4 items-center">
 			<label className="w-full">
-				<span>Title:</span>
-				<input
-					className="w-full"
-					required
-					type="text"
-					onChange={(e) => setTitle(e.target.value)}
-					value={title}
-				/>
-			</label>
-			<label className="w-full">
-				<span>Conversation:</span>
 				<textarea
 					className="w-full"
 					required
