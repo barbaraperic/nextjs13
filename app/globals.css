@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Work+Sans:wght@300;400&display=swap");
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -29,6 +29,21 @@ body {
 
 main {
 	@apply max-w-5xl my-12 mx-auto px-8;
+}
+
+h1 {
+	font-size: 3.052rem;
+}
+
+h1,
+h2,
+h3 {
+	font-family: "Work Sans", sans-serif;
+}
+
+p,
+a {
+	font-family: "Poppins", sans-serif;
 }
 
 h2 {

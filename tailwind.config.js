@@ -8,11 +8,14 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: "#36733A",
-				secondary: "#022601",
+				primary: "#033EA6",
 			},
 			backgroundColor: {
-				primary: "#F4F4EF",
+				primary: "#FFFFFF",
+			},
+			fontFamily: {
+				poppins: ["Poppins", "sans-serif"],
+				sans: ["Work Sans", "sans-serif"],
 			},
 		},
 	},

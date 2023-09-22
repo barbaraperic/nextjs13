@@ -3,12 +3,13 @@ import WordsList from "./WordsList";
 
 export default async function Words() {
 	return (
-		<main>
+		<main className="w-full">
 			<h2>Words</h2>
-			<WordsList />
-			<h2>Add a new word</h2>
-			<div className="flex justify-center">
-				<CreateForm />
+			<div className="flex justify between">
+				<WordsList />
+				<div className="flex justify-center">
+					<CreateForm />
+				</div>
 			</div>
 		</main>
 	);

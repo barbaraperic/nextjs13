@@ -1,17 +1,19 @@
 import Link from "next/link";
+import { SpacerComponent } from "./Spacer";
+import TurtleIconComponent from "./icons/turtleIcon";
 
 export default function Navbar() {
 	return (
-		<nav className="flex border-r-2 p-2">
-			<div className="flex-col flex flex-1 divide-y-2 space-y-2 ">
-				<div>
-					<Link href="/">Index</Link>
-				</div>
-				<div>
-					<Link href="/words">Words</Link>
-				</div>
-				<div>
-					<Link href="/convo">Conversations</Link>
+		<nav className="flex border-r border-black">
+			<div className="flex-col flex flex-1">
+				<SpacerComponent className="h-6"></SpacerComponent>
+				<h1 className="uppercase font-thin px-9 relative">Tartaruga</h1>
+				<TurtleIconComponent className="h-7  absolute top-[99px] left-[251px]"></TurtleIconComponent>
+				<SpacerComponent className="h-20"></SpacerComponent>
+				<div className="border-t border-b border-black px-4 py-7 flex justify-center">
+					<Link className="text-2xl" href="/words">
+						library
+					</Link>
 				</div>
 			</div>
 		</nav>

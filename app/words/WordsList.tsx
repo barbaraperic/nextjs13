@@ -29,7 +29,7 @@ export default function WordsList() {
 	}
 
 	return (
-		<>
+		<div className="flex flex-col w-full">
 			{words.map((word: WordType) => (
 				<div
 					key={word.id}
@@ -42,6 +42,6 @@ export default function WordsList() {
 					<p>{flipped && wordId === word.id ? word.translation : word.word}</p>
 				</div>
 			))}
-		</>
+		</div>
 	);
 }
