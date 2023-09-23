@@ -6,7 +6,7 @@ import Navbar from "./components/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Novas Palavras",
+	title: "Tartaruga",
 	description: "Learn Portuguese",
 	icons: {
 		icon: "./favicon.ico",
