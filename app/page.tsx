@@ -26,7 +26,6 @@ export default function Home({ searchParams }: Props) {
 					className="py-4 min-w-[260px] border-2 bg-primary hover:border-primary hover:text-primary flex justify-center text-lg rounded-xl cursor">
 					Practice
 				</Link>
-
 				{showModal && <BasicModal />}
 			</div>
 			<Image
