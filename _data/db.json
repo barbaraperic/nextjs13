@@ -1,52 +1,66 @@
 {
-	"words": [
-		{
-			"id": "1",
-			"word": "chateado",
-			"translation": "upset",
-			"context": "Estou chateado porque ela pede demasiado.",
-			"difficulty": "low"
-		},
-		{
-			"id": "2",
-			"word": "antigamente",
-			"translation": "in the past",
-			"context": "Já não os fabricam como antigamente",
-			"difficulty": "medium"
-		},
-		{
-			"id": "3",
-			"word": "dantes",
-			"translation": "before",
-			"context": "Não podem haver erros como dantes",
-			"difficulty": "medium"
-		},
-		{
-			"word": "Ola",
-			"translation": "Hello",
-			"context": "Ola tudo bem",
-			"difficulty": "low",
-			"id": "58yQvTE"
-		}
-	],
-	"conversations": [
-		{
-			"title": "Que queria ser quando tu era pequeno?",
-			"conversation": "Quando era pequena eu queria ser carteira, porque me gostava como os carteiros a major parte das vezes trazem boas noticias - cartas de família, cartões postais. E também as noticias importantes como contas. ",
-			"difficulty": "low",
-			"id": "QpLIM5o"
-		}
-	],
-	"prompts": [
-		{
-			"question": "Que queria ser quando tu era pequeno?",
-			"answer": "",
-			"verbTens": "Past"
-		},
-		{
-			"question": "Qual é o teu prato preferido?",
-			"answer": "",
-			"verbTens": "Present"
-		}
-	]
+  "words": [
+    {
+      "id": "1",
+      "word": "chateado",
+      "translation": "upset",
+      "context": "Estou chateado porque ela pede demasiado.",
+      "difficulty": "low"
+    },
+    {
+      "id": "2",
+      "word": "antigamente",
+      "translation": "in the past",
+      "context": "Já não os fabricam como antigamente",
+      "difficulty": "medium"
+    },
+    {
+      "id": "3",
+      "word": "dantes",
+      "translation": "before",
+      "context": "Não podem haver erros como dantes",
+      "difficulty": "medium"
+    },
+    {
+      "word": "Ola",
+      "translation": "Hello",
+      "context": "Ola tudo bem",
+      "difficulty": "low",
+      "id": "58yQvTE"
+    },
+    {
+      "word": "dantes",
+      "translation": "before",
+      "context": "Como foi dantes?",
+      "difficulty": "low",
+      "id": "3K0n-DT"
+    },
+    {
+      "word": "bla bla",
+      "translation": "bla",
+      "context": "",
+      "difficulty": "low",
+      "id": "kvNlPBa"
+    }
+  ],
+  "conversations": [
+    {
+      "title": "Que queria ser quando tu era pequeno?",
+      "conversation": "Quando era pequena eu queria ser carteira, porque me gostava como os carteiros a major parte das vezes trazem boas noticias - cartas de família, cartões postais. E também as noticias importantes como contas. ",
+      "difficulty": "low",
+      "id": "QpLIM5o"
+    }
+  ],
+  "prompts": [
+    {
+      "question": "Que queria ser quando tu era pequeno?",
+      "answer": "",
+      "verbTens": "Past"
+    },
+    {
+      "question": "Qual é o teu prato preferido?",
+      "answer": "",
+      "verbTens": "Present"
+    }
+  ]
 }
