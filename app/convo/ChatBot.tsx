@@ -13,7 +13,7 @@ interface MessageProps {
 }
 
 interface InputProps {
-	onSend: (input: string) => void;
+	onSend: () => void;
 	disabled: boolean;
 }
 
@@ -43,7 +43,7 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
 	};
 
 	const handleKeyDown = (event: any) => {
-		if (event.keyDown === 13) {
+		if (event.key === "Enter") {
 			sendInput();
 		}
 	};
@@ -64,48 +64,63 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
 };
 
 export default function ChatBot() {
-	const [messages, setMessages] = useState<MessageProps[]>([]);
+	const [messages, setMessages] = useState("");
 	const [loading, setLoading] = useState(false);
 
-	const callApi = async (input: string) => {
+	const prompt = `Q: Generate a response with less than 200 characters.`;
+
+	const generateResponse = async (e: React.MouseEvent<HTMLButtonElement>) => {
+		// e.preventDefault();
+		setMessages("");
 		setLoading(true);
 
-		const myMessage: MessageProps = {
-			text: input,
-			from: Creator.Me,
-			key: new Date().getTime(),
-		};
-
-		setMessages([myMessage]);
-		const response = await fetch("api/generate-answers", {
+		const response = await fetch("/api/generate", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ prompt: input }),
-		}).then((response) => response.json());
-		setLoading(false);
+			body: JSON.stringify({
+				prompt,
+			}),
+		});
 
-		if (response.text) {
-			const botMessage: MessageProps = {
-				text: response.text,
-				from: Creator.Bot,
-				key: new Date().getTime(),
-			};
-			setMessages([botMessage]);
+		console.log("=== response ChatBot.tsx [87] ===", response);
+
+		if (!response.ok) {
+			throw new Error(response.statusText);
 		}
-	};
 
+		// This data is a ReadableStream
+		const data = response.body;
+		if (!data) {
+			return;
+		}
+
+		const reader = data.getReader();
+		const decoder = new TextDecoder();
+		let done = false;
+
+		while (!done) {
+			const { value, done: doneReading } = await reader.read();
+			done = doneReading;
+			const chunkValue = decoder.decode(value);
+			setMessages((prev) => prev + chunkValue);
+		}
+		setLoading(false);
+	};
 	return (
 		<main className="relative max-w-2xl mx-auto">
 			<div className="sticky top-0 w-full pt-10 px-4">
-				<ChatInput onSend={(input) => callApi(input)} disabled={loading} />
+				<ChatInput
+					onSend={(e: any) => generateResponse(e)}
+					disabled={loading}
+				/>
 			</div>
-
 			<div className="mt-10 px-4">
-				{messages.map((m: MessageProps) => (
+				{/* {messages.map((m: MessageProps) => (
 					<ChatMessage key={m.key} text={m.text} from={m.from} />
-				))}
+				))} */}
+				{messages}
 			</div>
 		</main>
 	);
