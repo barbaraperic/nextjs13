@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SpacerComponent } from "./Spacer";
 import TurtleIconComponent from "./icons/turtleIcon";
+import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
 	return (
@@ -19,6 +20,7 @@ export default function Navbar() {
 						library
 					</Link>
 				</div>
+				<LogoutButton />
 			</div>
 		</nav>
 	);

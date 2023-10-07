@@ -1,7 +1,11 @@
 "use client";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
-export default function AuthForm({ handleSubmit }) {
+export default function AuthForm({
+	handleSubmit,
+}: {
+	handleSubmit: (e: FormEvent, email: string, password: string) => void;
+}) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
