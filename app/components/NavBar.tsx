@@ -2,25 +2,20 @@ import Link from "next/link";
 import { SpacerComponent } from "./Spacer";
 import TurtleIconComponent from "./icons/turtleIcon";
 import LogoutButton from "./LogoutButton";
+import { AuthUser } from "@supabase/supabase-js";
+import { ButtonText } from "./texts/Texts";
 
-export default function Navbar() {
+export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (
-		<nav className="flex border-r border-black">
-			<div className="flex-col flex flex-1">
-				<SpacerComponent className="h-6"></SpacerComponent>
-				<Link className="cursor" href="/">
-					<h1 className="uppercase peer font-thin px-9 relative hover:text-primary">
-						Tartaruga
-					</h1>
-				</Link>
-				<TurtleIconComponent className="h-7 absolute top-[99px] left-[251px]"></TurtleIconComponent>
-				<SpacerComponent className="h-20"></SpacerComponent>
-				<div className="border-t border-b border-black px-4 py-7 flex justify-center">
-					<Link className="text-2xl hover:text-primary" href="/words">
-						library
-					</Link>
-				</div>
-				<LogoutButton />
+		<nav className="flex justify-between px-20 py-2 items-center bg-black text-white">
+			<Link href={"/"}>
+				<h1 className="rotate-2 tracking-wide">tartaruga</h1>
+			</Link>
+			<div className="space-x-3">
+				<button>
+					<ButtonText>Log out</ButtonText>
+				</button>
+				{user && <span>Hello, {user.email}</span>}
 			</div>
 		</nav>
 	);

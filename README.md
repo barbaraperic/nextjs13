@@ -12,23 +12,22 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Color palette
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Primary (green):
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `hsl(160deg, 100%, 30%)`
 
-## Learn More
+Secondary (gold):
 
-To learn more about Next.js, take a look at the following resources:
+- `hsl(45deg, 100%, 50%)` (lighter)
+- `hsl(45deg, 100%, 40%)` (darker)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Grays:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `hsl(0deg, 0%, 0%)` (black)
+- `hsl(0deg, 0%, 10%)` (very dark)
+- `hsl(0deg, 0%, 30%)` (dark)
+- `hsl(0deg, 0%, 40%)` (medium)
+- `hsl(0deg, 0%, 60%)` (light)
+- `hsl(0deg, 0%, 100%)` (white)

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ButtonText } from "../components/texts/Texts";
 
 export default function CreateConvoForm() {
 	const router = useRouter();
@@ -57,8 +58,8 @@ export default function CreateConvoForm() {
 				</select>
 			</label>
 			<button className="btn-primary" disabled={isLoading}>
-				{isLoading && <span>Adding...</span>}
-				{!isLoading && <span>Add Ticket</span>}
+				{isLoading && <ButtonText>Adding...</ButtonText>}
+				{!isLoading && <ButtonText>Add Ticket</ButtonText>}
 			</button>
 		</form>
 	);

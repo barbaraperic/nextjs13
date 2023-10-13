@@ -28,10 +28,12 @@ export default function Login() {
 	};
 
 	return (
-		<main>
-			<h2>Login</h2>
-			<AuthForm handleSubmit={handleSubmit} />
-			{error && <p>{error}</p>}
+		<main className=" flex items-center justify-center">
+			<div className="border-4 items-center justify-center min-h-[400px] min-w-[400px] rounded-tr-3xl shadow-[5px_5px_1px_rgb(0,0,0)] border-black flex flex-col pt-6 px-4 pb-4">
+				<h2 className="font-script">login</h2>
+				<AuthForm handleSubmit={handleSubmit} />
+				{error && <p>{error}</p>}
+			</div>
 		</main>
 	);
 }

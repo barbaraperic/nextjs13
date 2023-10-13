@@ -1,11 +1,11 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/NavBar";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { Work_Sans, Nanum_Brush_Script, Poppins } from "@next/font/google";
+import { Nanum_Brush_Script } from "@next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
@@ -14,18 +14,6 @@ export const metadata: Metadata = {
 		icon: "./favicon.ico",
 	},
 };
-
-const display = Work_Sans({
-	variable: "--display-font",
-	weight: "400",
-	preload: false,
-});
-
-const body = Poppins({
-	variable: "--body-font",
-	weight: "400",
-	preload: false,
-});
 
 const script = Nanum_Brush_Script({
 	variable: "--script-font",
@@ -49,8 +37,8 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${display.variable} ${body.variable} ${script.variable} h-screen bg-background-primary`}>
-				<Navbar user={data.data.session?.user} />
+				className={`${script.variable} flex h-screen bg-background-primary`}>
+				{/* <Navbar user={data.data.session?.user} /> */}
 				{children}
 			</body>
 		</html>

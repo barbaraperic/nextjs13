@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Work+Sans:wght@300;400&display=swap");
+/* 
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -24,7 +24,7 @@
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
-	@apply bg-primary;
+	@apply bg-primary font-body;
 }
 
 main {
@@ -33,22 +33,25 @@ main {
 
 h1 {
 	font-size: 3.052rem;
-}
-
-h1,
-h2,
-h3 {
-	font-family: "Work Sans", sans-serif;
-}
-
-p,
-a {
-	font-family: "Poppins", sans-serif;
+	@apply font-script;
 }
 
 h2 {
-	@apply mb-4 pb-2 text-xl;
+	font-size: 1.5rem;
+	@apply font-display;
 }
+
+h3 {
+	@apply font-display;
+}
+
+p,
+a,
+button,
+label {
+	@apply font-body;
+}
+
 p > a {
 	@apply text-primary underline;
 }
@@ -90,6 +93,7 @@ h6 {
 #root,
 #__next {
 	isolation: isolate;
+	height: 100%;
 }
 
 /* card style */

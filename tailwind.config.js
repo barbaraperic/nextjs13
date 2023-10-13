@@ -9,6 +9,7 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: "#033EA6",
+				dark: "hsl(0, 0%, 30%)",
 			},
 			backgroundColor: {
 				primary: "#FFFFFF",
@@ -16,8 +17,9 @@ module.exports = {
 				secondaryLight: "#0451d8",
 			},
 			fontFamily: {
-				poppins: ["Poppins", "sans-serif"],
-				sans: ["Work Sans", "sans-serif"],
+				body: "var(--body-font)",
+				display: "var(--display-font)",
+				script: "var(--script-font)",
 			},
 		},
 	},
