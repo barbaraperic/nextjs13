@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import EraseIconComponent from "../components/icons/eraserIcon";
 
 export interface WordType {
 	id: string;
@@ -28,20 +29,28 @@ export default function WordsList() {
 		setFlipped((flipped) => !flipped);
 	}
 
+	function handleErase() {
+		// remove word
+	}
+
 	return (
-		<div className="flex flex-col w-full">
+		<div className="flex flex-col w-full relative border-dark border rounded-md">
 			{words.map((word: WordType) => (
 				<div
 					key={word.id}
 					className={`${
-						flipped && wordId === word.id
-							? "rotate-360 text-secondary font-bold "
-							: "rotate-0 "
-					} card my-5`}
+						flipped && wordId === word.id ? "rotate-360 " : "rotate-0 "
+					} py-5 px-14 cursor-pointer flex justify-between items-center text-dark hover:bg-mediumGray transition-all  border-b last:border-0 border-dark`}
 					onClick={() => handleClick(word.id)}>
-					<p>{flipped && wordId === word.id ? word.translation : word.word}</p>
+					<p className="font-script text-4xl">
+						{flipped && wordId === word.id ? word.translation : word.word}
+					</p>
+					<button onClick={handleErase}>
+						<EraseIconComponent className="h-10"></EraseIconComponent>
+					</button>
 				</div>
 			))}
+			<div className="border-red border-l border-r absolute w-2 h-full left-6"></div>
 		</div>
 	);
 }

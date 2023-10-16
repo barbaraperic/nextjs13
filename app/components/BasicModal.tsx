@@ -44,19 +44,19 @@ export default function BasicModal() {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] bg-white min-h-[500px] border-2 p-3 rounded-lg pb-5">
+			<div className="w-[400px] bg-white min-h-[580px] border-2 p-3 rounded-lg pb-5">
 				<div className="relative flex flex-col items-center space-y-6">
 					<button
-						className="cursor h-7 w-7 absolute right-0 flex justify-center items-center peer"
+						className="cursor h-7 w-7 absolute right-0 flex justify-center items-center"
 						onClick={handleClose}>
-						<ExitIconComponent className="h-6 peer-hover:text-primary"></ExitIconComponent>
+						<ExitIconComponent className="h-6"></ExitIconComponent>
 					</button>
-					<Heading3>Add a new word</Heading3>
+					<Heading3>add a new word</Heading3>
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">
 						<label className="w-full">
-							<span>Word:</span>
+							<span>word</span>
 							<input
 								className="w-full border-2 p-2"
 								required
@@ -66,7 +66,7 @@ export default function BasicModal() {
 							/>
 						</label>
 						<label className="w-full">
-							<span>Translation:</span>
+							<span>translation</span>
 							<input
 								className="w-full border-2 p-2"
 								required
@@ -76,7 +76,7 @@ export default function BasicModal() {
 							/>
 						</label>
 						<label className="w-full">
-							<span>Title:</span>
+							<span>context</span>
 							<textarea
 								className="w-full border-2"
 								required
@@ -85,7 +85,7 @@ export default function BasicModal() {
 							/>
 						</label>
 						<label className="w-full">
-							<span>Difficulty:</span>
+							<span>difficulty</span>
 							<select
 								className="w-full border-2 p-2"
 								onChange={(e) => setDifficulty(e.target.value)}
@@ -97,11 +97,11 @@ export default function BasicModal() {
 						</label>
 						<SpacerComponent className="h-4"></SpacerComponent>
 						<ButtonPrimary
-							className="btn-primary w-full"
+							className=" w-full"
 							disabled={isLoading}
 							onClick={handleSubmit}>
 							{isLoading && <span>Adding...</span>}
-							{!isLoading && <span>Add Ticket</span>}
+							{!isLoading && <span>Add Word</span>}
 						</ButtonPrimary>
 					</form>
 				</div>

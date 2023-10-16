@@ -13,7 +13,7 @@ export default function ButtonPrimary({
 }) {
 	return (
 		<button
-			className={`py-4 bg-secondary min-w-[260px] text-white rounded-lg font-bold ${className}`}
+			className={`py-4 bg-black min-w-[260px] text-white rounded-lg font-bold ${className}`}
 			onClick={onClick}
 			disabled={disabled}>
 			{children}

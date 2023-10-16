@@ -1,4 +1,4 @@
-import {
+/* import {
 	createParser,
 	ParsedEvent,
 	ReconnectInterval,
@@ -78,3 +78,4 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
 	return stream;
 }
+ */

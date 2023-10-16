@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import { useState } from "react";
 
 enum Creator {
@@ -117,11 +117,12 @@ export default function ChatBot() {
 				/>
 			</div>
 			<div className="mt-10 px-4">
-				{/* {messages.map((m: MessageProps) => (
+				 {messages.map((m: MessageProps) => (
 					<ChatMessage key={m.key} text={m.text} from={m.from} />
-				))} */}
+				))} 
 				{messages}
 			</div>
 		</main>
 	);
 }
+ */

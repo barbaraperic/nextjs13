@@ -20,12 +20,12 @@ export default function Home({ searchParams }: Props) {
 					<Link
 						href="/?modal=true"
 						className="py-4 min-w-[260px] bg-black  text-white flex justify-center text-lg rounded-xl cursor">
-						Add a new word
+						add a new word
 					</Link>
 					<Link
 						href="/convo"
 						className="py-4 min-w-[260px] border-2 bg-primary hover:border-black hover:text-black flex justify-center text-lg rounded-xl cursor">
-						Practice
+						practice
 					</Link>
 				</div>
 				{showModal && <BasicModal />}

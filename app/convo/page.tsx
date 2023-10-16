@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 import ChatBot from "./ChatBot";
 
 export default async function Conversations() {
@@ -29,3 +29,4 @@ export default async function Conversations() {
 		</main>
 	);
 }
+ */

@@ -48,7 +48,8 @@ h3 {
 p,
 a,
 button,
-label {
+label,
+span {
 	@apply font-body;
 }
 

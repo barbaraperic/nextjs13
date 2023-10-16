@@ -4,6 +4,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Nanum_Brush_Script } from "@next/font/google";
+import { SpacerComponent } from "../components/Spacer";
+import Navbar from "../components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +40,8 @@ export default async function RootLayout({
 		<html lang="en">
 			<body
 				className={`${script.variable} flex h-screen bg-background-primary`}>
-				{/* <Navbar user={data.data.session?.user} /> */}
+				<SpacerComponent className="h-20"></SpacerComponent>
+
 				{children}
 			</body>
 		</html>
