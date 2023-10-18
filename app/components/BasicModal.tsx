@@ -19,20 +19,25 @@ export default function BasicModal() {
 		e.preventDefault();
 		setIsLoading(true);
 
-		const newTicket = {
+		const newWord = {
 			word,
 			translation,
 			context,
 			difficulty,
 		};
 
-		const res = await fetch("http://localhost:4000/words", {
+		const res = await fetch("http://localhost:3000/api/words", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(newTicket),
+			body: JSON.stringify(newWord),
 		});
 
-		if (res.status === 201) {
+		const json = await res.json();
+
+		if (json.error) {
+			console.log(json.error);
+		}
+		if (json.data) {
 			router.refresh();
 			router.push("/words");
 		}
