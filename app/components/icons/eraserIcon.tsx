@@ -10,7 +10,7 @@ function EraseIconComponent(props: any) {
 				x="0px"
 				y="0px"
 				viewBox="0 0 96 96"
-				enable-background="new 0 0 96 96"
+				enableBackground="new 0 0 96 96"
 				xmlSpace="preserve"
 				{...props}>
 				<g>
