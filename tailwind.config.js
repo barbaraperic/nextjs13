@@ -14,6 +14,8 @@ module.exports = {
 				// darkGray: "hsl(0, 0%, 33%)",
 				dark: "hsl(0, 0%, 30%)",
 				red: "hsl(7, 100%, 81%)",
+				yellow: "hsl(60, 100%, 90%)",
+				lightYellow: "hsl(60, 50%, 90%)",
 			},
 			backgroundColor: {
 				primary: "#FFFFFF",
