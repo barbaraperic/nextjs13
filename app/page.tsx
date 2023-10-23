@@ -25,6 +25,7 @@ export default function Home({ searchParams }: Props) {
 			<div>
 				<div className="flex space-x-10 justify-around">
 					<PostItCard title="daily checklist" tasks={dailyTasks} />
+					<PostItCard title="weekly checklist" tasks={dailyTasks} />
 				</div>
 				{showModal && <BasicModal />}
 			</div>
