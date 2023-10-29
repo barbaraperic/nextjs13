@@ -23,7 +23,7 @@ export default function DeleteButton({ id }: { id: string }) {
 
 		if (!json.error) {
 			router.refresh();
-			router.push("/words");
+			router.push("/collection");
 		}
 	}
 

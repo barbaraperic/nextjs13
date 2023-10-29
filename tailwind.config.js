@@ -27,11 +27,6 @@ module.exports = {
 				display: "var(--display-font)",
 				script: "var(--script-font)",
 			},
-			spacing: {
-				sqaureSize: "15px",
-				squareGap: "5px",
-				weekWidth: "20px",
-			},
 		},
 	},
 	plugins: [],

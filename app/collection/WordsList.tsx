@@ -29,7 +29,7 @@ export default async function WordsList() {
 		<>
 			<div className="flex flex-col w-full relative border-dark border rounded-md">
 				{words?.map((word: WordType) => (
-					<Link href={`/words/${word.id}`} key={word.id}>
+					<Link href={`/collection/${word.id}`} key={word.id}>
 						<div
 							className={`py-5 px-14 cursor-pointer flex justify-between items-center text-dark hover:bg-mediumGray transition-all  border-b last:border-0 border-dark`}>
 							<p className="font-script text-4xl">

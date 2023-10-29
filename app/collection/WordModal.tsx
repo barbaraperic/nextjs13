@@ -1,12 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Heading3 } from "./texts/Texts";
-import ButtonPrimary from "./ButtonPrimary";
-import ExitIconComponent from "./icons/exitIcon";
-import { SpacerComponent } from "./Spacer";
+import { Heading3 } from "../components/texts/Texts";
+import ButtonPrimary from "../components/ButtonPrimary";
+import ExitIconComponent from "../components/icons/exitIcon";
+import { SpacerComponent } from "../components/Spacer";
 
-export default function BasicModal() {
+export default function WordModal() {
 	const router = useRouter();
 
 	const [word, setWord] = useState("");
@@ -39,12 +39,12 @@ export default function BasicModal() {
 		}
 		if (json.data) {
 			router.refresh();
-			router.push("/words");
+			router.push("/collection");
 		}
 	}
 
 	function handleClose() {
-		router.replace("/");
+		router.replace("/collection");
 	}
 
 	return (
