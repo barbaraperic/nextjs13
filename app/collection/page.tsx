@@ -1,3 +1,4 @@
+import ResourceList from "./ResourceList";
 import ResourceModal from "./ResourceModal";
 import WordModal from "./WordModal";
 import WordsList from "./WordsList";
@@ -25,11 +26,19 @@ export default async function Collection({ searchParams }: Props) {
 					add a resource
 				</Link>
 			</div>
-			<section className="w-full bg-gray p-6 rounded-lg">
+			<h2>Words</h2>
+			<section className=" bg-gray p-6 rounded-lg">
 				<div className="flex">
 					<WordsList />
 				</div>
 			</section>
+			<h2>Resources</h2>
+			<section className=" bg-gray p-6 rounded-lg">
+				<div className="flex">
+					<ResourceList />
+				</div>
+			</section>
+
 			{showWordModal && <WordModal />}
 			{showResourceModal && <ResourceModal />}
 		</main>

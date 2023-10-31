@@ -5,6 +5,8 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 export async function POST(request) {
 	const resource = await request.json();
 
+	console.log("=== resource route.js [8] ===", resource);
+
 	// get supabase instance
 	const supabase = createRouteHandlerClient({ cookies });
 

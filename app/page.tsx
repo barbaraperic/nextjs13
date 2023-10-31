@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import PostItCard from "./(dashboard)/PostItCard";
 import Graph from "./(dashboard)/Graph";
+import dayjs from "dayjs";
 
 export default function Home() {
 	const dailyTasks = [
@@ -15,7 +16,7 @@ export default function Home() {
 
 	return (
 		<main className={`relative`}>
-			{/* <Graph /> */}
+			<Graph />
 			<SpacerComponent className="h-40"></SpacerComponent>
 			<div>
 				<div className="flex space-x-10 justify-around">
