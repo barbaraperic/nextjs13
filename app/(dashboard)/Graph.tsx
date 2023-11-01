@@ -10,20 +10,18 @@ export default function Graph() {
 	const INITIAL_MONTH = dayjs().format("M");
 
 	return (
-		<div className="relative border">
-			<section className="flex justify-between p-3">
-				<div id="selected-month" className="text-xl">
-					{TODAY}
-				</div>
+		<div className="relative border p-3 p-6">
+			<section className="flex justify-between mb-6">
+				<div className="text-xl">{TODAY}</div>
 
-				<div className="flex items-center justify-between w-20">
-					<span id="previous-month-selector">prev</span>
-					<span id="present-month-selector">Today</span>
+				<div className="flex space-x-4">
+					<span id="previous-month-selector">back</span>
+					<span id="present-month-selector">today</span>
 					<span id="next-month-selector">next</span>
 				</div>
 			</section>
 
-			<ol id="days-of-week" className="grid grid-cols-7">
+			<ol id="day-of-week" className="grid grid-cols-7 text-center mb-3">
 				<li>Mon</li>
 				<li>Tue</li>
 				<li>Wed</li>
@@ -33,37 +31,151 @@ export default function Graph() {
 				<li>Sun</li>
 			</ol>
 
-			<ol id="calendar-days" className="dateGrid">
-				<li className="relative">
-					<span className="flex justify-center items-center absolute">1</span>
-					<span>2</span>
-					<span>3</span>
-					<span>4</span>
-					<span>5</span>
-					<span>6</span>
-					<span>7</span>
-					<span>8</span>
-					<span>9</span>
-					<span>10</span>
-					<span>11</span>
-					<span>12</span>
-					<span>13</span>
-					<span>14</span>
-					<span>15</span>
-					<span>16</span>
-					<span>17</span>
-					<span>18</span>
-					<span>19</span>
-					<span>20</span>
-					<span>21</span>
-					<span>22</span>
-					<span>23</span>
-					<span>24</span>
-					<span>25</span>
-					<span>26</span>
-					<span>27</span>
-					<span>28</span>
-					<span>29</span>
+			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						1
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						2
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						3
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						4
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						5
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						6
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						7
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						8
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						9
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						10
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						11
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						12
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						13
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						14
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						15
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						16
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						17
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						18
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						19
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						20
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						21
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						22
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						23
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						24
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						25
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						26
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						27
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						28
+					</span>
+				</li>
+				<li className="relative min-h-[60px] border p-3">
+					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
+						29
+					</span>
 				</li>
 			</ol>
 		</div>
