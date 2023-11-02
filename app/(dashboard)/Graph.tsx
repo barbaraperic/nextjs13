@@ -1,6 +1,7 @@
 "use client";
 
 import dayjs from "dayjs";
+import { useEffect } from "react";
 
 export default function Graph() {
 	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -9,8 +10,36 @@ export default function Graph() {
 	const INITIAL_YEAR = dayjs().format("YYYY");
 	const INITIAL_MONTH = dayjs().format("M");
 
+	function getNumberOfDaysInMonth(year: any, month: any) {
+		return dayjs(`${year}-${month}-01`).daysInMonth();
+	}
+
+	function createDaysForCurrentMonth(year, month) {
+		const array = [...Array(getNumberOfDaysInMonth(year, month))];
+
+		console.log("=== array Graph.tsx [20] ===", array);
+
+		// .map((day, index) => {
+		// 	return {
+		// 		date: dayjs(`${year}-${month}-${index + 1}`).format("YYYY-MM-DD"),
+		// 		dayOfMonth: index + 1,
+		// 		isCurrentMonth: true,
+		// 	};
+		// })
+	}
+
+	console.log(
+		"===  Graph.tsx [27] ===",
+		createDaysForCurrentMonth(INITIAL_YEAR, INITIAL_MONTH)
+	);
+
+	console.log(
+		"=== getNumberOfDaysInMonth() Graph.tsx [17] ===",
+		getNumberOfDaysInMonth(INITIAL_YEAR, INITIAL_MONTH)
+	);
+
 	return (
-		<div className="relative border p-3 p-6">
+		<div className="relative border p-6">
 			<section className="flex justify-between mb-6">
 				<div className="text-xl">{TODAY}</div>
 
@@ -22,13 +51,9 @@ export default function Graph() {
 			</section>
 
 			<ol id="day-of-week" className="grid grid-cols-7 text-center mb-3">
-				<li>Mon</li>
-				<li>Tue</li>
-				<li>Wed</li>
-				<li>Thu</li>
-				<li>Fri</li>
-				<li>Sat</li>
-				<li>Sun</li>
+				{WEEKDAYS.map((day) => (
+					<li key={day}>{day}</li>
+				))}
 			</ol>
 
 			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
