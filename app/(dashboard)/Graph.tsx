@@ -1,47 +1,15 @@
 "use client";
 
-import dayjs from "dayjs";
-import { useEffect } from "react";
+import createCalender from "../utils/calendar";
 
 export default function Graph() {
+	const DAYS = createCalender();
 	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-	const TODAY = dayjs().format("YYYY-MM-DD");
-
-	const INITIAL_YEAR = dayjs().format("YYYY");
-	const INITIAL_MONTH = dayjs().format("M");
-
-	function getNumberOfDaysInMonth(year: any, month: any) {
-		return dayjs(`${year}-${month}-01`).daysInMonth();
-	}
-
-	function createDaysForCurrentMonth(year, month) {
-		const array = [...Array(getNumberOfDaysInMonth(year, month))];
-
-		console.log("=== array Graph.tsx [20] ===", array);
-
-		// .map((day, index) => {
-		// 	return {
-		// 		date: dayjs(`${year}-${month}-${index + 1}`).format("YYYY-MM-DD"),
-		// 		dayOfMonth: index + 1,
-		// 		isCurrentMonth: true,
-		// 	};
-		// })
-	}
-
-	console.log(
-		"===  Graph.tsx [27] ===",
-		createDaysForCurrentMonth(INITIAL_YEAR, INITIAL_MONTH)
-	);
-
-	console.log(
-		"=== getNumberOfDaysInMonth() Graph.tsx [17] ===",
-		getNumberOfDaysInMonth(INITIAL_YEAR, INITIAL_MONTH)
-	);
-
+	console.log("=== daysInAMonth Graph.tsx [7] ===", DAYS);
 	return (
 		<div className="relative border p-6">
 			<section className="flex justify-between mb-6">
-				<div className="text-xl">{TODAY}</div>
+				{/* <div className="text-xl">{TODAY}</div> */}
 
 				<div className="flex space-x-4">
 					<span id="previous-month-selector">back</span>
@@ -55,13 +23,23 @@ export default function Graph() {
 					<li key={day}>{day}</li>
 				))}
 			</ol>
-
 			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
-				<li className="relative min-h-[60px] border p-3">
-					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
-						1
-					</span>
-				</li>
+				{DAYS.map((day) => (
+					<>
+						<li
+							className={`${
+								day.isCurrentMonth ? "" : "border border-red"
+							} relative min-h-[60px] border p-3`}>
+							<span
+								className={` flex justify-center items-center absolute right-1 w-5 h-5"`}>
+								{day.dayOfMonth}
+							</span>
+						</li>
+					</>
+				))}
+			</ol>
+			{/* 
+			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
 				<li className="relative min-h-[60px] border p-3">
 					<span className="flex justify-center items-center absolute right-1 w-5 h-5">
 						2
@@ -202,7 +180,7 @@ export default function Graph() {
 						29
 					</span>
 				</li>
-			</ol>
+			</ol> */}
 		</div>
 	);
 }

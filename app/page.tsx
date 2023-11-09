@@ -15,7 +15,7 @@ export default function Home() {
 	];
 
 	return (
-		<main className={`relative`}>
+		<main className="relative">
 			<Graph />
 			<SpacerComponent className="h-40"></SpacerComponent>
 			<div>
