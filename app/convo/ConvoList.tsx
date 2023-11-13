@@ -30,11 +30,11 @@ export default function ConvoList() {
 
 	return (
 		<>
-			{conversations.map((word: WordType) => (
-				<>
+			{conversations.map((word: WordType, index) => (
+				<div key={index}>
 					<h2>{word.title}</h2>
 					<p>{word.conversation}</p>
-				</>
+				</div>
 			))}
 		</>
 	);

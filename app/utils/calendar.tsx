@@ -1,26 +1,15 @@
 import dayjs from "dayjs";
 import weekdayPlugin from "dayjs/plugin/weekday";
 
-export default function createCalender() {
-	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-	const TODAY = dayjs().format("YYYY-MM-DD");
-
+export default function createCalender(
+	currentYear: string,
+	currentMonth: string
+) {
 	dayjs.extend(weekdayPlugin);
 
-	const CURRENT_YEAR = dayjs().format("YYYY");
-	const CURRENT_MONTH = dayjs().format("M");
-
-	let currentMonthDays = createDaysForCurrentMonth(CURRENT_YEAR, CURRENT_MONTH);
-	let previousMonthDays = createDaysForPreviousMonth(
-		CURRENT_YEAR,
-		CURRENT_MONTH
-	);
-	let nextMonthDays = createDaysForNextMonth(CURRENT_YEAR, CURRENT_MONTH);
-
-	console.log(
-		"=== currentMonthDays  ===",
-		getWeekday(currentMonthDays[0].date)
-	);
+	let currentMonthDays = createDaysForCurrentMonth(currentYear, currentMonth);
+	let previousMonthDays = createDaysForPreviousMonth(currentYear, currentMonth);
+	let nextMonthDays = createDaysForNextMonth(currentYear, currentMonth);
 
 	function getNumberOfDaysInMonth(year: any, month: any) {
 		return dayjs(`${year}-${month}-01`).daysInMonth();
@@ -47,13 +36,11 @@ export default function createCalender() {
 
 		const visibleNumberOfDaysFromPreviousMonth = firstDayOfTheMonth
 			? firstDayOfTheMonth - 1
-			: 6; // 2
+			: 6;
 
 		const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays[0].date)
 			.subtract(visibleNumberOfDaysFromPreviousMonth, "day")
 			.date();
-
-		console.log(dayjs(currentMonthDays[0].date).subtract(1, "day").date());
 
 		return [...Array(visibleNumberOfDaysFromPreviousMonth)].map(
 			(day, index) => {
