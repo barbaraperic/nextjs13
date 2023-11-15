@@ -4,8 +4,9 @@ import { Inter } from "next/font/google";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { Work_Sans, Nanum_Brush_Script, Poppins } from "@next/font/google";
+import { Work_Sans, PT_Sans_Narrow, Poppins } from "@next/font/google";
 import Navbar from "./(homepage)/NavBar";
+import Footer from "./(homepage)/Footer";
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
@@ -27,7 +28,7 @@ const body = Poppins({
 	preload: false,
 });
 
-const script = Nanum_Brush_Script({
+const script = PT_Sans_Narrow({
 	variable: "--script-font",
 	weight: "400",
 	preload: false,
@@ -52,6 +53,7 @@ export default async function RootLayout({
 				className={`${display.variable} ${body.variable} ${script.variable} h-screen bg-greenishYellow`}>
 				<Navbar user={data.data.session?.user} />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

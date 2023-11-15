@@ -15,9 +15,9 @@ export default function Navbar({ user }: { user: AuthUser | undefined }) {
 				<button className="hover:underline">
 					<p>collection</p>
 				</button>
-				<button className="hover:underline">
+				<Link className="hover:underline" href={"/signup"}>
 					<ButtonText>sign up</ButtonText>
-				</button>
+				</Link>
 			</div>
 		</nav>
 	);

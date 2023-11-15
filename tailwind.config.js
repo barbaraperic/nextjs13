@@ -17,6 +17,7 @@ module.exports = {
 				yellow: "hsl(60, 100%, 90%)",
 				lightYellow: "hsl(60, 50%, 90%)",
 				sapphire: "#2138AB",
+				eagle: "#B6BAA4",
 			},
 			backgroundColor: {
 				primary: "#FFFFFF",
