@@ -41,7 +41,6 @@ export default async function RootLayout({
 			<body
 				className={`${script.variable} flex h-screen bg-background-primary`}>
 				<SpacerComponent className="h-20"></SpacerComponent>
-
 				{children}
 			</body>
 		</html>

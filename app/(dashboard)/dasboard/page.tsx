@@ -1,13 +1,13 @@
 import { useState } from "react";
-import BasicModal from "./collection/WordModal";
-import { SpacerComponent } from "./components/Spacer";
+import BasicModal from "../collection/WordModal";
+import { SpacerComponent } from "../../components/Spacer";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import PostItCard from "./(dashboard)/PostItCard";
-import Graph from "./(dashboard)/Graph";
+import PostItCard from "./PostItCard";
+import Graph from "./Graph";
 import dayjs from "dayjs";
 
-export default function Home() {
+export default function Dasboard() {
 	const dailyTasks = [
 		"word of the day",
 		"read article",

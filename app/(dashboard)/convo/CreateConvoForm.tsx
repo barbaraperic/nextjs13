@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ButtonText } from "../components/texts/Texts";
+import { ButtonText } from "../../components/texts/Texts";
 
 export default function CreateConvoForm() {
 	const router = useRouter();

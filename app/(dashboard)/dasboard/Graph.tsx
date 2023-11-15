@@ -1,8 +1,8 @@
 "use client";
 
 import dayjs from "dayjs";
-import createCalender from "../utils/calendar";
-import ArrowBackIconComponent from "../components/icons/arrowBackIcon";
+import createCalender from "../../utils/calendar";
+import ArrowBackIconComponent from "../../components/icons/arrowBackIcon";
 import { useState } from "react";
 
 export default function Graph() {

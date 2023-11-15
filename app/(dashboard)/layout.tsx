@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Navbar from "../components/NavBar";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Work_Sans, Nanum_Brush_Script, Poppins } from "@next/font/google";
-import Navbar from "./(homepage)/NavBar";
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
@@ -49,7 +49,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${display.variable} ${body.variable} ${script.variable} h-screen bg-greenishYellow`}>
+				className={`${display.variable} ${body.variable} ${script.variable} h-screen bg-background-primary`}>
 				<Navbar user={data.data.session?.user} />
 				{children}
 			</body>

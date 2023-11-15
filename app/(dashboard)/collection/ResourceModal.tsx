@@ -1,35 +1,33 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Heading3 } from "../components/texts/Texts";
-import ButtonPrimary from "../components/ButtonPrimary";
-import ExitIconComponent from "../components/icons/exitIcon";
-import { SpacerComponent } from "../components/Spacer";
+import { Heading3 } from "../../components/texts/Texts";
+import ButtonPrimary from "../../components/ButtonPrimary";
+import ExitIconComponent from "../../components/icons/exitIcon";
+import { SpacerComponent } from "../../components/Spacer";
 
-export default function WordModal() {
+export default function ResourceModal() {
 	const router = useRouter();
 
-	const [word, setWord] = useState("");
-	const [translation, setTranslation] = useState("");
-	const [context, setContext] = useState("");
-	const [difficulty, setDifficulty] = useState("low");
+	const [title, setTitle] = useState("");
+	const [link, setLink] = useState("");
+	const [tag, setTag] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
 	async function handleSubmit(e: any) {
 		e.preventDefault();
 		setIsLoading(true);
 
-		const newWord = {
-			word,
-			translation,
-			context,
-			difficulty,
+		const newResource = {
+			title,
+			link,
+			tag,
 		};
 
-		const res = await fetch("http://localhost:3000/api/words", {
+		const res = await fetch("http://localhost:3000/api/resource", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(newWord),
+			body: JSON.stringify(newResource),
 		});
 
 		const json = await res.json();
@@ -56,57 +54,47 @@ export default function WordModal() {
 						onClick={handleClose}>
 						<ExitIconComponent className="h-6"></ExitIconComponent>
 					</button>
-					<Heading3>add a new word</Heading3>
+					<Heading3>add a new resource</Heading3>
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">
 						<label className="w-full">
-							<span>word</span>
+							<span>title</span>
 							<input
 								className="w-full border-2 p-2"
 								required
 								type="text"
-								onChange={(e) => setWord(e.target.value)}
-								value={word}
+								onChange={(e) => setTitle(e.target.value)}
+								value={title}
 							/>
 						</label>
 						<label className="w-full">
-							<span>translation</span>
+							<span>link</span>
 							<input
 								className="w-full border-2 p-2"
 								required
 								type="text"
-								onChange={(e) => setTranslation(e.target.value)}
-								value={translation}
+								onChange={(e) => setLink(e.target.value)}
+								value={link}
 							/>
 						</label>
 						<label className="w-full">
-							<span>context</span>
-							<textarea
-								className="w-full border-2"
-								required
-								onChange={(e) => setContext(e.target.value)}
-								value={context}
-							/>
-						</label>
-						<label className="w-full">
-							<span>difficulty</span>
-							<select
+							<span>tag</span>
+							<input
 								className="w-full border-2 p-2"
-								onChange={(e) => setDifficulty(e.target.value)}
-								value={difficulty}>
-								<option value="low">Low</option>
-								<option value="medium">Medium</option>
-								<option value="high">High</option>
-							</select>
+								required
+								type="text"
+								onChange={(e) => setTag(e.target.value)}
+								value={tag}
+							/>
 						</label>
 						<SpacerComponent className="h-4"></SpacerComponent>
 						<ButtonPrimary
 							className=" w-full"
 							disabled={isLoading}
 							onClick={handleSubmit}>
-							{isLoading && <span>Adding...</span>}
-							{!isLoading && <span>Add Word</span>}
+							{isLoading && <span>adding...</span>}
+							{!isLoading && <span>add resource</span>}
 						</ButtonPrimary>
 					</form>
 				</div>

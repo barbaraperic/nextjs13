@@ -16,11 +16,14 @@ module.exports = {
 				red: "hsl(7, 100%, 81%)",
 				yellow: "hsl(60, 100%, 90%)",
 				lightYellow: "hsl(60, 50%, 90%)",
+				sapphire: "#2138AB",
 			},
 			backgroundColor: {
 				primary: "#FFFFFF",
 				secondary: "#033EA6",
 				secondaryLight: "#0451d8",
+				greenishYellow: "#DAE0CB",
+				eagle: "#B6BAA4",
 			},
 			fontFamily: {
 				body: "var(--body-font)",
