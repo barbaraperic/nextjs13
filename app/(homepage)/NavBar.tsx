@@ -4,8 +4,8 @@ import { ButtonText } from "../components/texts/Texts";
 
 export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (
-		<nav className="flex justify-between px-20 py-2 w-[90%] mt-5 rounded-3xl m-auto items-center bg-eagle text-sapphire">
-			<h1 className="tracking-wide font-semibold">tartaruga</h1>
+		<nav className="z-50 w-full flex justify-between px-20 py-2 mt-5 rounded-xl m-auto items-center bg-eagle text-sapphire">
+			<h1 className="font-script uppercase font-bold">tartaruga</h1>
 			<div className="space-x-6 flex items-center text-lg ">
 				{user && (
 					<span className="underline hover:no-underline">

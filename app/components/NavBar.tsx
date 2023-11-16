@@ -4,7 +4,7 @@ import { ButtonText } from "./texts/Texts";
 
 export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (
-		<nav className="flex justify-between px-20 py-2 items-center bg-black text-white">
+		<nav className="flex justify-between py-2 items-center bg-black text-white">
 			<Link href={"/"}>
 				<h1 className="tracking-wide">tartaruga</h1>
 			</Link>

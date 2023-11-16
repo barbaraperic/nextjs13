@@ -19,17 +19,14 @@ export default function Homepage({ searchParams }: Props) {
 	const showSubscriptionModal = searchParams?.subscriptionModal;
 
 	return (
-		<main className="h-full w-full pb-10 flex flex-col flex-1 justify-between">
-			{/* <div className="w-full absolute">
-				<HexigramIconComponent></HexigramIconComponent>
-			</div> */}
+		<main className="h-full w-full flex flex-col flex-1 relative justify-between">
 			<section className="relative min-h-[500px] flex justify-center items-center">
-				<div className=" relative">
+				<div className="relative">
 					<h2 className="text-center text-4xl leading-[48px]">
 						track your learning progress and <br></br> create habits to master{" "}
 						<br></br> <i>a língua portuguesa</i>
 					</h2>
-					<div className="absolute w-60 right-24">
+					<div className="absolute w-[24rem] right-24">
 						<PortugueseFlagComponent />
 					</div>
 				</div>

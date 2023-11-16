@@ -50,10 +50,8 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${display.variable} ${body.variable} ${script.variable} h-screen bg-greenishYellow`}>
-				<Navbar user={data.data.session?.user} />
+				className={`${display.variable} ${body.variable} ${script.variable} h-auto bg-greenishYellow`}>
 				{children}
-				<Footer />
 			</body>
 		</html>
 	);

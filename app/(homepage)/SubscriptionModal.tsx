@@ -43,27 +43,30 @@ export default function SubscriptionModal() {
 	}
 
 	function handleClose() {
-		router.replace("/collection");
+		console.log("===  SubscriptionModal.tsx [46] ===");
+		router.replace("/");
 	}
 
 	return (
-		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] bg-white min-h-[580px] border-2 p-3 rounded-lg pb-5">
-				<div className="relative flex flex-col items-center space-y-6">
-					<button
-						className="cursor h-7 w-7 absolute right-0 flex justify-center items-center"
-						onClick={handleClose}>
-						<ExitIconComponent className="h-6"></ExitIconComponent>
-					</button>
+		<div className="transition delay-150 ease-in-out absolute rounded-xl left-0 right-0 top-0 bottom-0 z-10 inset-0 overflow-y-auto flex justify-center items-center bg-sapphire">
+			<div className="w-full h-full relative">
+				<button
+					className="cursor z-10 h-7 w-7 m-4 absolute right-0 flex justify-center items-center"
+					onClick={handleClose}>
+					<ExitIconComponent className="h-8 text-white"></ExitIconComponent>
+				</button>
+				<div className="relative flex flex-col items-center justify-center space-y-6 h-full">
 					<div className="relative">
-						<h2 className="text-center">
+						<h2 className="text-center text-white mb-8">
 							sign up to receive <br></br> Portuguese word of the day
 						</h2>
-						<div className="w-40 absolute left-[-5%]">
+						{/* <div className="w-40 absolute left-[-5%]">
 							<PortugueseFlagComponent />
-						</div>
+						</div> */}
 					</div>
-					<SubscriptionForm></SubscriptionForm>
+					<div className="w-3/4">
+						<SubscriptionForm></SubscriptionForm>
+					</div>
 				</div>
 			</div>
 		</div>

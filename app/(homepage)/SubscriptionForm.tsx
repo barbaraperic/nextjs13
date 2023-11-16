@@ -1,24 +1,36 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import { SpacerComponent } from "../components/Spacer";
 
 export default function SubscriptionForm() {
+	const router = useRouter();
 	const [email, setEmail] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 
-	function handleSubmit(e: FormEvent) {
+	async function handleSubmit(e: FormEvent) {
 		e.preventDefault();
+		setIsLoading(true);
 
-		const body = {
-			api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
-			email: email,
+		const newSubscription = {
+			email,
 		};
-		console.log("=== body Form.tsx [14] ===", body);
-		// fetch("https://api.convertkit.com/v3/forms/1/subscribe", {
-		// 	method: "POST",
-		// 	body: JSON.stringify(body),
-		// })
-		// 	.then((res) => res.json())
-		// 	.then((data) => console.log(data));
+
+		const res = await fetch("http://localhost:3000/api/subscription", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(newSubscription),
+		});
+
+		const json = await res.json();
+
+		if (json.error) {
+			console.log(json.error);
+		}
+
+		if (json.data) {
+			router.refresh();
+			router.push("/");
+		}
 	}
 
 	return (
@@ -29,13 +41,15 @@ export default function SubscriptionForm() {
 			<label htmlFor="" className="flex flex-col space-y-1">
 				<input
 					placeholder="Your email"
-					className="border font-script p-4 placeholder:uppercase border-eagle h-16 rounded-3xl bg-eagle placeholder:text-black placeholder:font-script placeholder:text-xl"
+					className="border outline-none  font-script p-4 placeholder:uppercase border-eagle h-16 rounded-md bg-eagle placeholder:text-black placeholder:font-script placeholder:text-xl text-xl"
 					onChange={(e) => setEmail(e.target.value)}
 					value={email}
 					required
 				/>
 			</label>
-			<button className="absolute w-40 uppercase text-xl font-script right-9 top-[7px] bg-sapphire text-white flex justify-center items-center rounded-3xl p-3">
+			<button
+				type="submit"
+				className="absolute w-40 uppercase text-xl font-script right-8 top-[6px] bg-sapphire text-white flex justify-center items-center rounded-xl p-3">
 				Subscribe
 			</button>
 		</form>

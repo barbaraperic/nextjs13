@@ -3,11 +3,11 @@ import BasicModal from "../collection/WordModal";
 import { SpacerComponent } from "../../components/Spacer";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import dayjs from "dayjs";
 import PostItCard from "./PostItCard";
 import Graph from "./Graph";
-import dayjs from "dayjs";
 
-export default function Dasboard() {
+export default async function Hello() {
 	const dailyTasks = [
 		"word of the day",
 		"read article",

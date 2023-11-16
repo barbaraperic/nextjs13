@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 
 export async function POST(request) {
-	const resource = await request.json();
+	const subscription = await request.json();
 
 	// get supabase instance
 	const supabase = createRouteHandlerClient({ cookies });
@@ -15,9 +15,9 @@ export async function POST(request) {
 
 	// insert the data
 	const { data, error } = await supabase
-		.from("resource")
+		.from("subscription")
 		.insert({
-			...resource,
+			...subscription,
 		})
 		.select()
 		.single();

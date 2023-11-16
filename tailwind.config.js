@@ -24,7 +24,9 @@ module.exports = {
 				secondary: "#033EA6",
 				secondaryLight: "#0451d8",
 				greenishYellow: "#DAE0CB",
+				// greenishYellow: "#6068AF",
 				eagle: "#B6BAA4",
+				// eagle: "#54DAD9",
 			},
 			fontFamily: {
 				body: "var(--body-font)",
