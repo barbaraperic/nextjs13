@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import createCalender from "../../utils/calendar";
 import ArrowBackIconComponent from "../../components/icons/arrowBackIcon";
 import { useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function Graph() {
 	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -53,16 +54,15 @@ export default function Graph() {
 	}
 
 	return (
-		<div className="relative border p-6">
+		<div className="relative w-full">
 			<section className="flex justify-between mb-6">
 				{/* <div className="text-xl">today is {TODAY}</div> */}
 				<div className="text-xl">
 					{date.selectedMonth}-{date.selectedYear}
 				</div>
-
 				<div className="flex space-x-4 items-center">
 					<button id="previous-month-selector" onClick={handlePreviousMonth}>
-						back
+						<FiChevronLeft className="text-deepOak w-4 h-4" />
 					</button>
 					<button id="present-month-selector" onClick={handleToday}>
 						today
@@ -71,11 +71,15 @@ export default function Graph() {
 						id="next-month-selector"
 						disabled={isCurrentMonth}
 						onClick={handleNextMonth}>
-						next
+						<FiChevronRight
+							className={`text-deepOak w-4 h-4 ${
+								isCurrentMonth ? "cursor-not-allowed" : ""
+							}`}
+						/>
 					</button>
 				</div>
 			</section>
-			<ol id="day-of-week" className="grid grid-cols-7 text-center mb-3">
+			<ol id="day-of-week" className="grid curs grid-cols-7 text-center mb-3">
 				{WEEKDAYS.map((day) => (
 					<li key={day}>{day}</li>
 				))}
@@ -87,9 +91,9 @@ export default function Graph() {
 							<li
 								className={`${
 									day.isCurrentMonth ? "" : "border border-red"
-								} relative min-h-[60px] border p-3  ${
+								} relative min-h-[60px] border rounded-lg p-3  ${
 									day.date === dayjs().format("YYYY-MM-DD")
-										? " bg-lightYellow"
+										? " bg-lightYellow text-white"
 										: ""
 								} `}>
 								<span
