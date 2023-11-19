@@ -1,8 +1,6 @@
 "use client";
-
 import dayjs from "dayjs";
 import createCalender from "../../utils/calendar";
-import ArrowBackIconComponent from "../../components/icons/arrowBackIcon";
 import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -90,10 +88,12 @@ export default function Graph() {
 						<div key={day.date}>
 							<li
 								className={`${
-									day.isCurrentMonth ? "" : "border border-red"
+									day.isCurrentMonth
+										? ""
+										: "border text-emmerald border-emmerald"
 								} relative min-h-[60px] border rounded-lg p-3  ${
 									day.date === dayjs().format("YYYY-MM-DD")
-										? " bg-lightYellow text-white"
+										? " bg-emmerald text-white shadow-md"
 										: ""
 								} `}>
 								<span

@@ -15,7 +15,7 @@ module.exports = {
 				dark: "hsl(0, 0%, 30%)",
 				red: "hsl(7, 100%, 81%)",
 				yellow: "hsl(60, 100%, 90%)",
-				lightYellow: "hsl(174, 81%, 32%)",
+				emmerald: "hsl(174, 81%, 32%)",
 				sapphire: "#2138AB",
 				eagle: "#B6BAA4",
 				deepOak: "#3d260e",
@@ -33,8 +33,7 @@ module.exports = {
 			},
 			fontFamily: {
 				body: "var(--body-font)",
-				display: "var(--display-font)",
-				script: "var(--script-font)",
+				headings: "var(--headings-font)",
 			},
 		},
 	},

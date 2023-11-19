@@ -13,32 +13,35 @@ export default async function Collection({ searchParams }: Props) {
 	const showWordModal = searchParams?.wordModal;
 
 	return (
-		<main className="space-y-6">
-			<div className="w-40 flex space-x-6">
+		<main className="space-y-6 h-full flex flex-col justify-between">
+			<section>
+				<h2>Words</h2>
+				<div className="shadow-md p-6 rounded-lg">
+					<div className="flex">
+						<WordsList />
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Resources</h2>
+				<div className="shadow-md p-6 rounded-lg">
+					<div className="flex">
+						<ResourceList />
+					</div>
+				</div>
+			</section>
+			<section className="w-40 flex space-x-6">
 				<Link
 					href="/collection/?wordModal=true"
-					className="py-4 min-w-[260px] bg-black  text-white flex justify-center text-lg rounded-xl cursor">
+					className="py-4 min-w-[260px] border-deepOak border text-deepOak hover:text-sepia hover:border-sepia flex justify-center text-lg rounded-xl cursor">
 					add a new word
 				</Link>
 				<Link
 					href="/collection/?resourceModal=true"
-					className="py-4 min-w-[260px] bg-black  text-white flex justify-center text-lg rounded-xl cursor">
+					className="py-4 min-w-[260px] border-deepOak border text-deepOak hover:text-sepia hover:border-sepia flex justify-center text-lg rounded-xl cursor">
 					add a resource
 				</Link>
-			</div>
-			<h2>Words</h2>
-			<section className=" bg-gray p-6 rounded-lg">
-				<div className="flex">
-					<WordsList />
-				</div>
 			</section>
-			<h2>Resources</h2>
-			<section className=" bg-gray p-6 rounded-lg">
-				<div className="flex">
-					<ResourceList />
-				</div>
-			</section>
-
 			{showWordModal && <WordModal />}
 			{showResourceModal && <ResourceModal />}
 		</main>

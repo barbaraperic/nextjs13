@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito } from "next/font/google";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { Work_Sans, PT_Sans_Narrow, Poppins } from "@next/font/google";
+import { Mulish, PT_Sans_Narrow, Poppins } from "@next/font/google";
 import Navbar from "./(homepage)/NavBar";
 import Footer from "./(homepage)/Footer";
 
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 	},
 };
 
-const display = Work_Sans({
-	variable: "--display-font",
+const headings = Mulish({
+	variable: "--headings-font",
 	weight: "400",
 	preload: false,
 });
 
-const body = Poppins({
+const body = Mulish({
 	variable: "--body-font",
 	weight: "400",
 	preload: false,
@@ -50,7 +50,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${display.variable} ${body.variable} ${script.variable} h-auto bg-greenishYellow`}>
+				className={`${headings.variable} ${body.variable} ${script.variable} h-auto bg-greenishYellow`}>
 				{children}
 			</body>
 		</html>

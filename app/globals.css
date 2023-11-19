@@ -48,16 +48,16 @@ footer {
 
 h1 {
 	font-size: 3.052rem;
-	@apply font-script;
+	@apply font-headings;
 }
 
 h2 {
 	font-size: 1.5rem;
-	@apply font-display;
+	@apply font-headings;
 }
 
 h3 {
-	@apply font-display;
+	@apply font-headings;
 }
 
 p,
