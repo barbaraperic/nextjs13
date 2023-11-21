@@ -1,24 +1,17 @@
-import dayjs from "dayjs";
-import PostItCard from "./PostItCard";
-import Graph from "./Graph";
-import Note from "./Note";
-import { FiBook, FiFlag, FiHome } from "react-icons/fi";
-import Link from "next/link";
+import Word from "./Word";
+import Article from "./Article";
+import Button from "./Button";
 
-export default async function Hello() {
-	const dailyTasks = [
-		"word of the day",
-		"read article",
-		"situational question",
-	];
-
-	const TODAY = dayjs().format("dddd, DD MMM");
-
+export default async function Dasboard() {
 	return (
 		<main className="flex-1 space-y-6">
-			<FiFlag className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiFlag>
-			<div className="text-xl">Today is {TODAY}</div>
-			<Note />
+			<section className="relative mb-6 rounded-lg">
+				<Word />
+			</section>
+			<section className="relative mb-6 rounded-lg ">
+				<Article />
+			</section>
+			<Button className="animate-fade-in">Save finished work</Button>
 		</main>
 	);
 }

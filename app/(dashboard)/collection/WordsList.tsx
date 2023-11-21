@@ -30,7 +30,7 @@ export default async function WordsList() {
 			{words?.map((word: WordType) => (
 				<Link href={`/collection/${word.id}`} key={word.id}>
 					<div
-						className={`py-5 px-14 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
+						className={`py-5 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
 						<p className="">
 							{word.word} - {word.translation}
 						</p>

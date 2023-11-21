@@ -12,7 +12,6 @@ export default function SubscribeForm() {
 			api_key: process.env.NEXT_PUBLIC_CONVERTKIT_API_KEY,
 			email: email,
 		};
-		console.log("=== body Form.tsx [14] ===", body);
 		fetch("https://api.convertkit.com/v3/forms/1/subscribe", {
 			method: "POST",
 			body: JSON.stringify(body),

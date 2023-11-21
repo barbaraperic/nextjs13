@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
-import { FiBook, FiHome } from "react-icons/fi";
+import { FiBook, FiFlag, FiHome } from "react-icons/fi";
 import Graph from "./dashboard/Graph";
 import PostItCard from "./dashboard/PostItCard";
 
@@ -34,11 +34,12 @@ export default async function AuthLayout({ children }: { children: any }) {
 						<Link href="/collection">
 							<FiBook className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiBook>
 						</Link>
+						<FiFlag className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiFlag>
 					</div>
 					<div className="min-h-[488px]">
 						<Graph />
 					</div>
-					<PostItCard title="daily checklist" tasks={dailyTasks} />
+					{/* <PostItCard title="daily checklist" tasks={dailyTasks} /> */}
 				</section>
 				<section className="flex-1 pt-12 p-9 space-y-6">{children}</section>
 			</main>

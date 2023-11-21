@@ -1,5 +1,22 @@
 "use client";
 
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { useEffect, useState } from "react";
+import { FiCircle } from "react-icons/fi";
+
+async function getWords() {
+	const supabase = createServerComponentClient({ cookies });
+
+	const { data, error } = await supabase.from("words").select();
+
+	if (error) {
+		console.log(error.message);
+	}
+
+	return data;
+}
+
 export default function PostItCard({
 	title,
 	tasks,
@@ -7,10 +24,19 @@ export default function PostItCard({
 	title: string;
 	tasks: string[];
 }) {
+	const [disabled, setDisabled] = useState(true);
+
 	return (
 		<div className="flex flex-col">
 			<section className="flex flex-col rounded-md space-y-4 justify-start items-baseline">
-				<p className="mb-4 text-lg">{title}</p>
+				<div className="flex space-x-2 items-center mb-4 ">
+					<FiCircle
+						className={`w-5 h-5 ${
+							disabled ? "cursor-not-allowed" : "cursor-pointer text-sepia"
+						}`}
+					/>
+					<p className="text-lg">{title}</p>
+				</div>
 				{tasks.map((task) => (
 					<div className="w-full items-center relative flex gap-2" key={task}>
 						<input
