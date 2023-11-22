@@ -22,15 +22,12 @@ export default function Homepage({ searchParams }: Props) {
 		<main className="h-full w-full flex flex-col flex-1 relative justify-between">
 			<section className="relative min-h-[500px] flex justify-center items-center">
 				<div className="relative">
-					<h2 className="text-center text-4xl leading-[48px]">
+					{/* <h2 className="text-center">
 						track your learning progress and <br></br> create habits to master{" "}
 						<br></br> <i>a língua portuguesa</i>
-					</h2>
-					<div className="absolute w-[24rem] right-24">
-						<PortugueseFlagComponent />
-					</div>
+					</h2> */}
 				</div>
-				<span className="uppercase rotate-3 absolute font-script text-xl w-28 left-0 top-[20%]">
+				{/* <span className="uppercase rotate-3 absolute font-script text-xl w-28 left-0 top-[20%]">
 					create your own dictionary
 				</span>
 				<span className="uppercase rotate-3 absolute font-script text-xl w-28 left-[10%] top-[80%]">
@@ -41,15 +38,15 @@ export default function Homepage({ searchParams }: Props) {
 				</span>
 				<span className="uppercase rotate-3 absolute font-script text-xl w-28 right-[10%] top-[87%]">
 					get word of the day in your inbox
-				</span>
+				</span> */}
 			</section>
 			<SpacerComponent className="h-20"></SpacerComponent>
-			<Link
+			{/* <Link
 				href="/?subscriptionModal=true"
 				className="py-4 w-[360px] text-xl m-auto bg-sapphire font-script text-white flex justify-center uppercase rounded-xl cursor">
 				Get word of the day in your inbox
 			</Link>
-			{showSubscriptionModal && <SubscriptionModal></SubscriptionModal>}
+			{showSubscriptionModal && <SubscriptionModal></SubscriptionModal>} */}
 		</main>
 	);
 }

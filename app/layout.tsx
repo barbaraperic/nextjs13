@@ -50,7 +50,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${headings.variable} ${body.variable} ${script.variable} h-auto bg-greenishYellow`}>
+				className={`${headings.variable} ${body.variable} ${script.variable}  bg-ceramic`}>
 				{children}
 			</body>
 		</html>

@@ -93,7 +93,7 @@ export default function Graph() {
 										: "border text-emmerald border-emmerald"
 								} relative min-h-[60px] border rounded-lg p-3  ${
 									day.date === dayjs().format("YYYY-MM-DD")
-										? " bg-emmerald text-white shadow-md"
+										? " bg-emmerald text-white font-bold shadow-md"
 										: ""
 								} `}>
 								<span

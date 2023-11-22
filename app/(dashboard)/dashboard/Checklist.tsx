@@ -1,29 +1,50 @@
 "use client";
-import React, { ReactElement, useEffect } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import useStore from "./store";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-export default function Checklist({ children }: { children: ReactElement }) {
-	const counter = useStore((state: any) => state.counter);
-	const increment = useStore((state: any) => state.increment);
-	const decrement = useStore((state: any) => state.decrement);
-	const setShowDailyTask = useStore((state: any) => state.setShowDailyTask);
+interface TaskType {
+	id: number;
+	date: string;
+	task: string;
+}
+
+export default function Checklist({
+	children,
+	id,
+}: {
+	children: ReactElement;
+	id: string;
+}) {
+	const add = useStore((state: any) => state.add);
+	const remove = useStore((state: any) => state.remove);
+	const [data, setData] = useState<any[]>([]);
+	const [isChecked, setIsChecked] = useState(false);
+
+	useEffect(() => {
+		const fetchTasks = async () => {
+			const supabase = createClientComponentClient();
+
+			const { data } = await supabase.from("daily_tasks").select();
+			setData([data]);
+			setIsChecked(data?.find((item: TaskType) => item.task === id));
+		};
+
+		fetchTasks();
+	}, []);
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 		if (e.currentTarget.checked) {
-			increment();
-		} else decrement();
+			add(e.currentTarget.dataset.id);
+		} else remove(e.currentTarget.dataset.id);
 	}
-
-	useEffect(() => {
-		if (counter === 2) {
-			setShowDailyTask(true);
-		} else setShowDailyTask(false);
-	}, [counter, setShowDailyTask]);
 
 	return (
 		<div className="w-full items-center relative flex gap-2">
 			<input
+				data-id={id}
 				onChange={(e) => handleChange(e)}
+				checked={isChecked}
 				type="checkbox"
 				className="relative rounded-md peer shrink-0 appearance-none h-6 w-6 border border-deepOak"
 			/>

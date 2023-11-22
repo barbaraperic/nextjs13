@@ -30,7 +30,7 @@ export default async function Article() {
 	return (
 		<>
 			<div className="flex space-x-2 mb-6 items-center">
-				<Checklist>
+				<Checklist id="article">
 					<h3 className="text-xl ">Article of the day</h3>
 				</Checklist>
 			</div>

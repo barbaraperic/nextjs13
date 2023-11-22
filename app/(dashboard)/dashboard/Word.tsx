@@ -26,7 +26,7 @@ export default async function Word() {
 		<div className="relative w-full">
 			<section className="relative mb-6 rounded-lg h-60">
 				<div className="flex space-x-2 mb-6 items-center">
-					<Checklist>
+					<Checklist id="word">
 						<h3 className="text-xl ">
 							Word of the day:{" "}
 							<span className="italic text-lg">

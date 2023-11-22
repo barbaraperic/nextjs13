@@ -30,7 +30,7 @@ body {
 	line-height: 1.5;
 	margin-left: 36px;
 	margin-right: 36px;
-	height: auto;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	-webkit-font-smoothing: antialiased;
@@ -47,17 +47,15 @@ footer {
 }
 
 h1 {
-	font-size: 3.052rem;
-	@apply font-headings;
+	@apply font-headings text-4xl;
 }
 
 h2 {
-	font-size: 1.5rem;
-	@apply font-headings;
+	@apply font-headings text-2xl;
 }
 
 h3 {
-	@apply font-headings;
+	@apply font-headings text-xl;
 }
 
 p,
@@ -69,7 +67,7 @@ span {
 }
 
 p > a {
-	@apply text-primary underline;
+	@apply underline;
 }
 /*
   5. Improve media defaults
@@ -110,9 +108,4 @@ h6 {
 #__next {
 	isolation: isolate;
 	height: 100%;
-}
-
-/* card style */
-.card {
-	@apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-hidden text-center uppercase cursor-pointer;
 }

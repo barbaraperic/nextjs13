@@ -11,7 +11,7 @@ export default async function Dasboard() {
 			<section className="relative mb-6 rounded-lg ">
 				<Article />
 			</section>
-			<Button className="animate-fade-in">Save finished work</Button>
+			<Button className="animate-fade-in">Save progress</Button>
 		</main>
 	);
 }
