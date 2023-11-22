@@ -1,8 +1,10 @@
 "use client";
 import dayjs from "dayjs";
 import createCalender from "../../utils/calendar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { TaskType } from "./Checklist";
 
 export default function Graph() {
 	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -11,6 +13,20 @@ export default function Graph() {
 		selectedYear: dayjs().format("YYYY"),
 		selectedMonth: dayjs().format("M"),
 	});
+	const [data, setData] = useState<any[]>([]);
+
+	useEffect(() => {
+		const fetchTasks = async () => {
+			const supabase = createClientComponentClient();
+
+			// get data only for the month
+			const { data } = await supabase.from("daily_tasks").select();
+			const dailyTasksCompletedDate = data?.map((task) => task.date);
+			setData([dailyTasksCompletedDate]);
+		};
+
+		fetchTasks();
+	}, []);
 
 	const { selectedYear, selectedMonth } = date;
 
@@ -84,6 +100,7 @@ export default function Graph() {
 			</ol>
 			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
 				{DAYS.map((day) => {
+					console.log(data.find((t) => t.localeCompare(day.date)));
 					return (
 						<div key={day.date}>
 							<li
@@ -91,11 +108,11 @@ export default function Graph() {
 									day.isCurrentMonth
 										? ""
 										: "border text-emmerald border-emmerald"
-								} relative min-h-[60px] border rounded-lg p-3  ${
+								} relative min-h-[60px] border rounded-lg p-3 ${
 									day.date === dayjs().format("YYYY-MM-DD")
-										? " bg-emmerald text-white font-bold shadow-md"
+										? "bg-emmerald text-white font-bold shadow-md"
 										: ""
-								} `}>
+								} ${data.includes(day.date) ? "border-gold" : ""} `}>
 								<span
 									className={` flex justify-center items-center absolute right-1 w-5 h-5"`}>
 									{day.dayOfMonth}

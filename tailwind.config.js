@@ -12,6 +12,7 @@ module.exports = {
 				sapphire: "hsl(230, 68%, 40%)",
 				deepOak: "hsl(32, 100%, 10%)",
 				sepia: "hsl(32, 100%, 15%)",
+				gold: "hsl(57, 100%, 56%)",
 			},
 			backgroundColor: {
 				ceramic: "hsl(32, 100%, 97%)",

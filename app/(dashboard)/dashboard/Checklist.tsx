@@ -3,7 +3,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import useStore from "./store";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-interface TaskType {
+export interface TaskType {
 	id: number;
 	date: string;
 	task: string;
