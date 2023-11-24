@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { FiSquare } from "react-icons/fi";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Checklist from "./Checklist";
+import WordLabel from "./WordLabel";
 
 async function getWords() {
 	const supabase = createServerComponentClient({ cookies });
@@ -35,7 +36,7 @@ export default async function Word() {
 						</h3>
 					</Checklist>
 				</div>
-				<p className="mb-3">{words ? words[randomWordIndex].context : null}</p>
+				<WordLabel word={words ? words[randomWordIndex] : null}></WordLabel>
 			</section>
 		</div>
 	);

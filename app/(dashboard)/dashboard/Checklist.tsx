@@ -2,6 +2,7 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import useStore from "./store";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import dayjs from "dayjs";
 
 export interface TaskType {
 	id: number;
@@ -18,8 +19,9 @@ export default function Checklist({
 }) {
 	const add = useStore((state: any) => state.add);
 	const remove = useStore((state: any) => state.remove);
+	const dailyTasks = useStore((state: any) => state.dailyTasks);
 	const [data, setData] = useState<any[]>([]);
-	const [isChecked, setIsChecked] = useState(false);
+	const [isChecked, setIsChecked] = useState<boolean>();
 
 	useEffect(() => {
 		const fetchTasks = async () => {
@@ -27,7 +29,21 @@ export default function Checklist({
 
 			const { data } = await supabase.from("daily_tasks").select();
 			setData([data]);
-			setIsChecked(data?.find((item: TaskType) => item.task === id));
+
+			const todaysDailyTasks = data?.filter(
+				(item: TaskType) => item.date === dayjs().format("YYYY-MM-DD")
+			);
+
+			console.log(
+				"=== todaysDailyTasks Checklist.tsx [36] ===",
+				todaysDailyTasks
+			);
+
+			const taskIdIsCompleted =
+				todaysDailyTasks && todaysDailyTasks.find((task) => task.task === id);
+			taskIdIsCompleted && dailyTasks.push(taskIdIsCompleted);
+
+			setIsChecked(taskIdIsCompleted ? true : false);
 		};
 
 		fetchTasks();
@@ -44,7 +60,7 @@ export default function Checklist({
 			<input
 				data-id={id}
 				onChange={(e) => handleChange(e)}
-				checked={isChecked}
+				defaultChecked={isChecked}
 				type="checkbox"
 				className="relative rounded-md peer shrink-0 appearance-none h-6 w-6 border border-deepOak"
 			/>

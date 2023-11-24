@@ -24,25 +24,23 @@ export default async function AuthLayout({ children }: { children: any }) {
 	const TODAY = dayjs().format("dddd, DD MMM");
 
 	return (
-		<>
-			<main className="relative w-full flex h-screen">
-				<section className="min-w-[400px] border-r border-deepOak pt-12 pr-9 space-y-8">
-					<div className="flex space-x-3">
-						<Link href="/dashboard">
-							<FiHome className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer hover:text-"></FiHome>
-						</Link>
-						<Link href="/collection">
-							<FiBook className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiBook>
-						</Link>
-						<FiFlag className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiFlag>
-					</div>
-					<div className="min-h-[488px]">
-						<Graph />
-					</div>
-					{/* <PostItCard title="daily checklist" tasks={dailyTasks} /> */}
-				</section>
-				<section className="flex-1 pt-12 p-9 space-y-6">{children}</section>
-			</main>
-		</>
+		<main className="relative w-full flex h-screen">
+			<section className="min-w-[400px] border-r border-deepOak pt-12 pr-9 space-y-8">
+				<div className="flex space-x-3">
+					<Link href="/dashboard">
+						<FiHome className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer hover:text-"></FiHome>
+					</Link>
+					<Link href="/collection">
+						<FiBook className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiBook>
+					</Link>
+					<FiFlag className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiFlag>
+				</div>
+				<div className="min-h-[488px] mt-14">
+					<Graph />
+				</div>
+				{/* <PostItCard title="daily checklist" tasks={dailyTasks} /> */}
+			</section>
+			<section className="flex-1 pt-12 p-9 space-y-6">{children}</section>
+		</main>
 	);
 }

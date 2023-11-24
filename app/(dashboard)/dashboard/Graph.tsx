@@ -13,7 +13,7 @@ export default function Graph() {
 		selectedYear: dayjs().format("YYYY"),
 		selectedMonth: dayjs().format("M"),
 	});
-	const [data, setData] = useState<any[]>([]);
+	const [data, setData] = useState<string[] | undefined>([]);
 
 	useEffect(() => {
 		const fetchTasks = async () => {
@@ -21,8 +21,10 @@ export default function Graph() {
 
 			// get data only for the month
 			const { data } = await supabase.from("daily_tasks").select();
-			const dailyTasksCompletedDate = data?.map((task) => task.date);
-			setData([dailyTasksCompletedDate]);
+			const dailyTasksCompletedDate = data?.map((task) =>
+				new Date(task.date).toUTCString()
+			);
+			setData(dailyTasksCompletedDate);
 		};
 
 		fetchTasks();
@@ -100,19 +102,20 @@ export default function Graph() {
 			</ol>
 			<ol id="date-grid" className="grid grid-cols-7 relative gap-2 ">
 				{DAYS.map((day) => {
-					console.log(data.find((t) => t.localeCompare(day.date)));
 					return (
 						<div key={day.date}>
 							<li
 								className={`${
-									day.isCurrentMonth
-										? ""
-										: "border text-emmerald border-emmerald"
-								} relative min-h-[60px] border rounded-lg p-3 ${
+									day.isCurrentMonth ? "text-emmerald border-emmerald" : ""
+								} relative min-h-[60px] border  rounded-lg p-3 ${
 									day.date === dayjs().format("YYYY-MM-DD")
+										? "font-extrabold shadow-lg"
+										: ""
+								} ${
+									data?.includes(new Date(day.date).toUTCString())
 										? "bg-emmerald text-white font-bold shadow-md"
 										: ""
-								} ${data.includes(day.date) ? "border-gold" : ""} `}>
+								} `}>
 								<span
 									className={` flex justify-center items-center absolute right-1 w-5 h-5"`}>
 									{day.dayOfMonth}

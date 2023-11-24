@@ -9,12 +9,16 @@ module.exports = {
 		extend: {
 			colors: {
 				emmerald: "hsl(174, 81%, 32%)",
+				darkerEmmerald: "hsl(174, 21%, 32%)",
+				lighterEmmerald: "hsl(174, 85%, 33%)",
 				sapphire: "hsl(230, 68%, 40%)",
 				deepOak: "hsl(32, 100%, 10%)",
 				sepia: "hsl(32, 100%, 15%)",
 				gold: "hsl(57, 100%, 56%)",
 			},
 			backgroundColor: {
+				darkerEmmerald: "hsl(174, 21%, 32%)",
+				lighterEmmerald: "hsl(174, 90%, 32%)",
 				ceramic: "hsl(32, 100%, 97%)",
 				deepOak: "hsl(32, 100%, 10%)",
 			},

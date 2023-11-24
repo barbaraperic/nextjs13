@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import useStore from "./store";
 import dayjs from "dayjs";
 
@@ -12,6 +13,7 @@ export default function ButtonOutline({
 }) {
 	const dailyTasks = useStore((state: any) => state.dailyTasks);
 	const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
 
 	async function handleClick(e: any) {
 		setIsLoading(true);
@@ -35,9 +37,7 @@ export default function ButtonOutline({
 					}
 
 					if (json.data) {
-						console.log("jsonData", json.data);
-						// router.refresh();
-						// router.push("/collection");
+						router.refresh();
 					}
 				})
 			);
@@ -54,9 +54,9 @@ export default function ButtonOutline({
 				className={`${
 					dailyTasks.length >= 1
 						? "animate-fade-in block"
-						: "animate-leave hidden"
-				} border  border-deepOak hover:text-sepia hover:border-sepia px-7 py-3 rounded-lg ${className}`}>
-				{children}
+						: "animate-leave invisible"
+				} border border-emmerald text-emmerald hover:text-darkerEmmerald hover:border-darkerEmmerald px-7 py-3 rounded-lg ${className}`}>
+				{isLoading ? "Saving..." : children}
 			</button>
 		</>
 	);
