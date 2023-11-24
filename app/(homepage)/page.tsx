@@ -10,6 +10,8 @@ import Footer from "./Footer";
 import ButtonPrimary from "../components/ButtonPrimary";
 import Link from "next/link";
 import SubscriptionModal from "./SubscriptionModal";
+import { FiCoffee } from "react-icons/fi";
+import EggIcon from "../utils/eggIcon";
 
 type Props = {
 	searchParams: Record<string, string> | null | undefined;
@@ -22,6 +24,9 @@ export default function Homepage({ searchParams }: Props) {
 		<main className="h-full w-full flex flex-col flex-1 relative justify-between">
 			<section className="relative min-h-[500px] flex justify-center items-center">
 				<div className="relative">
+					{/* <FiCoffee className="h-10 w-10" /> */}
+					<EggIcon></EggIcon>
+
 					{/* <h2 className="text-center">
 						track your learning progress and <br></br> create habits to master{" "}
 						<br></br> <i>a língua portuguesa</i>
