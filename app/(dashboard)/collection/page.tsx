@@ -13,14 +13,10 @@ export default async function CollectionPage({ searchParams }: Props) {
 	const showWordModal = searchParams?.wordModal;
 
 	return (
-		<main className="space-y-6 h-full flex flex-col justify-between">
+		<main className=" h-full flex flex-col justify-between">
 			<section className="space-y-4">
 				<h2>Words</h2>
-				<div className="shadow shadow-lighterEmmerald p-6 rounded-lg">
-					<div className="flex">
-						<WordCollection />
-					</div>
-				</div>
+				<WordCollection />
 			</section>
 			{/* <section className="space-y-4">
 				<h2>Resources</h2>
@@ -33,14 +29,14 @@ export default async function CollectionPage({ searchParams }: Props) {
 			<section className="w-40 flex space-x-6">
 				<Link
 					href="/collection/?wordModal=true"
-					className="py-4 min-w-[260px] shadow shadow-lighterEmmerald border-deepOak border text-deepOak hover:text-sepia hover:border-sepia flex justify-center text-lg rounded-xl cursor">
+					className="py-4 min-w-[260px] shadow border-deepOak border text-deepOak hover:text-sepia hover:border-sepia flex justify-center text-lg rounded-xl cursor">
 					add a new word
 				</Link>
-				<Link
+				{/* <Link
 					href="/collection/?resourceModal=true"
 					className="py-4 min-w-[260px] shadow shadow-lighterEmmerald border-deepOak border text-deepOak hover:text-sepia hover:border-sepia flex justify-center text-lg rounded-xl cursor">
 					add a resource
-				</Link>
+				</Link> */}
 			</section>
 			{showWordModal && <WordModal />}
 			{showResourceModal && <ResourceModal />}

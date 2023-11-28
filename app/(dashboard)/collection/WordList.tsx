@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import useStore from "./store";
+import { capitalize } from "@/app/utils/capitalize";
 
 export interface WordType {
 	id: string;
@@ -43,19 +44,33 @@ export default function WordList({ words }: { words: WordType[] | null }) {
 	const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
 
 	return (
-		<div className="min-h-[500px] flex flex-col justify-between">
+		<div className="min-h-[700px] flex flex-col justify-between">
 			<div>
 				{words
 					?.slice(currentSliceStart, currentSliceEnd)
 					.map((word: WordType) => (
-						<Link href={`/collection/${word.id}`} key={word.id}>
-							<div
-								className={`py-5 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
-								<p className="">
-									{word.word} - {word.translation}
-								</p>
-							</div>
-						</Link>
+						<div key={word.id}>
+							<Link href={`/collection/${word.id}`}>
+								<div
+									className={`py-5 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
+									<p className="text-xl">{capitalize(word.word)}</p>
+								</div>
+								<div className="flex flex-col space-y-2">
+									<div className="flex flex-col space-y-1">
+										<span className="uppercase font-bold text-xs text-emmerald">
+											Translation
+										</span>
+										<p>{capitalize(word.translation)}</p>
+									</div>
+									<div className="flex flex-col space-y-1">
+										<span className="uppercase font-bold text-xs text-emmerald">
+											Example
+										</span>
+										<p className="italic">{capitalize(word.context)}</p>
+									</div>
+								</div>
+							</Link>
+						</div>
 					))}
 			</div>
 			{currentSliceStart >= wordsPerPage && (

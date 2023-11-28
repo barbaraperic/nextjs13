@@ -19,7 +19,7 @@ export default async function WordCollection() {
 	const words = await getWords();
 
 	return (
-		<div className="flex flex-col w-full relative rounded-md">
+		<div className="flex flex-col w-full">
 			<WordList words={words}></WordList>
 		</div>
 	);
