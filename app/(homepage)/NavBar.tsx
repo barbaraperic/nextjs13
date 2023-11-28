@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AuthUser } from "@supabase/supabase-js";
 import { ButtonText } from "../components/texts/Texts";
+import LogoIcon from "../utils/eggIcon";
 
 export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (

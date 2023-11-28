@@ -47,14 +47,13 @@ export default function ResourceModal() {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] bg-white min-h-[580px] border-2 p-3 rounded-lg pb-5">
-				<div className="relative flex flex-col items-center space-y-6">
-					<button
-						className="cursor h-7 w-7 absolute right-0 flex justify-center items-center"
-						onClick={handleClose}>
-						<ExitIconComponent className="h-6"></ExitIconComponent>
-					</button>
-					<Heading3>add a new resource</Heading3>
+			<div className="w-[400px] relative bg-ceramic min-h-[460px] flex flex-col justify-center border-2 p-3 rounded-lg pb-5">
+				<button
+					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
+					onClick={handleClose}>
+					<ExitIconComponent className="h-6"></ExitIconComponent>
+				</button>
+				<div className="flex flex-col items-center space-y-6">
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">

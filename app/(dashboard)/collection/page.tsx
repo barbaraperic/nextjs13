@@ -1,14 +1,14 @@
+import WordCollection from "./WordCollection";
 import ResourceList from "./ResourceList";
 import ResourceModal from "./ResourceModal";
 import WordModal from "./WordModal";
-import WordsList from "./WordsList";
 import Link from "next/link";
 
 type Props = {
 	searchParams: Record<string, string> | null | undefined;
 };
 
-export default async function Collection({ searchParams }: Props) {
+export default async function CollectionPage({ searchParams }: Props) {
 	const showResourceModal = searchParams?.resourceModal;
 	const showWordModal = searchParams?.wordModal;
 
@@ -18,18 +18,18 @@ export default async function Collection({ searchParams }: Props) {
 				<h2>Words</h2>
 				<div className="shadow shadow-lighterEmmerald p-6 rounded-lg">
 					<div className="flex">
-						<WordsList />
+						<WordCollection />
 					</div>
 				</div>
 			</section>
-			<section className="space-y-4">
+			{/* <section className="space-y-4">
 				<h2>Resources</h2>
 				<div className="shadow shadow-lighterEmmerald p-6 rounded-lg">
 					<div className="flex">
 						<ResourceList />
 					</div>
 				</div>
-			</section>
+			</section> */}
 			<section className="w-40 flex space-x-6">
 				<Link
 					href="/collection/?wordModal=true"

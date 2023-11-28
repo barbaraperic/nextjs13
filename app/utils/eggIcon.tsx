@@ -7,6 +7,7 @@ import { useSpring, animated } from "react-spring";
 // import styles from "./LikeButton.module.css";
 import useBoundingBox from "../hooks/useBoundingBox";
 import useMousePosition from "../hooks/useMousePosition";
+import { FiCoffee } from "react-icons/fi";
 
 function LikeButton() {
 	const mousePosition = useMousePosition();
@@ -27,22 +28,20 @@ function LikeButton() {
 	// });
 
 	return (
-		<button>
+		<button style={bodyStyle}>
 			<animated.svg
-				xmlns="http://www.w3.org/2000/svg"
+				xmlns="http:www.w3.org/2000/svg"
 				ref={ref}
 				width="222"
 				height="264"
 				fill="none"
 				viewBox="0 0 222 264"
 				style={bodyStyle}>
-				{/* Egg body */}
 				<path
 					fill="#EEEDE7"
 					d="M222 159c0 72.902-49.696 105-111 105S0 231.902 0 159 49.696 0 111 0s111 86.098 111 159z"
 				/>
 
-				{/* Mouth */}
 				<path
 					stroke="#000"
 					strokeLinecap="round"
@@ -50,7 +49,6 @@ function LikeButton() {
 					d="M125 191a13.994 13.994 0 01-4.101 9.899 13.994 13.994 0 01-19.798 0A13.996 13.996 0 0197 191"
 				/>
 
-				{/* Reflections */}
 				<g>
 					<path
 						stroke="#fff"

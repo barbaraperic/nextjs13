@@ -24,7 +24,6 @@ export default function Homepage({ searchParams }: Props) {
 		<main className="h-full w-full flex flex-col flex-1 relative justify-between">
 			<section className="relative min-h-[500px] flex justify-center items-center">
 				<div className="relative">
-					{/* <FiCoffee className="h-10 w-10" /> */}
 					<EggIcon></EggIcon>
 
 					{/* <h2 className="text-center">

@@ -49,14 +49,13 @@ export default function WordModal() {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] bg-white min-h-[580px] border-2 p-3 rounded-lg pb-5">
-				<div className="relative flex flex-col items-center space-y-6">
-					<button
-						className="cursor h-7 w-7 absolute right-0 flex justify-center items-center"
-						onClick={handleClose}>
-						<ExitIconComponent className="h-6"></ExitIconComponent>
-					</button>
-					<Heading3>add a new word</Heading3>
+			<div className="w-[400px] flex flex-col justify-center relative bg-ceramic min-h-[530px] border-2 p-3 rounded-lg pb-5">
+				<button
+					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
+					onClick={handleClose}>
+					<ExitIconComponent className="h-6 text-deepOak hover:text-sepia"></ExitIconComponent>
+				</button>
+				<div className="flex flex-col items-center space-y-6">
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">
@@ -83,7 +82,7 @@ export default function WordModal() {
 						<label className="w-full">
 							<span>context</span>
 							<textarea
-								className="w-full border-2"
+								className="w-full p-2 border-2"
 								required
 								onChange={(e) => setContext(e.target.value)}
 								value={context}
@@ -106,7 +105,7 @@ export default function WordModal() {
 							disabled={isLoading}
 							onClick={handleSubmit}>
 							{isLoading && <span>Adding...</span>}
-							{!isLoading && <span>Add Word</span>}
+							{!isLoading && <span>Add word</span>}
 						</ButtonPrimary>
 					</form>
 				</div>

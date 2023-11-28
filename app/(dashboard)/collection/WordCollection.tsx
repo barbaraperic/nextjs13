@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import Link from "next/link";
-
-export interface WordType {
-	id: string;
-	word: string;
-	translation: string;
-	context: string;
-}
+import WordList from "./WordList";
 
 async function getWords() {
 	const supabase = createServerComponentClient({ cookies });
@@ -22,21 +15,12 @@ async function getWords() {
 	return data;
 }
 
-export default async function WordsList() {
+export default async function WordCollection() {
 	const words = await getWords();
 
 	return (
 		<div className="flex flex-col w-full relative rounded-md">
-			{words?.map((word: WordType) => (
-				<Link href={`/collection/${word.id}`} key={word.id}>
-					<div
-						className={`py-5 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
-						<p className="">
-							{word.word} - {word.translation}
-						</p>
-					</div>
-				</Link>
-			))}
+			<WordList words={words}></WordList>
 		</div>
 	);
 }
