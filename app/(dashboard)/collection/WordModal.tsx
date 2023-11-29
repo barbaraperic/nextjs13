@@ -5,6 +5,10 @@ import { Heading3 } from "../../components/texts/Texts";
 import ButtonPrimary from "../../components/ButtonPrimary";
 import ExitIconComponent from "../../components/icons/exitIcon";
 import { SpacerComponent } from "../../components/Spacer";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { collectionSchema } from "@/app/zodSchema/collection";
 
 export default function WordModal() {
 	const router = useRouter();
@@ -15,7 +19,7 @@ export default function WordModal() {
 	const [difficulty, setDifficulty] = useState("low");
 	const [isLoading, setIsLoading] = useState(false);
 
-	async function handleSubmit(e: any) {
+	async function onSubmit(e: any) {
 		e.preventDefault();
 		setIsLoading(true);
 
@@ -47,6 +51,14 @@ export default function WordModal() {
 		router.replace("/collection");
 	}
 
+	const {
+		handleSubmit,
+		register,
+		formState: { errors, isSubmitting, isDirty, isValid },
+	} = useForm<FormData>({
+		resolver: zodResolver(collectionSchema),
+	});
+
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
 			<div className="w-[400px] flex flex-col justify-center relative bg-ceramic min-h-[530px] border-2 p-3 rounded-lg pb-5">
@@ -57,13 +69,13 @@ export default function WordModal() {
 				</button>
 				<div className="flex flex-col items-center space-y-6">
 					<form
-						onSubmit={handleSubmit}
+						onSubmit={handleSubmit(onSubmit)}
 						className="flex flex-col space-y-4 items-center">
 						<label className="w-full">
 							<span>word</span>
 							<input
 								className="w-full border-2 p-2"
-								required
+								required={true}
 								type="text"
 								onChange={(e) => setWord(e.target.value)}
 								value={word}
@@ -73,7 +85,7 @@ export default function WordModal() {
 							<span>translation</span>
 							<input
 								className="w-full border-2 p-2"
-								required
+								required={true}
 								type="text"
 								onChange={(e) => setTranslation(e.target.value)}
 								value={translation}
@@ -83,7 +95,7 @@ export default function WordModal() {
 							<span>context</span>
 							<textarea
 								className="w-full p-2 border-2"
-								required
+								required={true}
 								onChange={(e) => setContext(e.target.value)}
 								value={context}
 							/>
@@ -103,7 +115,7 @@ export default function WordModal() {
 						<ButtonPrimary
 							className=" w-full"
 							disabled={isLoading}
-							onClick={handleSubmit}>
+							type="submit">
 							{isLoading && <span>Adding...</span>}
 							{!isLoading && <span>Add word</span>}
 						</ButtonPrimary>
