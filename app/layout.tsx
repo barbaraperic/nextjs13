@@ -1,12 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import { Mulish, PT_Sans_Narrow, Poppins } from "@next/font/google";
-import Navbar from "./(homepage)/NavBar";
-import Footer from "./(homepage)/Footer";
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
