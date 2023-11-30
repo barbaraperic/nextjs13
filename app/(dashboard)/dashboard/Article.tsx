@@ -2,6 +2,7 @@ import React from "react";
 import Checklist from "./Checklist";
 import WordModal from "../collection/WordModal";
 import Link from "next/link";
+import LinkPrimary from "@/app/components/LinkPrimary";
 
 export interface NewsType {
 	articles: ArticleType[];
@@ -51,11 +52,9 @@ export default async function Article({ searchParams }: Props) {
 						</li>
 					))}
 				</ul>
-				<Link
-					href="dashboard/?wordModal=true"
-					className="max-w-[200px] flex justify-center border border-deepOak hover:text-sepia hover:border-sepia px-7 py-3 rounded-lg">
+				<LinkPrimary href={"dashboard/?wordModal=true"}>
 					Add a new word
-				</Link>
+				</LinkPrimary>
 			</div>
 			{showWordModal && <WordModal />}
 		</>

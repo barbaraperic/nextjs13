@@ -11,7 +11,7 @@ export interface WordType {
 	context: string;
 }
 
-export default function WordList({ words }: { words: WordType[] | null }) {
+export default function WordList({ words }: { words: WordType[] | undefined }) {
 	const {
 		wordsPerPage,
 		currentSliceStart,
@@ -52,22 +52,24 @@ export default function WordList({ words }: { words: WordType[] | null }) {
 						<div key={word.id}>
 							<Link href={`/collection/${word.id}`}>
 								<div
-									className={`py-5 cursor-pointer flex justify-between items-center text-deepOak transition-all`}>
+									className={`py-5 cursor-pointer flex justify-between items-center transition-all`}>
 									<p className="text-xl">{capitalize(word.word)}</p>
 								</div>
 								<div className="flex flex-col space-y-2">
 									<div className="flex flex-col space-y-1">
-										<span className="uppercase font-bold text-xs text-emmerald">
+										<span className="uppercase font-bold text-xs text-text-highlight">
 											Translation
 										</span>
 										<p>{capitalize(word.translation)}</p>
 									</div>
-									<div className="flex flex-col space-y-1">
-										<span className="uppercase font-bold text-xs text-emmerald">
-											Example
-										</span>
-										<p className="italic">{capitalize(word.context)}</p>
-									</div>
+									{word.context && (
+										<div className="flex flex-col space-y-1">
+											<span className="uppercase font-bold text-xs text-text-highlight">
+												Example
+											</span>
+											<p className="italic">{capitalize(word.context)}</p>
+										</div>
+									)}
 								</div>
 							</Link>
 						</div>
@@ -79,7 +81,7 @@ export default function WordList({ words }: { words: WordType[] | null }) {
 						<>
 							<button
 								className={`${
-									pageNumber === currentPage + 1 ? "text-emmerald" : ""
+									pageNumber === currentPage + 1 ? "text-text-highlight" : ""
 								}`}
 								onClick={handlePreviousPage}>
 								{pageNumber}
@@ -94,7 +96,7 @@ export default function WordList({ words }: { words: WordType[] | null }) {
 						<>
 							<button
 								className={`${
-									pageNumber === currentPage + 1 ? "text-emmerald" : ""
+									pageNumber === currentPage + 1 ? "text-text-highlight" : ""
 								}`}
 								onClick={handleNextPage}>
 								{pageNumber}

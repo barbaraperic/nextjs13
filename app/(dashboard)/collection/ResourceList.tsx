@@ -25,11 +25,11 @@ export default async function ResourceList() {
 	const resource = await getResource();
 
 	return (
-		<div className="flex flex-col w-full relative border-deepOak rounded-md">
+		<div className="flex flex-col w-full relative rounded-md">
 			{resource?.map((item: ResourceType) => (
 				<div
 					key={item.id}
-					className={`py-5 cursor-pointer flex justify-between items-center text-deepOak hover:text-sepia transition-all last:border-0 `}>
+					className={`py-5 cursor-pointer flex justify-between items-center  transition-all last:border-0 `}>
 					<a href={item.link}>
 						<p className="">{item.title}</p>
 					</a>

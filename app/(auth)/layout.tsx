@@ -38,9 +38,9 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en">
-			<body
-				className={`${script.variable} flex h-screen bg-background-primary`}>
+			<body className={`${script.variable} flex h-screen bg-background-main`}>
 				<SpacerComponent className="h-20"></SpacerComponent>
+				<h2 className="text-text-highlight">tartaruga</h2>
 				{children}
 			</body>
 		</html>

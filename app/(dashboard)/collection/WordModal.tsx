@@ -19,7 +19,7 @@ export default function WordModal() {
 	const [difficulty, setDifficulty] = useState("low");
 	const [isLoading, setIsLoading] = useState(false);
 
-	async function onSubmit(e: any) {
+	async function handleSubmit(e: any) {
 		e.preventDefault();
 		setIsLoading(true);
 
@@ -51,25 +51,17 @@ export default function WordModal() {
 		router.replace("/collection");
 	}
 
-	const {
-		handleSubmit,
-		register,
-		formState: { errors, isSubmitting, isDirty, isValid },
-	} = useForm<FormData>({
-		resolver: zodResolver(collectionSchema),
-	});
-
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
 			<div className="w-[400px] flex flex-col justify-center relative bg-ceramic min-h-[530px] border-2 p-3 rounded-lg pb-5">
 				<button
 					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
 					onClick={handleClose}>
-					<ExitIconComponent className="h-6 text-deepOak hover:text-sepia"></ExitIconComponent>
+					<ExitIconComponent className="h-6 text-text-headline hover:text-sepia"></ExitIconComponent>
 				</button>
 				<div className="flex flex-col items-center space-y-6">
 					<form
-						onSubmit={handleSubmit(onSubmit)}
+						onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">
 						<label className="w-full">
 							<span>word</span>
@@ -95,7 +87,6 @@ export default function WordModal() {
 							<span>context</span>
 							<textarea
 								className="w-full p-2 border-2"
-								required={true}
 								onChange={(e) => setContext(e.target.value)}
 								value={context}
 							/>

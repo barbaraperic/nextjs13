@@ -34,7 +34,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	-webkit-font-smoothing: antialiased;
-	@apply text-deepOak;
+	@apply text-text-headline;
 }
 
 main {

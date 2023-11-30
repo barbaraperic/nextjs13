@@ -46,13 +46,13 @@ export default async function WordDetails({
 				</div>
 				<div className="flex flex-col space-y-2">
 					<div className="flex flex-col space-y-1">
-						<span className="uppercase font-bold text-xs text-emmerald">
+						<span className="uppercase font-bold text-xs text-text-highlight">
 							Translation
 						</span>
 						<p>{capitalize(word.translation)}</p>
 					</div>
 					<div className="flex flex-col space-y-1">
-						<span className="uppercase font-bold text-xs text-emmerald">
+						<span className="uppercase font-bold text-xs text-text-highlight">
 							Example
 						</span>
 						<p className="italic">{capitalize(word.context)}</p>

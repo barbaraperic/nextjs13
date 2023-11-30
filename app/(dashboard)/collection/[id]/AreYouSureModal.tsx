@@ -1,5 +1,6 @@
 "use client";
 import ButtonPrimary from "@/app/components/ButtonPrimary";
+import LinkPrimary from "@/app/components/LinkPrimary";
 import ExitIconComponent from "@/app/components/icons/exitIcon";
 import { Heading3 } from "@/app/components/texts/Texts";
 import Link from "next/link";
@@ -38,7 +39,7 @@ export default function AreYouSureModal({ id }: { id: string }) {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[600px] relative bg-ceramic min-h-[460px] flex flex-col items-center justify-between border-2 p-3 rounded-lg pb-5">
+			<div className="w-[600px] relative bg-background-main min-h-[460px] flex flex-col items-center justify-between border-2 p-3 rounded-lg pb-5">
 				<button
 					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
 					onClick={handleClose}>
@@ -46,16 +47,10 @@ export default function AreYouSureModal({ id }: { id: string }) {
 				</button>
 				<Heading3 className="mt-10">Are you sure?</Heading3>
 				<div className="flex flex-1 justify-center items-center space-x-4">
-					<ButtonPrimary
-						className="bg-emmerald border transition-all border-emmerald hover:text-white hover:bg-darkerEmmerald text-white"
-						onClick={handleSubmit}>
+					<ButtonPrimary onClick={handleSubmit}>
 						<span>Yes</span>
 					</ButtonPrimary>
-					<Link
-						href="/collection"
-						className="w-full py-4 text-center border-deepOak border hover:border-sepia hover:text-sepia min-w-[260px] text-deepOak rounded-lg font-bold">
-						<span>No</span>
-					</Link>
+					<LinkPrimary href="/collection">No</LinkPrimary>
 				</div>
 			</div>
 		</div>

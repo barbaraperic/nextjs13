@@ -10,12 +10,12 @@ export default function ButtonPrimary({
 	onClick?: (e: any) => Promise<void>;
 	className?: string;
 	disabled?: boolean;
-	type: "submit";
+	type?: "submit";
 }) {
 	return (
 		<button
 			type={type}
-			className={`py-4 border-deepOak border hover:border-sepia hover:text-sepia min-w-[260px] text-deepOak rounded-lg font-bold ${className}`}
+			className={`py-4 border-text-highlight border font-extrabold bg-text-highlight hover:shadow-lg min-w-[260px] text-text-tertiary rounded-lg ${className}`}
 			onClick={onClick}
 			disabled={disabled}
 			{...props}>

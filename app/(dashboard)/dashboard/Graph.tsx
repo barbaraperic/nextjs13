@@ -78,7 +78,7 @@ export default function Graph() {
 				</div>
 				<div className="flex space-x-4 items-center">
 					<button id="previous-month-selector" onClick={handlePreviousMonth}>
-						<FiChevronLeft className="text-deepOak w-4 h-4" />
+						<FiChevronLeft className="text-text-headline w-4 h-4" />
 					</button>
 					<button id="present-month-selector" onClick={handleToday}>
 						today
@@ -88,7 +88,7 @@ export default function Graph() {
 						disabled={isCurrentMonth}
 						onClick={handleNextMonth}>
 						<FiChevronRight
-							className={`text-deepOak w-4 h-4 ${
+							className={`text-text-headline w-4 h-4 ${
 								isCurrentMonth ? "cursor-not-allowed" : ""
 							}`}
 						/>
@@ -106,18 +106,20 @@ export default function Graph() {
 						<div key={day.date}>
 							<li
 								className={`${
-									day.isCurrentMonth ? "text-emmerald border-emmerald" : ""
-								} relative min-h-[60px] border  rounded-lg p-3 ${
-									day.date === dayjs().format("YYYY-MM-DD")
-										? "font-extrabold shadow-lg"
+									day.isCurrentMonth
+										? "text-text-highlight border-text-highlight"
+										: ""
+								} relative hover:shadow-md min-h-[60px] cursor-pointer border rounded-lg p-3 ${
+									data?.includes(new Date(day.date).toUTCString())
+										? "bg-text-highlight text-text-tertiary font-bold"
 										: ""
 								} ${
-									data?.includes(new Date(day.date).toUTCString())
-										? "bg-emmerald text-white font-bold shadow-md"
+									day.date === dayjs().format("YYYY-MM-DD")
+										? "font-extrabold border-2"
 										: ""
 								} `}>
 								<span
-									className={` flex justify-center items-center absolute right-1 w-5 h-5"`}>
+									className={`flex justify-center items-center absolute right-1 w-5 h-5"`}>
 									{day.dayOfMonth}
 								</span>
 							</li>

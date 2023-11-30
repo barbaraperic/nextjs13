@@ -8,20 +8,20 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				emmerald: "hsl(174, 81%, 32%)",
-				darkerEmmerald: "hsl(174, 21%, 32%)",
-				lighterEmmerald: "hsl(174, 85%, 33%)",
-				sapphire: "hsl(230, 68%, 40%)",
-				deepOak: "hsl(32, 100%, 10%)",
-				sepia: "hsl(32, 100%, 15%)",
-				gold: "hsl(57, 100%, 56%)",
+				background: {
+					main: "#fffffe",
+					card: "#f8f5f2",
+				},
+				text: {
+					headline: "#232323",
+					subheadline: "#222525",
+					highlight: "#078080",
+					secondary: "#f45d48",
+					tertiary: "#f8f5f2",
+					stroke: "#232323",
+				},
 			},
-			backgroundColor: {
-				darkerEmmerald: "hsl(174, 21%, 32%)",
-				lighterEmmerald: "hsl(174, 90%, 32%)",
-				ceramic: "hsl(32, 100%, 97%)",
-				deepOak: "hsl(32, 100%, 10%)",
-			},
+
 			fontFamily: {
 				body: "var(--body-font)",
 				headings: "var(--headings-font)",

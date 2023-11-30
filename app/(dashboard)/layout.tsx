@@ -5,7 +5,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
 import { FiBook, FiFlag, FiHome } from "react-icons/fi";
 import Graph from "./dashboard/Graph";
-import PostItCard from "./dashboard/PostItCard";
 
 export default async function AuthLayout({ children }: { children: any }) {
 	const supabase = createServerComponentClient({ cookies });
@@ -25,15 +24,15 @@ export default async function AuthLayout({ children }: { children: any }) {
 
 	return (
 		<main className="relative w-full flex h-screen">
-			<section className="min-w-[400px] border-r border-deepOak pt-12 pr-9 space-y-8">
+			<section className="min-w-[400px] border-r border-text-headline pt-12 pr-9 space-y-8">
 				<div className="flex space-x-3">
 					<Link href="/dashboard">
-						<FiHome className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer hover:text-"></FiHome>
+						<FiHome className="text-text-headline hover:shadow-lg w-6 h-6 cursor-pointer hover:text-"></FiHome>
 					</Link>
 					<Link href="/collection">
-						<FiBook className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiBook>
+						<FiBook className="text-text-headline hover:shadow-lg w-6 h-6 cursor-pointer"></FiBook>
 					</Link>
-					<FiFlag className="text-deepOak hover:text-sepia w-6 h-6 cursor-pointer"></FiFlag>
+					<FiFlag className="text-text-headline hover:shadow-lg w-6 h-6 cursor-pointer"></FiFlag>
 				</div>
 				<div className="min-h-[488px] mt-14">
 					<Graph />

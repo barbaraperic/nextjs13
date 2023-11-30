@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import useStore from "./store";
 import dayjs from "dayjs";
 
-export default function ButtonOutline({
+export default function SaveProgressButton({
 	children,
 	className,
 }: {
@@ -55,7 +55,7 @@ export default function ButtonOutline({
 					dailyTasks.length >= 1
 						? "animate-fade-in block"
 						: "animate-leave invisible"
-				} border border-emmerald text-emmerald hover:text-darkerEmmerald hover:border-darkerEmmerald px-7 py-3 rounded-lg ${className}`}>
+				} border border-text-stroke hover:shadow-lg transition-all ease-in-out px-7 py-3 rounded-lg ${className}`}>
 				{isLoading ? "Saving..." : children}
 			</button>
 		</>
