@@ -4,7 +4,6 @@ import AuthForm from "../AuthForm";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { SpacerComponent } from "@/app/components/Spacer";
 
 export default function Login() {
 	const [error, setError] = useState("");

@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { Nanum_Brush_Script } from "@next/font/google";
 import { SpacerComponent } from "../components/Spacer";
 import Navbar from "../components/NavBar";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +41,9 @@ export default async function RootLayout({
 		<html lang="en">
 			<body className={`${script.variable} flex h-screen bg-background-main`}>
 				<SpacerComponent className="h-20"></SpacerComponent>
-				<h2 className="text-text-highlight">tartaruga</h2>
+				<Link href="/" className="text-text-highlight text-2xl">
+					tartaruga
+				</Link>
 				{children}
 			</body>
 		</html>

@@ -4,7 +4,6 @@ import AuthForm from "../AuthForm";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { SpacerComponent } from "@/app/components/Spacer";
 
 export default function Login() {
 	const [error, setError] = useState("");
@@ -31,15 +30,16 @@ export default function Login() {
 	};
 
 	return (
-		<main className=" flex items-center justify-center">
-			<div className="relative border-4 items-center justify-center min-h-[500px] min-w-[400px] rounded-tr-3xl shadow-[5px_5px_1px_rgb(0,0,0)] border-black flex flex-col pt-6 px-4 pb-4">
-				<div className="absolute top-[-33px] left-[-80px] h-20 bg-white w-60 text-center">
-					<h2 className="font-script text-7xl ">Sign Up</h2>
-				</div>
+		<main className="flex h-full flex-col pb-40 items-center justify-center ">
+			<div className="w-5/12 space-y-10">
+				<h3 className="font-script text-center">Create an account</h3>
 				<AuthForm handleSubmit={handleSubmit} />
 				{error && <p>{error}</p>}
-				<p className="mt-10">
-					Already have an account? <Link href="/login">Login</Link>
+				<p className="mt-10 text-center">
+					Already have an account?{" "}
+					<Link className="text-text-highlight" href="/login">
+						Login
+					</Link>
 				</p>
 			</div>
 		</main>

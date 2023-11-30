@@ -14,12 +14,6 @@ export default async function AuthLayout({ children }: { children: any }) {
 		// redirect("/");
 	}
 
-	const dailyTasks = [
-		"word of the day",
-		"read article",
-		"situational question",
-	];
-
 	const TODAY = dayjs().format("dddd, DD MMM");
 
 	return (
@@ -37,7 +31,6 @@ export default async function AuthLayout({ children }: { children: any }) {
 				<div className="min-h-[488px] mt-14">
 					<Graph />
 				</div>
-				{/* <PostItCard title="daily checklist" tasks={dailyTasks} /> */}
 			</section>
 			<section className="flex-1 pt-12 p-9 space-y-6">{children}</section>
 		</main>

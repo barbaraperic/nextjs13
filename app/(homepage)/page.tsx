@@ -1,16 +1,5 @@
-import { useState } from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import dayjs from "dayjs";
-import PortugueseFlagComponent from "../components/icons/portugueseFlag";
-import HexigramIconComponent from "../components/icons/hexigramIcon";
 import { SpacerComponent } from "../components/Spacer";
-import SubscribeForm from "./SubscriptionForm";
-import Footer from "./Footer";
-import ButtonPrimary from "../components/ButtonPrimary";
-import Link from "next/link";
-import SubscriptionModal from "./SubscriptionModal";
-import { FiCoffee } from "react-icons/fi";
+
 import EggIcon from "../utils/eggIcon";
 
 type Props = {

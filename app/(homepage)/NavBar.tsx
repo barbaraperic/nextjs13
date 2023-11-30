@@ -6,17 +6,19 @@ import LogoIcon from "../utils/eggIcon";
 export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (
 		<nav className="z-50 w-full flex justify-between px-20 py-2 mt-5 rounded-xl m-auto items-center text-text-headline">
-			<h1 className="font-bold">tartaruga</h1>
+			<h1 className="font-bold text-text-highlight">tartaruga</h1>
 			<div className="space-x-6 flex items-center text-lg ">
 				{user && (
-					<span className="underline hover:no-underline">
+					<span className="underline hover:no-underline text-text-highlight">
 						hello, {user.email}
 					</span>
 				)}
-				<Link href={"/collection"} className="hover:underline">
+				<Link
+					href={"/collection"}
+					className="hover:underline text-text-highlight">
 					<p>collection</p>
 				</Link>
-				<Link className="hover:underline" href={"/signup"}>
+				<Link className="hover:underline text-text-highlight" href={"/signup"}>
 					<ButtonText>sign up</ButtonText>
 				</Link>
 			</div>
