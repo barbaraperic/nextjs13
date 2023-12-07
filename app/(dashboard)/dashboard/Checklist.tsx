@@ -3,12 +3,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import useStore from "./store";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
-
-export interface TaskType {
-	id: number;
-	date: string;
-	task: string;
-}
+import { TaskType } from "@/app/types/types";
 
 export default function Checklist({
 	children,
@@ -19,31 +14,22 @@ export default function Checklist({
 }) {
 	const add = useStore((state: any) => state.add);
 	const remove = useStore((state: any) => state.remove);
-	const dailyTasks = useStore((state: any) => state.dailyTasks);
-	const [data, setData] = useState<any[]>([]);
-	const [isChecked, setIsChecked] = useState<boolean>();
+	const [isTodayFullfilled, setIsTodayFullfilled] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fetchTasks = async () => {
 			const supabase = createClientComponentClient();
 
 			const { data } = await supabase.from("daily_tasks").select();
-			setData([data]);
 
 			const todaysDailyTasks = data?.filter(
 				(item: TaskType) => item.date === dayjs().format("YYYY-MM-DD")
 			);
 
-			console.log(
-				"=== todaysDailyTasks Checklist.tsx [36] ===",
-				todaysDailyTasks
-			);
+			const isTodaysDailyTasksFullfilled =
+				todaysDailyTasks && todaysDailyTasks?.length > 1 ? true : false;
 
-			const taskIdIsCompleted =
-				todaysDailyTasks && todaysDailyTasks.find((task) => task.task === id);
-			taskIdIsCompleted && dailyTasks.push(taskIdIsCompleted);
-
-			setIsChecked(taskIdIsCompleted ? true : false);
+			setIsTodayFullfilled(isTodaysDailyTasksFullfilled);
 		};
 
 		fetchTasks();
@@ -60,9 +46,10 @@ export default function Checklist({
 			<input
 				data-id={id}
 				onChange={(e) => handleChange(e)}
-				defaultChecked={isChecked}
 				type="checkbox"
-				className="relative rounded-md peer shrink-0 appearance-none h-6 w-6 border border-text-headline"
+				className={`relative ${
+					isTodayFullfilled ? "hidden" : ""
+				} rounded-md peer shrink-0 appearance-none h-6 w-6 border border-text-headline`}
 			/>
 			<svg
 				className="absolute left-1 text-text-headline w-4 h-4 hidden peer-checked:block pointer-events-none"

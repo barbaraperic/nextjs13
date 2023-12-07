@@ -1,14 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Heading3 } from "../../components/texts/Texts";
 import ButtonPrimary from "../../components/ButtonPrimary";
 import ExitIconComponent from "../../components/icons/exitIcon";
 import { SpacerComponent } from "../../components/Spacer";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { collectionSchema } from "@/app/zodSchema/collection";
 
 export default function WordModal() {
 	const router = useRouter();
@@ -53,11 +48,11 @@ export default function WordModal() {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] flex flex-col justify-center relative bg-ceramic min-h-[530px] border-2 p-3 rounded-lg pb-5">
+			<div className="w-[400px] bg-background-card flex flex-col justify-center relative min-h-[530px] border-2 p-3 rounded-lg pb-5">
 				<button
 					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
 					onClick={handleClose}>
-					<ExitIconComponent className="h-6 text-text-headline hover:text-sepia"></ExitIconComponent>
+					<ExitIconComponent className="h-6 text-text-headline"></ExitIconComponent>
 				</button>
 				<div className="flex flex-col items-center space-y-6">
 					<form

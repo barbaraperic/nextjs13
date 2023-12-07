@@ -1,8 +1,6 @@
 import { cookies } from "next/headers";
-import { FiSquare } from "react-icons/fi";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import Checklist from "./Checklist";
-import WordLabel from "./WordLabel";
+import WordFlashcards from "./WordFlashcards";
 
 async function getWords() {
 	const supabase = createServerComponentClient({ cookies });
@@ -23,20 +21,12 @@ export default async function Word() {
 		Math.random() * (words ? words.length : 1)
 	);
 
+	const randomWord = words ? words[randomWordIndex] : null;
+
 	return (
 		<div className="relative w-full">
-			<section className="relative mb-6 rounded-lg h-60">
-				<div className="flex space-x-2 mb-6 items-center">
-					<Checklist id="word">
-						<h3 className="text-xl ">
-							Word of the day:{" "}
-							<span className="italic text-lg">
-								{words ? words[randomWordIndex].word : null}
-							</span>
-						</h3>
-					</Checklist>
-				</div>
-				<WordLabel word={words ? words[randomWordIndex] : null}></WordLabel>
+			<section className="flex space-x-2 m-auto mb-6 shadow-md items-center max-w-2xl">
+				<WordFlashcards word={randomWord}></WordFlashcards>
 			</section>
 		</div>
 	);

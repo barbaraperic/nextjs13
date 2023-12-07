@@ -13,11 +13,11 @@ export default function SaveProgressButton({
 }) {
 	const dailyTasks = useStore((state: any) => state.dailyTasks);
 	const [isLoading, setIsLoading] = useState(false);
+	const [isDataSaved, setIsDataSaved] = useState<boolean | undefined>(false);
 	const router = useRouter();
 
 	async function handleClick(e: any) {
 		setIsLoading(true);
-
 		try {
 			await Promise.all(
 				dailyTasks.map(async (task: string) => {
@@ -37,7 +37,9 @@ export default function SaveProgressButton({
 					}
 
 					if (json.data) {
+						setIsDataSaved(true);
 						router.refresh();
+						router.push("/dashboard");
 					}
 				})
 			);
@@ -52,7 +54,7 @@ export default function SaveProgressButton({
 			<button
 				onClick={handleClick}
 				className={`${
-					dailyTasks.length >= 1
+					dailyTasks.length >= 1 && !isDataSaved
 						? "animate-fade-in block"
 						: "animate-leave invisible"
 				} border border-text-stroke hover:shadow-lg transition-all ease-in-out px-7 py-3 rounded-lg ${className}`}>

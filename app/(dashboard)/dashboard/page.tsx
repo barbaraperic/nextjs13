@@ -15,9 +15,9 @@ export default async function Dasboard({ searchParams }: Props) {
 			<section className="relative mb-6 rounded-lg">
 				<Word />
 			</section>
-			<section className="relative mb-6 rounded-lg ">
+			{/* <section className="relative mb-6 rounded-lg ">
 				<Article searchParams={searchParams} />
-			</section>
+			</section> */}
 		</main>
 	);
 }
