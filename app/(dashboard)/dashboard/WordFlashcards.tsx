@@ -8,10 +8,31 @@ import { TaskType, WordType } from "@/app/types/types";
 import ButtonPrimary from "@/app/components/ButtonPrimary";
 import { Heading3 } from "@/app/components/texts/Texts";
 
-export default function WordFlashcards({ word }: { word: WordType }) {
+export default function WordFlashcards({ words }: { words: WordType[] }) {
 	const add = useStore((state: any) => state.add);
 	const remove = useStore((state: any) => state.remove);
 	const [showTranslation, setShowTranslation] = useState(false);
+	const [word, setWord] = useState({
+		word: "",
+		translation: "",
+		context: "",
+	});
+
+	function generateRandomWord() {
+		const randomWordIndex = Math.floor(
+			Math.random() * (words ? words.length : 1)
+		);
+		const randomWord = words ? words[randomWordIndex] : null;
+		setWord(randomWord);
+	}
+
+	useEffect(() => {
+		generateRandomWord();
+	}, []);
+
+	function handleNext() {
+		generateRandomWord();
+	}
 
 	// useEffect(() => {
 	// 	const fetchTasks = async () => {
@@ -33,10 +54,8 @@ export default function WordFlashcards({ word }: { word: WordType }) {
 	// }, []);
 
 	return (
-		<div className="w-full border rounded-md p-6 flex-col space-y-10 items-center relative flex gap-2">
-			<Heading3>
-				<span className="text-text-highlight">Word:</span> {word.translation}
-			</Heading3>
+		<div className="w-full min-h-[370px] border rounded-md p-6 flex-col space-y-10 items-center relative flex gap-2">
+			<Heading3 className="text-text-highlight">{word.translation}</Heading3>
 			<button onClick={() => setShowTranslation(!showTranslation)}>
 				{showTranslation ? (
 					<FiEye className="w-6 h-6" />
@@ -58,7 +77,7 @@ export default function WordFlashcards({ word }: { word: WordType }) {
 					{word.context}
 				</p>
 			</div>
-			<ButtonPrimary>Next</ButtonPrimary>
+			<ButtonPrimary onClick={handleNext}>Next</ButtonPrimary>
 		</div>
 	);
 }
