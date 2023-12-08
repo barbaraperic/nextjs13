@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import WordFlashcards from "./WordFlashcards";
+import SaveProgressButton from "./SaveProgressButton";
 
 async function getWords() {
 	const supabase = createServerComponentClient({ cookies });
@@ -17,15 +18,12 @@ async function getWords() {
 export default async function Word() {
 	const words = await getWords();
 
-	const randomWordIndex = Math.floor(
-		Math.random() * (words ? words.length : 1)
-	);
-
 	return (
 		<div className="relative w-full">
 			<section className="flex space-x-2 m-auto mb-6 shadow-md items-center max-w-2xl">
-				<WordFlashcards words={words}></WordFlashcards>
+				{words && <WordFlashcards words={words}></WordFlashcards>}
 			</section>
+			<SaveProgressButton>Check off today</SaveProgressButton>
 		</div>
 	);
 }

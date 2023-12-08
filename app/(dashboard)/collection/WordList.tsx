@@ -44,7 +44,7 @@ export default function WordList({ words }: { words: WordType[] | undefined }) {
 	const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
 
 	return (
-		<div className="min-h-[600px] flex flex-col justify-between">
+		<div className="min-h-[600px] flex flex-col space-y-6">
 			<div>
 				{words
 					?.slice(currentSliceStart, currentSliceEnd)

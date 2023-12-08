@@ -6,6 +6,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import WordList from "./WordList";
 import LinkPrimary from "@/app/components/LinkPrimary";
+import { Heading3 } from "@/app/components/texts/Texts";
 
 type Props = {
 	searchParams: Record<string, string> | null | undefined;
@@ -30,15 +31,13 @@ export default async function CollectionPage({ searchParams }: Props) {
 
 	return (
 		<main className=" h-full flex flex-col justify-between">
-			<section className="space-y-4">
-				<h2>Words</h2>
+			<section className="space-y-10">
+				<Heading3 className="text-text-highlight">Collection of words</Heading3>
 				<WordList words={words?.reverse()} />
 			</section>
-
 			<LinkPrimary href={"/collection/?wordModal=true"}>
-				add a new word
+				Add a new word
 			</LinkPrimary>
-
 			{showWordModal && <WordModal />}
 			{showResourceModal && <ResourceModal />}
 		</main>

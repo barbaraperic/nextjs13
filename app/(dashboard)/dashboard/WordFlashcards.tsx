@@ -10,7 +10,6 @@ import { Heading3 } from "@/app/components/texts/Texts";
 
 export default function WordFlashcards({ words }: { words: WordType[] }) {
 	const add = useStore((state: any) => state.add);
-	const remove = useStore((state: any) => state.remove);
 	const [showTranslation, setShowTranslation] = useState(false);
 	const [word, setWord] = useState({
 		word: "",
@@ -22,8 +21,7 @@ export default function WordFlashcards({ words }: { words: WordType[] }) {
 		const randomWordIndex = Math.floor(
 			Math.random() * (words ? words.length : 1)
 		);
-		const randomWord = words ? words[randomWordIndex] : null;
-		setWord(randomWord);
+		setWord(words[randomWordIndex]);
 	}
 
 	useEffect(() => {
@@ -31,30 +29,11 @@ export default function WordFlashcards({ words }: { words: WordType[] }) {
 	}, []);
 
 	function handleNext() {
-		generateRandomWord();
+		add("word");
 	}
 
-	// useEffect(() => {
-	// 	const fetchTasks = async () => {
-	// 		const supabase = createClientComponentClient();
-
-	// 		const { data } = await supabase.from("daily_tasks").select();
-
-	// 		const todaysDailyTasks = data?.filter(
-	// 			(item: TaskType) => item.date === dayjs().format("YYYY-MM-DD")
-	// 		);
-
-	// 		const isTodaysDailyTasksFullfilled =
-	// 			todaysDailyTasks && todaysDailyTasks?.length > 1 ? true : false;
-
-	// 		// setIsTodayFullfilled(isTodaysDailyTasksFullfilled);
-	// 	};
-
-	// 	fetchTasks();
-	// }, []);
-
 	return (
-		<div className="w-full min-h-[370px] border rounded-md p-6 flex-col space-y-10 items-center relative flex gap-2">
+		<div className="w-full min-h-[370px] border rounded-md p-6 flex-col space-y-6 items-center relative flex gap-2">
 			<Heading3 className="text-text-highlight">{word.translation}</Heading3>
 			<button onClick={() => setShowTranslation(!showTranslation)}>
 				{showTranslation ? (
@@ -67,17 +46,20 @@ export default function WordFlashcards({ words }: { words: WordType[] }) {
 				className={`${
 					showTranslation
 						? ""
-						: "text-transparent [text-shadow:_0_0_5px_rgb(0_0_0_/_50%)]"
-				} mb-3`}>
+						: "text-transparent  [text-shadow:_0_0_5px_rgb(0_0_0_/_50%)]"
+				} mb-3 flex-1`}>
 				<p className="font-md italic">{word.word}</p>
-				<p
-					className={`${
-						showTranslation ? "" : "backdrop-blur-sm	"
-					} mb-3 italic`}>
+				<p className={`${showTranslation ? "" : "backdrop-blur-sm	"}`}>
 					{word.context}
 				</p>
 			</div>
-			<ButtonPrimary onClick={handleNext}>Next</ButtonPrimary>
+			<ButtonPrimary
+				onClick={() => {
+					handleNext();
+					return {};
+				}}>
+				Next
+			</ButtonPrimary>
 		</div>
 	);
 }

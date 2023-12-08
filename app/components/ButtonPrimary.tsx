@@ -7,7 +7,7 @@ export default function ButtonPrimary({
 	...props
 }: {
 	children: any;
-	onClick?: (e: any) => Promise<void>;
+	onClick?: () => {};
 	className?: string;
 	disabled?: boolean;
 	type?: "submit";
