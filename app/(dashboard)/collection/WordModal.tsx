@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import ButtonPrimary from "../../components/ButtonPrimary";
 import ExitIconComponent from "../../components/icons/exitIcon";
 import { SpacerComponent } from "../../components/Spacer";
+import Button from "@/app/components/Button";
 
 export default function WordModal() {
 	const router = useRouter();
@@ -98,16 +98,16 @@ export default function WordModal() {
 							</select>
 						</label>
 						<SpacerComponent className="h-4"></SpacerComponent>
-						<ButtonPrimary
-							className=" w-full"
-							disabled={isLoading}
-							type="submit">
+
+						<Button className=" w-full" type="submit">
 							{isLoading && <span>Adding...</span>}
 							{!isLoading && <span>Add word</span>}
-						</ButtonPrimary>
+						</Button>
 					</form>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+//disabled={isLoading}

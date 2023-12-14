@@ -2,9 +2,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Heading3 } from "../../components/texts/Texts";
-import ButtonPrimary from "../../components/ButtonPrimary";
 import ExitIconComponent from "../../components/icons/exitIcon";
 import { SpacerComponent } from "../../components/Spacer";
+import Button from "@/app/components/Button";
 
 export default function ResourceModal() {
 	const router = useRouter();
@@ -88,13 +88,13 @@ export default function ResourceModal() {
 							/>
 						</label>
 						<SpacerComponent className="h-4"></SpacerComponent>
-						<ButtonPrimary
+						<Button
 							className=" w-full"
 							disabled={isLoading}
 							onClick={handleSubmit}>
 							{isLoading && <span>adding...</span>}
 							{!isLoading && <span>add resource</span>}
-						</ButtonPrimary>
+						</Button>
 					</form>
 				</div>
 			</div>

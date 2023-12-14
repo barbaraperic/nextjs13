@@ -5,7 +5,12 @@ export function Heading1({
 	children: any;
 	className?: string;
 }) {
-	return <h1 className={`text-5xl font-display ${className}`}>{children}</h1>;
+	return (
+		<h1
+			className={`text-4xl font-bold leading-tight text-green-400 ${className}`}>
+			{children}
+		</h1>
+	);
 }
 
 export function Heading2({
@@ -15,7 +20,11 @@ export function Heading2({
 	children: any;
 	className?: string;
 }) {
-	return <h1 className={`text-4xl font-display ${className}`}>{children}</h1>;
+	return (
+		<h1 className={`text-3xl text-bold leading-tight ${className}`}>
+			{children}
+		</h1>
+	);
 }
 
 export function Heading3({
@@ -25,7 +34,11 @@ export function Heading3({
 	children: any;
 	className?: string;
 }) {
-	return <h1 className={`text-2xl font-display ${className}`}>{children}</h1>;
+	return (
+		<h1 className={`text-xl leading-tight font-bold ${className}`}>
+			{children}
+		</h1>
+	);
 }
 
 export function Paragraph({
@@ -35,7 +48,7 @@ export function Paragraph({
 	children: any;
 	className?: string;
 }) {
-	return <h1 className={`text-lg font-body ${className}`}>{children}</h1>;
+	return <h1 className={`text-base ${className}`}>{children}</h1>;
 }
 
 export function ButtonText({
@@ -45,5 +58,5 @@ export function ButtonText({
 	children: any;
 	className?: string;
 }) {
-	return <p className={`text-lg font-body ${className}`}>{children}</p>;
+	return <p className={`text-base font-bold ${className}`}>{children}</p>;
 }

@@ -1,5 +1,4 @@
 "use client";
-import ButtonPrimary from "@/app/components/ButtonPrimary";
 import LinkPrimary from "@/app/components/LinkPrimary";
 import ExitIconComponent from "@/app/components/icons/exitIcon";
 import { Heading3 } from "@/app/components/texts/Texts";
@@ -47,9 +46,7 @@ export default function AreYouSureModal({ id }: { id: string }) {
 				</button>
 				<Heading3 className="mt-10">Are you sure?</Heading3>
 				<div className="flex flex-1 justify-center items-center space-x-4">
-					<ButtonPrimary onClick={handleSubmit}>
-						<span>Yes</span>
-					</ButtonPrimary>
+					<Button onClick={handleSubmit}>Yes</Button>
 					<LinkPrimary href="/collection">No</LinkPrimary>
 				</div>
 			</div>

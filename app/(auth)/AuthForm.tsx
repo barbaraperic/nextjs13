@@ -1,7 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { SpacerComponent } from "../components/Spacer";
-import ButtonPrimary from "../components/ButtonPrimary";
+import Button from "../components/Button";
 
 export default function AuthForm({
 	handleSubmit,
@@ -36,7 +36,7 @@ export default function AuthForm({
 				/>
 			</label>
 			<SpacerComponent className="h-5 "></SpacerComponent>
-			<ButtonPrimary>Submit</ButtonPrimary>
+			<Button intent="submit">Submit</Button>
 		</form>
 	);
 }

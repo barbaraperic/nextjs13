@@ -5,8 +5,8 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { TaskType, WordType } from "@/app/types/types";
-import ButtonPrimary from "@/app/components/ButtonPrimary";
 import { Heading3 } from "@/app/components/texts/Texts";
+import Button from "@/app/components/Button";
 
 export default function WordFlashcards({ words }: { words: WordType[] }) {
 	const add = useStore((state: any) => state.add);
@@ -53,13 +53,13 @@ export default function WordFlashcards({ words }: { words: WordType[] }) {
 					{word.context}
 				</p>
 			</div>
-			<ButtonPrimary
+			<Button
 				onClick={() => {
 					handleNext();
 					return {};
 				}}>
 				Next
-			</ButtonPrimary>
+			</Button>
 		</div>
 	);
 }

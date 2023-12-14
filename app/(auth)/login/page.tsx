@@ -31,7 +31,7 @@ export default function Login() {
 	return (
 		<main className="flex h-full flex-col pb-40 items-center justify-center ">
 			<div className="w-5/12 space-y-10">
-				<h3 className="font-script text-center">Sign in to your account</h3>
+				<h3 className="text-center">Sign in to your account</h3>
 				<AuthForm handleSubmit={handleSubmit} />
 				{error && <p>{error}</p>}
 				<p className="mt-10 text-center">

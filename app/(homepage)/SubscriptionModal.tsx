@@ -48,7 +48,7 @@ export default function SubscriptionModal() {
 	}
 
 	return (
-		<div className="transition delay-150 ease-in-out absolute rounded-xl left-0 right-0 top-0 bottom-0 z-10 inset-0 overflow-y-auto flex justify-center items-center bg-sapphire">
+		<div className="transition delay-150 ease-in-out absolute rounded-xl left-0 right-0 top-0 bottom-0 z-10 inset-0 overflow-y-auto flex justify-center items-center">
 			<div className="w-full h-full relative">
 				<button
 					className="cursor z-10 h-7 w-7 m-4 absolute right-0 flex justify-center items-center"

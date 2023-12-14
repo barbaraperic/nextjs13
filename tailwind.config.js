@@ -8,20 +8,24 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				background: {
-					main: "#fffffe",
-					card: "#f8f5f2",
+				green: {
+					300: "#078080",
+					400: "#066d6d",
 				},
-				text: {
-					headline: "#232323",
-					subheadline: "#222525",
-					highlight: "#078080",
-					secondary: "#f45d48",
-					tertiary: "#f8f5f2",
-					stroke: "#232323",
+				brown: {
+					300: "#232323",
+				},
+				snow: {
+					50: "#fffffe",
+					100: "#f8f5f2",
+				},
+				orange: {
+					300: "#f45d48",
 				},
 			},
-
+			boxShadow: {
+				basic: "9px 9px 16px #b5bbc2 , -9px -9px 16px #f8fbff",
+			},
 			fontFamily: {
 				body: "var(--body-font)",
 				headings: "var(--headings-font)",

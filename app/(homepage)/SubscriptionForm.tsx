@@ -41,7 +41,7 @@ export default function SubscriptionForm() {
 			<label htmlFor="" className="flex flex-col space-y-1">
 				<input
 					placeholder="Your email"
-					className="border outline-none  font-script p-4 placeholder:uppercase border-eagle h-16 rounded-md bg-eagle placeholder:text-black placeholder:font-script placeholder:text-xl text-xl"
+					className="border outline-none p-4 placeholder:uppercase border-eagle h-16 rounded-md bg-eagle placeholder:text-black placeholder:font-script placeholder:text-xl text-xl"
 					onChange={(e) => setEmail(e.target.value)}
 					value={email}
 					required
@@ -49,7 +49,7 @@ export default function SubscriptionForm() {
 			</label>
 			<button
 				type="submit"
-				className="absolute w-40 uppercase text-xl font-script right-8 top-[6px] bg-sapphire text-white flex justify-center items-center rounded-xl p-3">
+				className="absolute w-40 uppercase text-xl right-8 top-[6px] text-white flex justify-center items-center rounded-xl p-3">
 				Subscribe
 			</button>
 		</form>

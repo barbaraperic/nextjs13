@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { Mulish, PT_Sans_Narrow, Poppins } from "@next/font/google";
+import { Inria_Sans } from "@next/font/google";
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
@@ -12,20 +12,8 @@ export const metadata: Metadata = {
 	},
 };
 
-const headings = Mulish({
-	variable: "--headings-font",
-	weight: "400",
-	preload: false,
-});
-
-const body = Mulish({
+const body = Inria_Sans({
 	variable: "--body-font",
-	weight: "400",
-	preload: false,
-});
-
-const script = PT_Sans_Narrow({
-	variable: "--script-font",
 	weight: "400",
 	preload: false,
 });
@@ -45,10 +33,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en">
-			<body
-				className={`${headings.variable} ${body.variable} ${script.variable} bg-background-main`}>
-				{children}
-			</body>
+			<body className={` ${body.variable} bg-background-main`}>{children}</body>
 		</html>
 	);
 }
