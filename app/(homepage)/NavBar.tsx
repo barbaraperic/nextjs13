@@ -22,7 +22,7 @@ export default function Navbar({ user }: { user: AuthUser | undefined }) {
 					</>
 				)}
 				<Link className="hover:underline text-text-highlight" href={"/signup"}>
-					<Button>Sign up</Button>
+					<Button intent="secondary">Sign up</Button>
 				</Link>
 			</div>
 		</nav>

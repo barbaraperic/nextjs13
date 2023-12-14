@@ -36,7 +36,7 @@ export default function AuthForm({
 				/>
 			</label>
 			<SpacerComponent className="h-5 "></SpacerComponent>
-			<Button intent="submit">Submit</Button>
+			<Button intent="secondary">Submit</Button>
 		</form>
 	);
 }
