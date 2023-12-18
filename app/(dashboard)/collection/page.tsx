@@ -1,7 +1,4 @@
-import ResourceList from "./ResourceList";
-import ResourceModal from "./ResourceModal";
 import WordModal from "./WordModal";
-import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import WordList from "./WordList";
@@ -25,7 +22,6 @@ async function getWords() {
 }
 
 export default async function CollectionPage({ searchParams }: Props) {
-	const showResourceModal = searchParams?.resourceModal;
 	const showWordModal = searchParams?.wordModal;
 	const words = await getWords();
 
@@ -39,7 +35,6 @@ export default async function CollectionPage({ searchParams }: Props) {
 				Add a new word
 			</LinkPrimary>
 			{showWordModal && <WordModal />}
-			{showResourceModal && <ResourceModal />}
 		</main>
 	);
 }

@@ -1,6 +1,3 @@
-import Word from "./Word";
-import Article from "./Article";
-import SaveProgressButton from "./SaveProgressButton";
 import { Heading3 } from "@/app/components/texts/Texts";
 
 type Props = {
@@ -12,7 +9,6 @@ export default async function Dasboard({ searchParams }: Props) {
 		<main className="flex-1 space-y-6">
 			<section className="relative mb-6 rounded-lg space-y-10">
 				<Heading3 className="text-text-highlight">Flashcards</Heading3>
-				<Word />
 			</section>
 			{/* <section className="relative mb-6 rounded-lg ">
 				<Article searchParams={searchParams} />

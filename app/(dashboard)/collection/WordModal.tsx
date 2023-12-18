@@ -2,8 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ExitIconComponent from "../../components/icons/exitIcon";
-import { SpacerComponent } from "../../components/Spacer";
 import Button from "@/app/components/Button";
+import SpacerComponent from "@/app/components/Spacer";
 
 export default function WordModal() {
 	const router = useRouter();
@@ -97,9 +97,8 @@ export default function WordModal() {
 								<option value="high">High</option>
 							</select>
 						</label>
-						<SpacerComponent className="h-4"></SpacerComponent>
-
-						<Button className=" w-full" type="submit">
+						<SpacerComponent size="small"></SpacerComponent>
+						<Button className=" w-full" intent="secondary">
 							{isLoading && <span>Adding...</span>}
 							{!isLoading && <span>Add word</span>}
 						</Button>

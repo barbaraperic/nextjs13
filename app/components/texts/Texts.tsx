@@ -1,62 +1,41 @@
-export function Heading1({
-	children,
-	className,
-}: {
+import { FC } from "react";
+
+interface TextProps {
 	children: any;
 	className?: string;
-}) {
+}
+
+const Heading1: FC<TextProps> = ({ children, className }) => {
 	return (
 		<h1
 			className={`text-4xl font-bold leading-tight text-green-400 ${className}`}>
 			{children}
 		</h1>
 	);
-}
+};
 
-export function Heading2({
-	children,
-	className,
-}: {
-	children: any;
-	className?: string;
-}) {
+const Heading2: FC<TextProps> = ({ children, className }) => {
 	return (
 		<h2 className={`text-3xl text-bold leading-tight ${className}`}>
 			{children}
 		</h2>
 	);
-}
+};
 
-export function Heading3({
-	children,
-	className,
-}: {
-	children: any;
-	className?: string;
-}) {
+const Heading3: FC<TextProps> = ({ children, className }) => {
 	return (
 		<h3 className={`text-xl leading-tight font-bold ${className}`}>
 			{children}
 		</h3>
 	);
-}
+};
 
-export function Paragraph({
-	children,
-	className,
-}: {
-	children: any;
-	className?: string;
-}) {
+const Paragraph: FC<TextProps> = ({ children, className }) => {
 	return <p className={`text-base ${className}`}>{children}</p>;
-}
+};
 
-export function ButtonText({
-	children,
-	className,
-}: {
-	children: any;
-	className?: string;
-}) {
+const ButtonText: FC<TextProps> = ({ children, className }) => {
 	return <p className={`text-base font-bold ${className}`}>{children}</p>;
-}
+};
+
+export { Heading1, Heading2, Heading3, Paragraph, ButtonText };

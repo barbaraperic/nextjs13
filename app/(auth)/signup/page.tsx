@@ -4,6 +4,7 @@ import AuthForm from "../AuthForm";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Heading3, Paragraph } from "@/app/components/texts/Texts";
 
 export default function Login() {
 	const [error, setError] = useState("");
@@ -32,15 +33,17 @@ export default function Login() {
 	return (
 		<main className="flex h-full flex-col pb-40 items-center justify-center ">
 			<div className="w-5/12 space-y-10">
-				<h3 className="font-script text-center">Create an account</h3>
+				<Heading3 className="font-script text-center">
+					Create an account
+				</Heading3>
 				<AuthForm handleSubmit={handleSubmit} />
 				{error && <p>{error}</p>}
-				<p className="mt-10 text-center">
+				<Paragraph className="mt-10 text-center">
 					Already have an account?{" "}
 					<Link className="text-text-highlight" href="/login">
 						Login
 					</Link>
-				</p>
+				</Paragraph>
 			</div>
 		</main>
 	);

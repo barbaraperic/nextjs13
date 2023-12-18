@@ -1,17 +1,14 @@
 "use client";
+import Button from "@/app/components/Button";
 import LinkPrimary from "@/app/components/LinkPrimary";
 import ExitIconComponent from "@/app/components/icons/exitIcon";
 import { Heading3 } from "@/app/components/texts/Texts";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AreYouSureModal({ id }: { id: string }) {
 	const router = useRouter();
 
-	const [title, setTitle] = useState("");
-	const [link, setLink] = useState("");
-	const [tag, setTag] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
 	async function handleSubmit(e: any) {

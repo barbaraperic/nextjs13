@@ -5,7 +5,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { TaskType, WordType } from "@/app/types/types";
-import { Heading3 } from "@/app/components/texts/Texts";
+import { Heading3, Paragraph } from "@/app/components/texts/Texts";
 import Button from "@/app/components/Button";
 
 export default function WordFlashcards({ words }: { words: WordType[] }) {
@@ -48,10 +48,10 @@ export default function WordFlashcards({ words }: { words: WordType[] }) {
 						? ""
 						: "text-transparent  [text-shadow:_0_0_5px_rgb(0_0_0_/_50%)]"
 				} mb-3 flex-1`}>
-				<p className="font-md italic">{word.word}</p>
-				<p className={`${showTranslation ? "" : "backdrop-blur-sm	"}`}>
+				<Paragraph className="font-md italic">{word.word}</Paragraph>
+				<Paragraph className={`${showTranslation ? "" : "backdrop-blur-sm	"}`}>
 					{word.context}
-				</p>
+				</Paragraph>
 			</div>
 			<Button
 				onClick={() => {

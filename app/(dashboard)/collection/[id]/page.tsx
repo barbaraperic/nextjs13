@@ -5,6 +5,7 @@ import { capitalize } from "@/app/utils/capitalize";
 import AreYouSureModal from "./AreYouSureModal";
 import Link from "next/link";
 import { FiTrash2 } from "react-icons/fi";
+import { Paragraph } from "@/app/components/texts/Texts";
 
 async function getWord(id: string) {
 	const supabase = createServerComponentClient({ cookies });
@@ -23,7 +24,7 @@ type Props = {
 	areYouSureModal: boolean;
 };
 
-export default async function WordDetails({
+export default async function WordDetailsPage({
 	params,
 	searchParams,
 }: {
@@ -31,8 +32,6 @@ export default async function WordDetails({
 	searchParams: Props;
 }) {
 	const word = await getWord(params.id);
-	console.log("=== searchParams .tsx [34] ===", searchParams);
-	console.log("=== params page.tsx [34] ===", params);
 	const showAreYouSureModal = searchParams?.areYouSureModal;
 
 	return (
@@ -55,7 +54,7 @@ export default async function WordDetails({
 						<span className="uppercase font-bold text-xs text-text-highlight">
 							Example
 						</span>
-						<p className="italic">{capitalize(word.context)}</p>
+						<Paragraph className="italic">{capitalize(word.context)}</Paragraph>
 					</div>
 				</div>
 			</div>

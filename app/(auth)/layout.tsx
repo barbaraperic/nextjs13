@@ -4,9 +4,9 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Nanum_Brush_Script } from "@next/font/google";
-import { SpacerComponent } from "../components/Spacer";
 import Navbar from "../components/NavBar";
 import Link from "next/link";
+import SpacerComponent from "../components/Spacer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +40,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${script.variable} flex h-screen bg-background-main`}>
-				<SpacerComponent className="h-20"></SpacerComponent>
+				<SpacerComponent size="medium"></SpacerComponent>
 				<Link href="/" className="text-text-highlight text-2xl">
 					tartaruga
 				</Link>

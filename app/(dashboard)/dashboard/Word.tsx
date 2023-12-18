@@ -18,6 +18,8 @@ async function getWords() {
 export default async function Word() {
 	const words = await getWords();
 
+	console.log(words);
+
 	return (
 		<div className="relative w-full">
 			<section className="flex space-x-2 m-auto mb-6 shadow-md items-center max-w-2xl">

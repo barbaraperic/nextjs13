@@ -1,16 +1,18 @@
 "use client";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import useStore from "./store";
 import dayjs from "dayjs";
 
-export default function SaveProgressButton({
-	children,
-	className,
-}: {
+interface SaveProgressButtonType {
 	children: any;
 	className?: string;
-}) {
+}
+
+const SaveProgressButton: FC<SaveProgressButtonType> = ({
+	children,
+	className,
+}) => {
 	const dailyTasks = useStore((state: any) => state.dailyTasks);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isDataSaved, setIsDataSaved] = useState<boolean | undefined>(false);
@@ -62,4 +64,6 @@ export default function SaveProgressButton({
 			</button>
 		</>
 	);
-}
+};
+
+export default SaveProgressButton;

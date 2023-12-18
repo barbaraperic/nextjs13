@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { AuthUser } from "@supabase/supabase-js";
 import { ButtonText } from "./texts/Texts";
+import { FC } from "react";
 
-export default function Navbar({ user }: { user: AuthUser | undefined }) {
+interface NavbarType {
+	user: AuthUser | undefined;
+}
+
+const Navbar: FC<NavbarType> = ({ user }) => {
 	return (
 		<nav className="flex justify-between py-2 items-center bg-black text-white">
 			<Link href={"/"}>
@@ -23,4 +28,6 @@ export default function Navbar({ user }: { user: AuthUser | undefined }) {
 			</div>
 		</nav>
 	);
-}
+};
+
+export default Navbar;

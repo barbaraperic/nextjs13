@@ -4,8 +4,9 @@ import AuthForm from "../AuthForm";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Heading3, Paragraph } from "@/app/components/texts/Texts";
 
-export default function Login() {
+const LoginPage = () => {
 	const [error, setError] = useState("");
 	const router = useRouter();
 
@@ -31,13 +32,15 @@ export default function Login() {
 	return (
 		<main className="flex h-full flex-col pb-40 items-center justify-center ">
 			<div className="w-5/12 space-y-10">
-				<h3 className="text-center">Sign in to your account</h3>
+				<Heading3 className="text-center">Sign in to your account</Heading3>
 				<AuthForm handleSubmit={handleSubmit} />
 				{error && <p>{error}</p>}
-				<p className="mt-10 text-center">
+				<Paragraph className="mt-10 text-center">
 					Don&apos;t have an account? <Link href="/signup">Sign up</Link>
-				</p>
+				</Paragraph>
 			</div>
 		</main>
 	);
-}
+};
+
+export default LoginPage;

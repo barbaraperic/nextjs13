@@ -3,6 +3,7 @@
 import Link from "next/link";
 import useStore from "./store";
 import { capitalize } from "@/app/utils/capitalize";
+import { Paragraph } from "@/app/components/texts/Texts";
 
 export interface WordType {
 	id: string;
@@ -53,7 +54,9 @@ export default function WordList({ words }: { words: WordType[] | undefined }) {
 							<Link href={`/collection/${word.id}`}>
 								<div
 									className={`py-5 cursor-pointer flex justify-between items-center transition-all`}>
-									<p className="text-xl">{capitalize(word.word)}</p>
+									<Paragraph className="text-xl">
+										{capitalize(word.word)}
+									</Paragraph>
 								</div>
 								<div className="flex flex-col space-y-2">
 									<div className="flex flex-col space-y-1">

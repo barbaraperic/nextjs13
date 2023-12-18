@@ -4,7 +4,6 @@ import createCalender from "../../utils/calendar";
 import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import useStore from "./store";
 
 export default function Graph() {
 	const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -14,7 +13,6 @@ export default function Graph() {
 		selectedMonth: dayjs().format("M"),
 	});
 	const [data, setData] = useState<string[] | undefined>([]);
-	const dailyTasks = useStore((state: any) => state.dailyTasks);
 
 	useEffect(() => {
 		const fetchTasks = async () => {

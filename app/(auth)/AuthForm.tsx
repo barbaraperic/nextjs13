@@ -1,7 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
-import { SpacerComponent } from "../components/Spacer";
 import Button from "../components/Button";
+import SpacerComponent from "../components/Spacer";
 
 export default function AuthForm({
 	handleSubmit,
@@ -35,7 +35,7 @@ export default function AuthForm({
 					required
 				/>
 			</label>
-			<SpacerComponent className="h-5 "></SpacerComponent>
+			<SpacerComponent size="small"></SpacerComponent>
 			<Button intent="secondary">Submit</Button>
 		</form>
 	);
