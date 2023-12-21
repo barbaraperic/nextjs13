@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@next/font": "^13.5.4",
+    "@prisma/client": "^5.7.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.21.0",
     "@supabase/auth-helpers-nextjs": "^0.8.1",
@@ -44,5 +45,8 @@
     "typescript": "5.2.2",
     "zod": "^3.22.4",
     "zustand": "^4.4.6"
+  },
+  "devDependencies": {
+    "prisma": "^5.7.1"
   }
 }
