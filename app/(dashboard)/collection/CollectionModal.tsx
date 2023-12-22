@@ -4,8 +4,10 @@ import { useState } from "react";
 import ExitIconComponent from "../../components/icons/exitIcon";
 import Button from "@/app/components/Button";
 import SpacerComponent from "@/app/components/Spacer";
+import db from "@/utils/db";
+import { newCollection } from "@/utils/actions";
 
-export default function WordModal() {
+const CollectionModal = () => {
 	const router = useRouter();
 
 	const [word, setWord] = useState("");
@@ -13,34 +15,6 @@ export default function WordModal() {
 	const [context, setContext] = useState("");
 	const [difficulty, setDifficulty] = useState("low");
 	const [isLoading, setIsLoading] = useState(false);
-
-	async function handleSubmit(e: any) {
-		e.preventDefault();
-		setIsLoading(true);
-
-		const newWord = {
-			word,
-			translation,
-			context,
-			difficulty,
-		};
-
-		const res = await fetch("http://localhost:3000/api/words", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(newWord),
-		});
-
-		const json = await res.json();
-
-		if (json.error) {
-			console.log(json.error);
-		}
-		if (json.data) {
-			router.refresh();
-			router.push("/collection");
-		}
-	}
 
 	function handleClose() {
 		router.replace("/collection");
@@ -56,49 +30,33 @@ export default function WordModal() {
 				</button>
 				<div className="flex flex-col items-center space-y-6">
 					<form
-						onSubmit={handleSubmit}
+						action={newCollection}
+						// onSubmit={handleSubmit}
 						className="flex flex-col space-y-4 items-center">
 						<label className="w-full">
-							<span>word</span>
+							<span>Front text</span>
 							<input
+								name="front-text"
 								className="w-full border-2 p-2"
 								required={true}
 								type="text"
-								onChange={(e) => setWord(e.target.value)}
-								value={word}
+								// onChange={(e) => setWord(e.target.value)}
+								// value={word}
 							/>
 						</label>
 						<label className="w-full">
-							<span>translation</span>
+							<span>Back text</span>
 							<input
+								name="back-text"
 								className="w-full border-2 p-2"
 								required={true}
 								type="text"
-								onChange={(e) => setTranslation(e.target.value)}
-								value={translation}
+								// onChange={(e) => setTranslation(e.target.value)}
+								// value={translation}
 							/>
-						</label>
-						<label className="w-full">
-							<span>context</span>
-							<textarea
-								className="w-full p-2 border-2"
-								onChange={(e) => setContext(e.target.value)}
-								value={context}
-							/>
-						</label>
-						<label className="w-full">
-							<span>difficulty</span>
-							<select
-								className="w-full border-2 p-2"
-								onChange={(e) => setDifficulty(e.target.value)}
-								value={difficulty}>
-								<option value="low">Low</option>
-								<option value="medium">Medium</option>
-								<option value="high">High</option>
-							</select>
 						</label>
 						<SpacerComponent size="small"></SpacerComponent>
-						<Button className=" w-full" intent="secondary">
+						<Button type="submit" className=" w-full" intent="secondary">
 							{isLoading && <span>Adding...</span>}
 							{!isLoading && <span>Add word</span>}
 						</Button>
@@ -107,6 +65,6 @@ export default function WordModal() {
 			</div>
 		</div>
 	);
-}
+};
 
-//disabled={isLoading}
+export default CollectionModal;

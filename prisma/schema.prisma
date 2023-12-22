@@ -15,8 +15,8 @@ model Collection {
   createdAt DateTime @default(now())
   frontText String
   backText String
-  position String
-  lastReviewed DateTime
+  // position String @default() 
+  lastReviewed DateTime?
 }
 
 model Deck {

@@ -10,24 +10,24 @@ const LoginPage = () => {
 	const [error, setError] = useState("");
 	const router = useRouter();
 
-	const handleSubmit = async (e: any, email: string, password: string) => {
-		e.preventDefault();
-		setError("");
+	// const handleSubmit = async (e: any, email: string, password: string) => {
+	// 	e.preventDefault();
+	// 	setError("");
 
-		const supabase = createClientComponentClient();
-		const { error } = await supabase.auth.signInWithPassword({
-			email,
-			password,
-		});
+	// 	const supabase = createClientComponentClient();
+	// 	const { error } = await supabase.auth.signInWithPassword({
+	// 		email,
+	// 		password,
+	// 	});
 
-		if (error) {
-			setError(error.message);
-		}
+	// 	if (error) {
+	// 		setError(error.message);
+	// 	}
 
-		if (!error) {
-			router.push("/");
-		}
-	};
+	// 	if (!error) {
+	// 		router.push("/");
+	// 	}
+	// };
 
 	return (
 		<main className="flex h-full flex-col pb-40 items-center justify-center ">

@@ -1,18 +1,15 @@
 "use client";
-
 import Link from "next/link";
 import useStore from "./store";
 import { capitalize } from "@/app/utils/capitalize";
 import { Paragraph } from "@/app/components/texts/Texts";
+import { CollectionType } from "@/app/types/types";
 
-export interface WordType {
-	id: string;
-	word: string;
-	translation: string;
-	context: string;
-}
-
-export default function WordList({ words }: { words: WordType[] | undefined }) {
+const CollectionList = ({
+	collection,
+}: {
+	collection: CollectionType[] | undefined;
+}) => {
 	const {
 		wordsPerPage,
 		currentSliceStart,
@@ -38,24 +35,24 @@ export default function WordList({ words }: { words: WordType[] | undefined }) {
 		previousPage();
 	}
 
-	const wordsLength = (words && words.length) || 0;
+	// const wordsLength = (words && words.length) || 0;
 
-	const pageCount = Math.ceil(wordsLength / wordsPerPage);
+	// const pageCount = Math.ceil(wordsLength / wordsPerPage);
 
-	const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
+	// const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
 
 	return (
 		<div className="min-h-[600px] flex flex-col space-y-6">
 			<div>
-				{words
+				{collection
 					?.slice(currentSliceStart, currentSliceEnd)
-					.map((word: WordType) => (
-						<div key={word.id}>
-							<Link href={`/collection/${word.id}`}>
+					.map((c: CollectionType) => (
+						<div key={c.id}>
+							<Link href={`/collection/${c.id}`}>
 								<div
 									className={`py-5 cursor-pointer flex justify-between items-center transition-all`}>
 									<Paragraph className="text-xl">
-										{capitalize(word.word)}
+										{capitalize(c.frontText)}
 									</Paragraph>
 								</div>
 								<div className="flex flex-col space-y-2">
@@ -63,22 +60,14 @@ export default function WordList({ words }: { words: WordType[] | undefined }) {
 										<span className="uppercase font-bold text-xs text-text-highlight">
 											Translation
 										</span>
-										<p>{capitalize(word.translation)}</p>
+										<p>{capitalize(c.backText)}</p>
 									</div>
-									{word.context && (
-										<div className="flex flex-col space-y-1">
-											<span className="uppercase font-bold text-xs text-text-highlight">
-												Example
-											</span>
-											<p className="italic">{capitalize(word.context)}</p>
-										</div>
-									)}
 								</div>
 							</Link>
 						</div>
 					))}
 			</div>
-			{currentSliceStart >= wordsPerPage && (
+			{/* {currentSliceStart >= wordsPerPage && (
 				<div className="flex items-center space-x-2 justify-center">
 					{pages.map((pageNumber) => (
 						<>
@@ -107,7 +96,9 @@ export default function WordList({ words }: { words: WordType[] | undefined }) {
 						</>
 					))}
 				</div>
-			)}
+			)} */}
 		</div>
 	);
-}
+};
+
+export default CollectionList;

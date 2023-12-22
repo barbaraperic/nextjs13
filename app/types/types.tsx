@@ -4,11 +4,17 @@ export interface TaskType {
 	task: string;
 }
 
-export interface WordType {
-	context: string;
-	createdAt: string;
-	difficulty: "low" | "medium" | "hard";
-	id: number;
-	translation: string;
-	word: string;
+export interface CollectionType {
+	id: string;
+	createdAt: Date;
+	frontText: string;
+	backText: string;
+	lastReviewed: Date;
+	position?: string;
+}
+
+// FORM
+export interface EmptyFormDataType {
+	email: String;
+	password: String;
 }
