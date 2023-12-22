@@ -39,7 +39,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en">
-			<body className={`${script.variable} flex h-screen bg-background-main`}>
+			<body className={`${script.variable}`}>
 				<SpacerComponent size="medium"></SpacerComponent>
 				<Link href="/" className="text-text-highlight text-2xl">
 					tartaruga

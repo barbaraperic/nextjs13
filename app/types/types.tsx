@@ -15,6 +15,6 @@ export interface CollectionType {
 
 // FORM
 export interface EmptyFormDataType {
-	email: String;
-	password: String;
+	email: string;
+	password: string;
 }

@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../components/Button";
 import SpacerComponent from "../components/Spacer";
 import { EmptyFormDataType } from "../types/types";
+import { useRouter } from "next/navigation";
 
 const emptyFormData = {
 	email: "",
@@ -16,23 +17,19 @@ const STATUS = {
 	COMPLETED: "COMPLETED",
 };
 
-export default function AuthForm({
-	handleSubmit,
-}: {
-	handleSubmit: (e: FormEvent, email: string, password: string) => void;
-}) {
+export default function AuthForm() {
 	const [formData, setFormData] = useState(emptyFormData);
 	const [status, setStatus] = useState(STATUS.IDLE);
 	const [saveError, setSaveError] = useState(null);
 	const [touched, setTouched] = useState({});
 
 	// derived state
+	const errors = getErrors(formData);
+	const isValid = Object.keys(errors).length === 0;
 
-	console.log(formData);
+	const router = useRouter();
 
-	const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
-		e: ChangeEvent<HTMLInputElement>
-	) => {
+	function handleChange(e: ChangeEvent<HTMLInputElement>) {
 		const target = e.target as HTMLInputElement;
 		setFormData((currData) => {
 			return {
@@ -40,40 +37,83 @@ export default function AuthForm({
 				[target.id]: target.value,
 			};
 		});
-	};
+	}
+
+	function handleSubmit(e: FormEvent) {
+		e.preventDefault();
+		setStatus(STATUS.SUBMITTING);
+		if (isValid) {
+			try {
+				setStatus(STATUS.COMPLETED);
+			} catch (e: any) {
+				setSaveError(e);
+			}
+		} else {
+			setStatus(STATUS.SUBMITTED);
+		}
+	}
 
 	function getErrors(formData: EmptyFormDataType) {
 		const result = {} as any;
 		if (!formData.email) result.email = "Email is required";
 		if (!formData.password) result.password = "Password is required";
+		return result;
 	}
 
+	function handleBlur(e: ChangeEvent<HTMLInputElement>) {
+		const target = e.target as HTMLInputElement;
+
+		setTouched((curr) => {
+			return {
+				...curr,
+				[target.id]: true,
+			};
+		});
+	}
+
+	if (saveError) throw saveError;
+	// if (STATUS.COMPLETED) {
+	// 	router.push("/dashboard");
+	// }
+
+	console.log("status", status);
+	console.log("status2", touched.email || STATUS.SUBMITTED);
+
 	return (
-		<form
-			// onSubmit={(e) => handleSubmit(e, email, password)}
-			className="flex flex-col space-y-5 w-full">
-			<label htmlFor="" className="flex flex-col space-y-1">
-				<span>Your email</span>
-				<input
-					type="email"
-					className="border p-2 border-dark"
-					onChange={handleChange}
-					value={formData.email}
-					required
-				/>
-			</label>
-			<label htmlFor="" className="flex flex-col space-y-1">
-				<span>Your password</span>
-				<input
-					type="password"
-					className="border p-2 border-dark"
-					onChange={handleChange}
-					value={formData.password}
-					required
-				/>
-			</label>
-			<SpacerComponent size="small"></SpacerComponent>
-			<Button intent="secondary">Submit</Button>
-		</form>
+		<>
+			<form onSubmit={handleSubmit} className="flex flex-col space-y-5 w-full">
+				<label htmlFor="" className="flex flex-col space-y-1">
+					<span>Your email</span>
+					<input
+						id="email"
+						type="email"
+						className="border p-2 border-dark"
+						onChange={handleChange}
+						onBlur={handleBlur}
+						value={formData.email}
+					/>
+					<p role="alert" className="text-rose-800 h-5">
+						{(touched.email || status === STATUS.SUBMITTED) && errors.email}
+					</p>
+				</label>
+				<label htmlFor="" className="flex flex-col space-y-1">
+					<span>Your password</span>
+					<input
+						id="password"
+						type="password"
+						className="border p-2 border-dark"
+						onChange={handleChange}
+						onBlur={handleBlur}
+						value={formData.password}
+					/>
+					<p role="alert" className="text-rose-800 h-5">
+						{(touched.password || status === STATUS.SUBMITTED) &&
+							errors.password}
+					</p>
+				</label>
+				<SpacerComponent size="small"></SpacerComponent>
+				<Button intent="secondary">Submit</Button>
+			</form>
+		</>
 	);
 }

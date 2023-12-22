@@ -33,7 +33,7 @@ const LoginPage = () => {
 		<main className="flex h-full flex-col pb-40 items-center justify-center ">
 			<div className="w-5/12 space-y-10">
 				<Heading3 className="text-center">Sign in to your account</Heading3>
-				<AuthForm handleSubmit={handleSubmit} />
+				<AuthForm />
 				{error && <p>{error}</p>}
 				<Paragraph className="mt-10 text-center">
 					Don&apos;t have an account? <Link href="/signup">Sign up</Link>

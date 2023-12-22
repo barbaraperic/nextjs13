@@ -33,7 +33,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en">
-			<body className={` ${body.variable} bg-background-main`}>{children}</body>
+			<body className={` ${body.variable}`}>{children}</body>
 		</html>
 	);
 }
