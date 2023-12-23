@@ -1,8 +1,8 @@
 import LinkPrimary from "@/app/components/LinkPrimary";
 import { Heading3 } from "@/app/components/texts/Texts";
 import db from "@/utils/db";
-import CollectionList from "./CollectionList";
-import CollectionModal from "./CollectionModal";
+import CollectionList from "./collection-list";
+import CollectionModal from "./collection-modal";
 
 type Props = {
 	searchParams: Record<string, string> | null | undefined;

@@ -5,10 +5,6 @@ import Tartaruga from "../components/illustrations/Tartaruga.png";
 import SpacerComponent from "../components/Spacer";
 import Link from "next/link";
 
-// type Props = {
-// 	searchParams: Record<string, string> | null | undefined;
-// };
-
 export default function Homepage() {
 	return (
 		<main className="h-full w-full grid grid-cols-2 px-20">

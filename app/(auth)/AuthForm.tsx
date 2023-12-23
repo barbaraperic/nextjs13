@@ -10,6 +10,11 @@ const emptyFormData = {
 	password: "",
 } as EmptyFormDataType;
 
+const emptyTouchedData = {
+	email: false,
+	password: false,
+};
+
 const STATUS = {
 	IDLE: "IDLE",
 	SUBMITTED: "SUBMITTED",
@@ -21,7 +26,7 @@ export default function AuthForm() {
 	const [formData, setFormData] = useState(emptyFormData);
 	const [status, setStatus] = useState(STATUS.IDLE);
 	const [saveError, setSaveError] = useState(null);
-	const [touched, setTouched] = useState({});
+	const [touched, setTouched] = useState(emptyTouchedData);
 
 	// derived state
 	const errors = getErrors(formData);
@@ -77,7 +82,7 @@ export default function AuthForm() {
 	// }
 
 	console.log("status", status);
-	console.log("status2", touched.email || STATUS.SUBMITTED);
+	console.log("status2", Object.keys(touched).length !== 0 && touched.email);
 
 	return (
 		<>

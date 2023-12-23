@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import useStore from "./store";
+import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Heading3, Paragraph } from "@/app/components/texts/Texts";
 import Button from "@/app/components/Button";

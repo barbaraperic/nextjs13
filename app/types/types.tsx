@@ -9,7 +9,7 @@ export interface CollectionType {
 	createdAt: Date;
 	frontText: string;
 	backText: string;
-	lastReviewed: Date;
+	lastReviewed: Date | null;
 	position?: string;
 }
 

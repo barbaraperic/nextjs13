@@ -5,11 +5,11 @@ import { capitalize } from "@/app/utils/capitalize";
 import { Paragraph } from "@/app/components/texts/Texts";
 import { CollectionType } from "@/app/types/types";
 
-const CollectionList = ({
+export default function CollectionList({
 	collection,
 }: {
 	collection: CollectionType[] | undefined;
-}) => {
+}) {
 	const {
 		wordsPerPage,
 		currentSliceStart,
@@ -99,6 +99,4 @@ const CollectionList = ({
 			)} */}
 		</div>
 	);
-};
-
-export default CollectionList;
+}

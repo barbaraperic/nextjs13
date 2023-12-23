@@ -7,14 +7,8 @@ import SpacerComponent from "@/app/components/Spacer";
 import db from "@/utils/db";
 import { newCollection } from "@/utils/actions";
 
-const CollectionModal = () => {
+export default function CollectionModal() {
 	const router = useRouter();
-
-	const [word, setWord] = useState("");
-	const [translation, setTranslation] = useState("");
-	const [context, setContext] = useState("");
-	const [difficulty, setDifficulty] = useState("low");
-	const [isLoading, setIsLoading] = useState(false);
 
 	function handleClose() {
 		router.replace("/collection");
@@ -56,15 +50,12 @@ const CollectionModal = () => {
 							/>
 						</label>
 						<SpacerComponent size="small"></SpacerComponent>
-						<Button type="submit" className=" w-full" intent="secondary">
-							{isLoading && <span>Adding...</span>}
-							{!isLoading && <span>Add word</span>}
-						</Button>
+						<button type="submit" className=" w-full">
+							<span>Add word</span>
+						</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	);
-};
-
-export default CollectionModal;
+}
