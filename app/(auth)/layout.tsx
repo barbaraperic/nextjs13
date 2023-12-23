@@ -36,7 +36,7 @@ export default async function RootLayout({
 		<html lang="en">
 			<body className={`${script.variable}`}>
 				<SpacerComponent size="small"></SpacerComponent>
-				<Link href="/" className="text-text-highlight text-2xl">
+				<Link href="/" className="text-2xl">
 					tartaruga
 				</Link>
 				{children}

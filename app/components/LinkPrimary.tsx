@@ -5,14 +5,14 @@ export default function LinkPrimary({
 	className,
 	href,
 }: {
-	children: any;
+	children: React.ReactNode;
 	className?: string;
 	href: string;
 }) {
 	return (
 		<Link
 			href={href}
-			className={`py-4 max-w-[260px] transition-all ease-in-out shadow font-bold bg-text-highlight text-text-tertiary hover:shadow-xl flex justify-center text-lg rounded-xl cursor ${className}`}>
+			className={`py-4 max-w-[260px] transition-all ease-in-out shadow font-bold hover:shadow-xl flex justify-center text-lg rounded-xl cursor ${className}`}>
 			{children}
 		</Link>
 	);

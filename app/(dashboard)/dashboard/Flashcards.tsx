@@ -15,9 +15,7 @@ export default function Flashcards() {
 
 	return (
 		<div className="w-full min-h-[370px] border rounded-md p-6 flex-col space-y-6 items-center relative flex gap-2">
-			<Heading3 className="text-text-highlight">
-				{flashcard.translation}
-			</Heading3>
+			<Heading3>{flashcard.translation}</Heading3>
 			<button onClick={() => setShowTranslation(!showTranslation)}>
 				{showTranslation ? (
 					<FiEye className="w-6 h-6" />

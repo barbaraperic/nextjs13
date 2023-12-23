@@ -12,7 +12,7 @@ const SignupPage = () => {
 				<AuthForm />
 				<Paragraph className="mt-10 text-center">
 					Already have an account?{" "}
-					<Link className="text-text-highlight" href="/login">
+					<Link className="text-green-400" href="/login">
 						Login
 					</Link>
 				</Paragraph>

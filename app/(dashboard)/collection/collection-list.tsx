@@ -57,7 +57,7 @@ export default function CollectionList({
 								</div>
 								<div className="flex flex-col space-y-2">
 									<div className="flex flex-col space-y-1">
-										<span className="uppercase font-bold text-xs text-text-highlight">
+										<span className="uppercase font-bold text-xs">
 											Translation
 										</span>
 										<p>{capitalize(c.backText)}</p>

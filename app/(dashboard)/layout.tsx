@@ -1,9 +1,13 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import NavLinks from "./nav-links";
-import Graph from "./dashboard/Graph";
+import Graph from "./dashboard/graph";
 
-export default async function AuthLayout({ children }: { children: any }) {
+export default async function AuthLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const supabase = createServerComponentClient({ cookies });
 	const { data } = await supabase.auth.getSession();
 
@@ -13,13 +17,10 @@ export default async function AuthLayout({ children }: { children: any }) {
 
 	return (
 		<main className="relative w-full flex h-screen">
-			<section className="min-w-[400px] border-r border-text-headline pt-12 pr-9 space-y-8">
+			<section className="min-w-[250px] border-r border-green-400 pt-12">
 				<NavLinks />
-				<div className="min-h-[488px] mt-14">
-					<Graph />
-				</div>
 			</section>
-			<section className="flex-1 pt-12 p-9 space-y-6">{children}</section>
+			<section className="flex-1 ">{children}</section>
 		</main>
 	);
 }

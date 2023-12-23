@@ -20,9 +20,9 @@ const CollectionPage = async ({ searchParams }: Props) => {
 	console.log(data);
 
 	return (
-		<main className=" h-full flex flex-col justify-between">
+		<main className="h-full flex flex-col justify-between">
 			<section className="space-y-10">
-				<Heading3 className="text-text-highlight">Collection of words</Heading3>
+				<Heading3>Collection of words</Heading3>
 				<CollectionList collection={data}></CollectionList>
 			</section>
 			<LinkPrimary href={"/collection/?wordModal=true"}>

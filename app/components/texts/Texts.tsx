@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 interface TextProps {
-	children: any;
+	children: React.ReactNode;
 	className?: string;
 }
 

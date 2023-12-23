@@ -28,8 +28,8 @@ html {
 
 body {
 	line-height: 1.5;
-	margin-left: 36px;
-	margin-right: 36px;
+	/* margin-left: 36px;
+	margin-right: 36px; */
 	height: 100vh;
 	display: flex;
 	flex-direction: column;

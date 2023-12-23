@@ -5,7 +5,11 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Navbar from "./NavBar";
 import Footer from "./Footer";
 
-export default async function AuthLayout({ children }: { children: any }) {
+export default async function AuthLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const supabase = createServerComponentClient({ cookies });
 	const { data } = await supabase.auth.getSession();
 

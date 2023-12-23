@@ -105,12 +105,10 @@ export default function Graph() {
 						<div key={day.date}>
 							<li
 								className={`${
-									day.isCurrentMonth
-										? "text-text-highlight border-text-highlight"
-										: ""
-								} relative hover:shadow-md min-h-[60px] cursor-pointer border rounded-lg p-3 ${
+									day.isCurrentMonth ? "text-green-400 border-green-400" : ""
+								} relative hover:shadow-md min-h-[40px] cursor-pointer border rounded-lg p-3 ${
 									data?.includes(new Date(day.date).toUTCString())
-										? "bg-text-highlight text-text-tertiary font-bold"
+										? "bg-green-400 text-white font-bold"
 										: ""
 								} ${
 									day.date === dayjs().format("YYYY-MM-DD")
@@ -118,7 +116,7 @@ export default function Graph() {
 										: ""
 								} `}>
 								<span
-									className={`flex justify-center items-center absolute right-1 w-5 h-5"`}>
+									className={`flex text-sm justify-center items-center absolute right-1 w-5 h-5"`}>
 									{day.dayOfMonth}
 								</span>
 							</li>

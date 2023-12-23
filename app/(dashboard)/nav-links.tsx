@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiBook, FiHome } from "react-icons/fi";
 import clsx from "clsx";
+import { Paragraph } from "../components/texts/Texts";
 
 export default function NavLinks() {
 	const pathname = usePathname();
@@ -21,7 +22,7 @@ export default function NavLinks() {
 	];
 
 	return (
-		<div className="flex space-x-3">
+		<>
 			{links.map((link) => {
 				const LinkIcon = link.icon;
 				return (
@@ -34,10 +35,11 @@ export default function NavLinks() {
 								"bg-snow-100 text-green-300": pathname === link.href,
 							}
 						)}>
-						<LinkIcon className="text-text-headline hover:shadow-lg w-6 h-6 cursor-pointer" />
+						<LinkIcon className="w-6 h-6" />
+						<Paragraph className="hidden md:block">{link.name}</Paragraph>
 					</Link>
 				);
 			})}
-		</div>
+		</>
 	);
 }

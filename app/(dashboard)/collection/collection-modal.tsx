@@ -16,11 +16,11 @@ export default function CollectionModal() {
 
 	return (
 		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] bg-background-card flex flex-col justify-center relative min-h-[530px] border-2 p-3 rounded-lg pb-5">
+			<div className="w-[400px] flex flex-col justify-center relative min-h-[530px] border-2 p-3 rounded-lg pb-5">
 				<button
 					className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
 					onClick={handleClose}>
-					<ExitIconComponent className="h-6 text-text-headline"></ExitIconComponent>
+					<ExitIconComponent className="h-6"></ExitIconComponent>
 				</button>
 				<div className="flex flex-col items-center space-y-6">
 					<form

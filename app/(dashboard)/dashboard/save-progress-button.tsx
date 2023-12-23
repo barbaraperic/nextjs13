@@ -5,7 +5,7 @@ import useStore from "./store";
 import dayjs from "dayjs";
 
 interface SaveProgressButtonType {
-	children: any;
+	children: React.ReactNode;
 	className?: string;
 }
 
