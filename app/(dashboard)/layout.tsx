@@ -20,7 +20,7 @@ export default async function AuthLayout({
 			<section className="min-w-[250px] border-r border-green-400 pt-12">
 				<NavLinks />
 			</section>
-			<section className="flex-1 p-10">{children}</section>
+			<section className="flex-1 p-10 flex flex-col">{children}</section>
 		</main>
 	);
 }

@@ -13,7 +13,7 @@ export default async function Dashboard() {
 		collection.data[Math.floor(Math.random() * collection.data.length)];
 
 	return (
-		<main className="flex flex-1 h-full">
+		<main className="flex flex-1 h-full flex-col">
 			<Heading3>Flashcards</Heading3>
 			<section className="relative mb-6 rounded-lg space-y-10 flex-1 flex justify-center items-center">
 				<div className="min-w-3xl">
