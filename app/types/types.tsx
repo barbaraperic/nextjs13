@@ -18,3 +18,7 @@ export interface EmptyFormDataType {
 	email: string;
 	password: string;
 }
+
+export type Props = {
+	searchParams: Record<string, string> | null | undefined;
+};

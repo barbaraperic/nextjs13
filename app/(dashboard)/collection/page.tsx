@@ -3,10 +3,7 @@ import { Heading3 } from "@/app/components/texts/Texts";
 import CollectionList from "./collection-list";
 import CollectionModal from "./collection-modal";
 import { getAllCollections } from "@/utils/actions";
-
-type Props = {
-	searchParams: Record<string, string> | null | undefined;
-};
+import { Props } from "@/app/types/types";
 
 const CollectionPage = async ({ searchParams }: Props) => {
 	const showWordModal = searchParams?.wordModal;

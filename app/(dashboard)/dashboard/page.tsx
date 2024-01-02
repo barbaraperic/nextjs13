@@ -3,11 +3,10 @@ import Flashcards from "./flashcards";
 import Graph from "../statistics/graph";
 import { getAllCollections, getAllCurrentCollections } from "@/utils/actions";
 import React from "react";
+import { Props } from "@/app/types/types";
 
-export default async function Dashboard() {
+export default async function Dashboard({ searchParams }: Props) {
 	const collection = await getAllCurrentCollections();
-
-	console.log(collection);
 
 	const randomFlashcard =
 		collection.data[Math.floor(Math.random() * collection.data.length)];
