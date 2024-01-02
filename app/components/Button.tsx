@@ -17,18 +17,15 @@ const buttonClasses = cva(
 		variants: {
 			intent: {
 				primary: ["bg-green-300", "text-white", "hover:bg-green-400"],
-				secondary: [
-					"bg-white",
-					"text-black",
-					"shadow-basic",
-					// "hover:bg-gray-100",
-				],
+				secondary: ["bg-white", "text-black", "shadow-basic"],
+				tertiarySuccess: ["bg-green-600", "text-white", "shadow-none"],
+				tertiaryWarning: ["bg-rose-600", "text-white", "shadow-none"],
 				text: ["bg-transparent", "text-black", "hover:text-green-400"],
 			},
 			size: {
 				small: ["text-md", "py-1", "px-2"],
 				medium: ["text-lg", "px-8", "py-3"],
-				large: ["text-xl", "px-8", "py-4"],
+				large: ["text-xl", "px-14", "py-4"],
 			},
 		},
 		defaultVariants: {

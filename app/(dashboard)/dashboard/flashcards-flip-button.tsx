@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FiRefreshCcw } from "react-icons/fi";
 
-export default function FlashcardsFlip() {
+export default function FlashcardsFlipButton() {
 	const [showTranslation, setShowTranslation] = useState(false);
 
 	return (
