@@ -15,7 +15,6 @@ model Collection {
   createdAt DateTime @default(now())
   frontText String
   backText String
-  // position String @default() 
   lastReviewed DateTime?
 }
 

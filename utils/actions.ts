@@ -13,3 +13,27 @@ export const newCollection = async (formData: any) => {
 
 	revalidatePath("/collection");
 };
+
+export const getAllCollections = async () => {
+	const collection = await db.collection.findMany({});
+
+	return { data: collection };
+
+	// revalidatePath("/collection");
+};
+
+export const getAllCurrentCollections = async () => {
+	const currentDate = new Date();
+	const currentMonth = currentDate.getMonth() + 1;
+	const currentYear = currentDate.getFullYear();
+
+	const collection = await db.collection.findMany({
+		where: {
+			createdAt: {
+				gte: new Date(currentYear, currentMonth - 1, 1),
+			},
+		},
+	});
+
+	return { data: collection };
+};

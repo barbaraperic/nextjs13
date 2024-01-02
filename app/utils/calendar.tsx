@@ -21,6 +21,7 @@ export default function createCalender(
 				date: dayjs(`${year}-${month}-${index + 1}`).format("YYYY-MM-DD"),
 				dayOfMonth: index + 1,
 				isCurrentMonth: true,
+				isCompleted: false,
 			};
 		});
 	}
@@ -52,6 +53,7 @@ export default function createCalender(
 					).format("YYYY-MM-DD"),
 					dayOfMonth: previousMonthLastMondayDayOfMonth + index,
 					isCurrentMonth: false,
+					isCompleted: false,
 				};
 			}
 		);
@@ -72,6 +74,7 @@ export default function createCalender(
 				),
 				dayOfMonth: index + 1,
 				isCurrentMonth: false,
+				isCompleted: false,
 			};
 		});
 	}

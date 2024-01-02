@@ -3,15 +3,9 @@ import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Heading3, Paragraph } from "@/app/components/texts/Texts";
 import Button from "@/app/components/Button";
-import { collection } from "../../../content";
 
-export default function Flashcards() {
-	const { data } = collection;
-
+export default function Flashcards({ flashcard }) {
 	const [showTranslation, setShowTranslation] = useState(false);
-	const [flashcard, setFlashcard] = useState(
-		data[Math.floor(Math.random() * data.length)]
-	);
 
 	return (
 		<div className="w-full min-h-[370px] border rounded-md p-6 flex-col space-y-6 items-center relative flex gap-2">
@@ -31,12 +25,12 @@ export default function Flashcards() {
 				} mb-3 flex-1`}>
 				<Paragraph className="font-md italic">{flashcard.original}</Paragraph>
 			</div>
-			<Button
+			{/* <Button
 				onClick={() => {
 					setFlashcard(() => data[Math.floor(Math.random() * data.length)]);
 				}}>
 				Next
-			</Button>
+			</Button> */}
 		</div>
 	);
 }
