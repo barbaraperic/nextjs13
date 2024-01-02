@@ -14,8 +14,8 @@ const CollectionPage = async ({ searchParams }: Props) => {
 
 	return (
 		<main className="h-full flex flex-col justify-between">
-			<section className="space-y-10 relative p-10">
-				<Heading3>Collection</Heading3>
+			<Heading3>Collection</Heading3>
+			<section className="space-y-10 relative ">
 				<CollectionList collection={collection.data}></CollectionList>
 			</section>
 			<LinkPrimary

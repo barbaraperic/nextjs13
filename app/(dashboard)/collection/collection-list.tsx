@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import useStore from "./store";
 import { capitalize } from "@/app/utils/capitalize";
 import { Paragraph } from "@/app/components/texts/Texts";
 import { CollectionType } from "@/app/types/types";

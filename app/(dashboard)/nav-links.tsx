@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiBook, FiHome } from "react-icons/fi";
+import { FiBook, FiHome, FiClipboard } from "react-icons/fi";
 import clsx from "clsx";
 import { Paragraph } from "../components/texts/Texts";
 
@@ -18,6 +18,11 @@ export default function NavLinks() {
 			name: "Collection",
 			href: "/collection",
 			icon: FiBook,
+		},
+		{
+			name: "Statistics",
+			href: "/statistics",
+			icon: FiClipboard,
 		},
 	];
 

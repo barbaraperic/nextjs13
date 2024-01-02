@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import NavLinks from "./nav-links";
-import Graph from "./dashboard/graph";
+import Graph from "./statistics/graph";
 
 export default async function AuthLayout({
 	children,
@@ -20,7 +20,7 @@ export default async function AuthLayout({
 			<section className="min-w-[250px] border-r border-green-400 pt-12">
 				<NavLinks />
 			</section>
-			<section className="flex-1 ">{children}</section>
+			<section className="flex-1 p-10">{children}</section>
 		</main>
 	);
 }
