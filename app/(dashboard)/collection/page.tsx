@@ -1,5 +1,4 @@
 import LinkPrimary from "@/app/components/LinkPrimary";
-import { Heading3 } from "@/app/components/texts/Texts";
 import CollectionList from "./collection-list";
 import CollectionModal from "./collection-modal";
 import { getAllCollections } from "@/utils/actions";
@@ -11,7 +10,6 @@ const CollectionPage = async ({ searchParams }: Props) => {
 
 	return (
 		<main className="h-full flex flex-col justify-between">
-			<Heading3>Collection</Heading3>
 			<section className="space-y-10 relative ">
 				<CollectionList collection={collection.data}></CollectionList>
 			</section>

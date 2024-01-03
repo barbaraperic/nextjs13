@@ -12,7 +12,6 @@ export default async function Dashboard() {
 
 	return (
 		<main className="flex flex-col flex-1 h-full">
-			<Heading3 className="text-text-highlight">Statistics</Heading3>
 			<div className="relative mb-6 rounded-lg space-y-10 flex-1 flex flex-col justify-center items-center">
 				<Graph collection={collection.data} />
 			</div>

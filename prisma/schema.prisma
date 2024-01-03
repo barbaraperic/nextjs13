@@ -15,7 +15,9 @@ model Collection {
   createdAt DateTime @default(now())
   frontText String
   backText String
-  lastReviewed DateTime?
+  interval Float @default(0.1)
+  n Int @default(0)
+  efactor Float @default(2.5)
 }
 
 model Deck {
@@ -24,3 +26,5 @@ model Deck {
   title String
   description String
 }
+
+
