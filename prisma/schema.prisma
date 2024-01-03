@@ -15,8 +15,7 @@ model Collection {
   createdAt DateTime @default(now())
   frontText String
   backText String
-  interval Float @default(0.1)
-  n Int @default(0)
+  interval Int @default(1)
   efactor Float @default(2.5)
 }
 

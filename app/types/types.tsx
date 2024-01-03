@@ -9,8 +9,8 @@ export interface CollectionType {
 	createdAt: Date;
 	frontText: string;
 	backText: string;
-	lastReviewed: Date | null;
-	position?: string;
+	interval: number;
+	efactor: number;
 }
 
 // FORM

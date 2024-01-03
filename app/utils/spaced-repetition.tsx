@@ -5,8 +5,6 @@
 //   interval: when to review the card again, number of days, 0.1 will be in 24h, 0.7 in a week etc
 //   data: optional
 // }
-//
-
 // PARAMETERS
 // previous - the last known state of the model for the given card
 // evaluation - represents the information for the current review,
@@ -21,14 +19,17 @@
 
 // 0 - hard, 1 - good, 2 - easy
 
-type EvaluationType = 0 | 1 | 2;
+export type EvaluationType = 0 | 1 | 2;
 
 interface PreviousType {
 	interval: number;
 	efactor: number;
 }
 
-function srsFund(previous: PreviousType, evaluation: EvaluationType) {
+export default function spacedRepetitionFn(
+	previous: PreviousType,
+	evaluation: EvaluationType
+) {
 	// evaluation: score and lateness
 	// click hard or easy
 
@@ -62,4 +63,4 @@ const prev = {
 	efactor: 1,
 };
 
-console.log(srsFund(prev, 1));
+console.log(spacedRepetitionFn(prev, 1));

@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import WordFlashcards from "./flashcards";
+import WordFlashcards from "./flashcard-list";
 import SaveProgressButton from "./save-progress-button";
 
 async function getWords() {
