@@ -19,11 +19,20 @@
 
 // 0 - hard, 1 - good, 2 - easy
 
+import dayjs from "dayjs";
+
 export type EvaluationType = 0 | 1 | 2;
+
+const date = new Date();
+
+const currentDate = dayjs();
+const formattedDate = currentDate.format("YYYY-MM-DD");
+const a = dayjs();
 
 interface PreviousType {
 	interval: number;
 	efactor: number;
+	nextReview: string;
 }
 
 export default function spacedRepetitionFn(
@@ -38,16 +47,19 @@ export default function spacedRepetitionFn(
 			return {
 				interval: previous.interval + 0,
 				efactor: 1,
+				nextReview: a.add(1, "day").format("YYYY-MM-DD"),
 			};
 		case 1:
 			return {
 				interval: previous.interval + 1,
 				efactor: 1.5,
+				nextReview: a.add(2, "day").format("YYYY-MM-DD"),
 			};
 		case 2:
 			return {
 				interval: previous.interval + 2,
 				efactor: previous.efactor === 1 ? 1.5 : 2.5,
+				nextReview: a.add(3, "day").format("YYYY-MM-DD"),
 			};
 		default: {
 			return {
@@ -61,6 +73,7 @@ export default function spacedRepetitionFn(
 const prev = {
 	interval: 1,
 	efactor: 1,
+	nextReview: "2024-01-04T13:15:21.000Z",
 };
 
-console.log(spacedRepetitionFn(prev, 1));
+console.log("spaced", spacedRepetitionFn(prev, 1));

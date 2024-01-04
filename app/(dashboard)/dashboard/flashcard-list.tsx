@@ -11,6 +11,7 @@ export default function FlashcardList({
 }: {
 	flashcards: CollectionType[];
 }) {
+	console.log(flashcards);
 	const randomFlashcard = Math.floor(Math.random() * flashcards.length);
 
 	return (
