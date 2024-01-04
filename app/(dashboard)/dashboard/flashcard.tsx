@@ -14,12 +14,12 @@ export default function Flashcard({
 	const [showBackFlip, setShowBackFlip] = useState(false);
 
 	return (
-		<div className="relative min-h-[370px] flex justify-center items-center w-[600px] border-4 border-green-300 rounded-md p-6 flex-col space-y-6">
-			<button
-				onClick={() => setShowBackFlip((state) => !state)}
-				className="absolute top-6 right-6">
+		<div
+			onClick={() => setShowBackFlip((state) => !state)}
+			className="relative min-h-[370px] flex justify-center items-center w-[600px] border-4 border-green-300 rounded-md p-6 flex-col space-y-6">
+			{/* <button className="absolute top-6 right-6">
 				<FiRefreshCcw className="h-5 w-5 text-green-300" />
-			</button>
+			</button> */}
 			<Paragraph className="flex items-center text-green-300 flex-1">
 				{showBackFlip ? backText : frontText}
 			</Paragraph>

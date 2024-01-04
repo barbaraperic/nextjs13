@@ -17,7 +17,7 @@ model Collection {
   backText String
   interval Int @default(1)
   efactor Float @default(2.5)
-  nextReview String 
+  nextReview String @default("")
 }
 
 model Deck {

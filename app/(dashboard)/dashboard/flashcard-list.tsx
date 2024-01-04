@@ -11,7 +11,7 @@ export default function FlashcardList({
 	const randomFlashcard = Math.floor(Math.random() * flashcards.length);
 
 	return (
-		<div className="relative min-h-[370px] flex justify-center items-center w-[600px] border-4 border-green-300 rounded-md p-6 flex-col space-y-6">
+		<div className="rounded-xl cursor-pointer hover:scale-105 active:scale-100 transition duration-200 ease-in-out shadow-basic">
 			<Flashcard flashcard={flashcards[0]}></Flashcard>
 		</div>
 	);

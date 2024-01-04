@@ -15,7 +15,7 @@ export const newCollection = async (formData: any) => {
 };
 
 export const updateCollection = async (data: any, id: string) => {
-	await db.collection.update({
+	const updated = await db.collection.update({
 		where: {
 			id: id,
 		},
@@ -24,6 +24,10 @@ export const updateCollection = async (data: any, id: string) => {
 			nextReview: data.nextReview,
 		},
 	});
+
+	return {
+		data: updated,
+	};
 };
 
 export const getAllCollections = async () => {
