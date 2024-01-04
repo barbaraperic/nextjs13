@@ -5,15 +5,13 @@ import FlashcardsDifficultyButtons from "./flashcards-difficulty-buttons";
 import { useState } from "react";
 import { FiRefreshCcw } from "react-icons/fi";
 
-export default function Flashcards({
+export default function Flashcard({
 	flashcard,
 }: {
 	flashcard: CollectionType;
 }) {
 	const { frontText, backText } = flashcard;
 	const [showBackFlip, setShowBackFlip] = useState(false);
-
-	console.log(flashcard);
 
 	return (
 		<div className="relative min-h-[370px] flex justify-center items-center w-[600px] border-4 border-green-300 rounded-md p-6 flex-col space-y-6">

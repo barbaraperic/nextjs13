@@ -11,6 +11,7 @@ export interface CollectionType {
 	backText: string;
 	interval: number;
 	efactor: number;
+	nextReview: string;
 }
 
 // FORM

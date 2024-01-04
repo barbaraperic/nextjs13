@@ -1,3 +1,46 @@
+import dayjs from "dayjs";
+
+export type EvaluationType = 0 | 1 | 2;
+
+interface PreviousType {
+	interval: number;
+	efactor: number;
+	nextReview: string;
+}
+
+export default function spacedRepetitionFn(
+	previous: PreviousType,
+	evaluation: EvaluationType
+) {
+	const today = dayjs();
+
+	console.log("here", Date.parse(today.add(1, "day").format("YYYY-MM-DD")));
+
+	switch (evaluation) {
+		case 0:
+			return {
+				efactor: 1,
+				nextReview: today.add(1, "day").format("YYYY-MM-DD"),
+			};
+		case 1:
+			return {
+				efactor: 1.5,
+				nextReview: today.add(2, "day").format("YYYY-MM-DD"),
+			};
+		case 2:
+			return {
+				efactor: previous.efactor === 1 ? 1.5 : 2.5,
+				nextReview: today.add(3, "day").format("YYYY-MM-DD"),
+			};
+		default: {
+			return {
+				efactor: previous.efactor,
+				nextReview: previous.nextReview,
+			};
+		}
+	}
+}
+
 // RETURN
 // {
 //   n: how many times the card was reviewed successfully in a row, gets incremented by 1
@@ -18,62 +61,3 @@
 // how late are you in reviewing this material versus when it was scheduled
 
 // 0 - hard, 1 - good, 2 - easy
-
-import dayjs from "dayjs";
-
-export type EvaluationType = 0 | 1 | 2;
-
-const date = new Date();
-
-const currentDate = dayjs();
-const formattedDate = currentDate.format("YYYY-MM-DD");
-const a = dayjs();
-
-interface PreviousType {
-	interval: number;
-	efactor: number;
-	nextReview: string;
-}
-
-export default function spacedRepetitionFn(
-	previous: PreviousType,
-	evaluation: EvaluationType
-) {
-	// evaluation: score and lateness
-	// click hard or easy
-
-	switch (evaluation) {
-		case 0:
-			return {
-				interval: previous.interval + 0,
-				efactor: 1,
-				nextReview: a.add(1, "day").format("YYYY-MM-DD"),
-			};
-		case 1:
-			return {
-				interval: previous.interval + 1,
-				efactor: 1.5,
-				nextReview: a.add(2, "day").format("YYYY-MM-DD"),
-			};
-		case 2:
-			return {
-				interval: previous.interval + 2,
-				efactor: previous.efactor === 1 ? 1.5 : 2.5,
-				nextReview: a.add(3, "day").format("YYYY-MM-DD"),
-			};
-		default: {
-			return {
-				interval: previous.interval,
-				efactor: previous.efactor,
-			};
-		}
-	}
-}
-
-const prev = {
-	interval: 1,
-	efactor: 1,
-	nextReview: "2024-01-04T13:15:21.000Z",
-};
-
-console.log("spaced", spacedRepetitionFn(prev, 1));

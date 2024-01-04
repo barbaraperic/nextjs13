@@ -14,6 +14,18 @@ export const newCollection = async (formData: any) => {
 	revalidatePath("/collection");
 };
 
+export const updateCollection = async (data: any, id: string) => {
+	await db.collection.update({
+		where: {
+			id: id,
+		},
+		data: {
+			efactor: data.efactor,
+			nextReview: data.nextReview,
+		},
+	});
+};
+
 export const getAllCollections = async () => {
 	const collection = await db.collection.findMany({});
 
@@ -27,13 +39,7 @@ export const getAllCurrentCollections = async () => {
 	const currentMonth = currentDate.getMonth() + 1;
 	const currentYear = currentDate.getFullYear();
 
-	const collection = await db.collection.findMany({
-		where: {
-			createdAt: {
-				gte: new Date(currentYear, currentMonth - 1, 1),
-			},
-		},
-	});
+	const collection = await db.collection.findMany({});
 
 	return { data: collection };
 };

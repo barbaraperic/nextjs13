@@ -4,6 +4,7 @@ import { CollectionType } from "@/app/types/types";
 import spacedRepetitionFn, {
 	EvaluationType,
 } from "@/app/utils/spaced-repetition";
+import { updateCollection } from "@/utils/actions";
 import React from "react";
 
 export default function FlashcardsDifficultyButtons({
@@ -11,10 +12,14 @@ export default function FlashcardsDifficultyButtons({
 }: {
 	flashcard: CollectionType;
 }) {
-	const { interval, efactor } = flashcard;
+	const { interval, efactor, nextReview, id } = flashcard;
 
-	function handleClick(score: EvaluationType) {
-		const res = spacedRepetitionFn({ interval, efactor }, score);
+	console.log(">", flashcard);
+
+	async function handleClick(score: EvaluationType) {
+		const res = spacedRepetitionFn({ interval, efactor, nextReview }, score);
+		const collection = await updateCollection(res, id);
+		console.log("collection", collection);
 	}
 
 	const buttons = [
