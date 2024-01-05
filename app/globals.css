@@ -109,3 +109,11 @@ h6 {
 	isolation: isolate;
 	height: 100%;
 }
+
+@layer components {
+	.my-rotate-y-180 {
+		transform: rotateX(90deg);
+		/* backface-visibility: hidden; */
+		/* -moz-backface-visibility: hidden; */
+	}
+}

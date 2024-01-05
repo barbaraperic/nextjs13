@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Button from "../components/Button";
-import { Heading2 } from "../components/texts/Texts";
+import { Heading2, Paragraph } from "../components/texts/Texts";
 import Tartaruga from "../components/illustrations/Tartaruga.png";
 import SpacerComponent from "../components/Spacer";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function Homepage() {
 	return (
@@ -13,9 +13,12 @@ export default function Homepage() {
 					Empower your <br />
 					language journey
 				</Heading2>
-				<Button intent="primary">
-					<Link href="/dashboard"> Start now</Link>
-				</Button>
+				<Link
+					href="/dashboard"
+					className="flex items-center justify-center space-x-5 group transition-all duration-200">
+					<Paragraph>Go to the dashboard</Paragraph>
+					<FiArrowRight className="w-6 h-6 transition-transform transform group-hover:translate-x-1.5" />
+				</Link>
 				<SpacerComponent size="medium"></SpacerComponent>
 			</section>
 			<section className="flex justify-end items-center">
