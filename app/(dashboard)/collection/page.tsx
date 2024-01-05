@@ -16,7 +16,7 @@ const CollectionPage = async ({ searchParams }: Props) => {
 			<LinkPrimary
 				className="absolute right-10"
 				href={"/collection/?wordModal=true"}>
-				Add new
+				Add new word
 			</LinkPrimary>
 			{showWordModal && <CollectionModal />}
 		</main>

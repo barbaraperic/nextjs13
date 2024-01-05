@@ -16,9 +16,7 @@ export default function Flashcard({
 	return (
 		<div
 			onClick={() => setShowBackFlip((state) => !state)}
-			className={` ${
-				showBackFlip && "my-rotate-y-180"
-			} relative min-h-[370px] flex justify-center items-center w-[600px] border-4 border-green-300 rounded-md p-6 flex-col space-y-6`}>
+			className={`relative cursor-pointer min-h-[370px] shadow-md flex justify-center items-center w-[600px] border-4 border-green-300  p-6 flex-col space-y-6`}>
 			{/* <button className="absolute top-6 right-6">
 				<FiRefreshCcw className="h-5 w-5 text-green-300" />
 			</button> */}

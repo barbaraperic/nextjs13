@@ -14,12 +14,9 @@ export default function FlashcardsDifficultyButtons({
 }) {
 	const { interval, efactor, nextReview, id } = flashcard;
 
-	console.log(">", flashcard);
-
 	async function handleClick(score: EvaluationType) {
 		const res = spacedRepetitionFn({ interval, efactor, nextReview }, score);
 		const collection = await updateCollection(res, id);
-		console.log("collection", collection);
 	}
 
 	const buttons = [

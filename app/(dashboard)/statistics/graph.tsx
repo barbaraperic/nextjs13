@@ -38,7 +38,7 @@ export default async function Graph({
 				</div> */}
 				<GraphNav />
 			</section>
-			<ol id="day-of-week" className="grid curs grid-cols-7 text-center mb-3">
+			<ol id="day-of-week" className="grid grid-cols-7 text-center mb-3">
 				{WEEKDAYS.map((day) => (
 					<li key={day}>{day}</li>
 				))}
@@ -52,7 +52,7 @@ export default async function Graph({
 									day.isCurrentMonth ? "text-green-400 border-green-400" : ""
 								} ${
 									day.isCompleted ? "bg-green-400 text-white" : ""
-								} relative hover:shadow-md min-h-[40px] cursor-pointer border rounded-lg p-3`}>
+								} relative hover:shadow-md min-h-[40px] cursor-pointer border p-3`}>
 								<span
 									className={`flex text-sm justify-center items-center absolute right-1 w-5 h-5"`}>
 									{day.dayOfMonth}

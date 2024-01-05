@@ -12,7 +12,7 @@ export default function LinkPrimary({
 	return (
 		<Link
 			href={href}
-			className={`py-4 px-6 max-w-[260px] transition-all ease-in-out shadow font-bold hover:shadow-xl flex justify-center text-lg rounded-xl cursor ${className}`}>
+			className={`py-4 px-6 bg-green-300 hover:bg-green-400 text-white max-w-[260px] transition-all ease-in-out font-bold hover:shadow-md flex justify-center text-lg cursor ${className}`}>
 			{children}
 		</Link>
 	);

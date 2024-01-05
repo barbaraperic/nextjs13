@@ -2,7 +2,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { capitalize } from "@/app/utils/capitalize";
-import AreYouSureModal from "./AreYouSureModal";
 import Link from "next/link";
 import { FiTrash2 } from "react-icons/fi";
 import { Paragraph } from "@/app/components/texts/texts";
@@ -54,7 +53,6 @@ export default async function WordDetailsPage({
 					</div>
 				</div>
 			</div>
-			{showAreYouSureModal && <AreYouSureModal id={params.id} />}
 		</main>
 	);
 }
