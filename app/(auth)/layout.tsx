@@ -3,7 +3,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Nanum_Brush_Script } from "@next/font/google";
 import Link from "next/link";
-import SpacerComponent from "../components/Spacer";
+import SpacerComponent from "../components/spacer";
 
 export const metadata: Metadata = {
 	title: "Tartaruga",

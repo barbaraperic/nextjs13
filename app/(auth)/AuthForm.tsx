@@ -1,7 +1,7 @@
 "use client";
 import { ChangeEvent, FormEvent, useState } from "react";
-import Button from "../components/Button";
-import SpacerComponent from "../components/Spacer";
+import Button from "../components/button";
+import SpacerComponent from "../components/spacer";
 import { EmptyFormDataType } from "../types/types";
 import { useRouter } from "next/navigation";
 

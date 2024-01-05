@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AuthUser } from "@supabase/supabase-js";
-import { ButtonText } from "./texts/Texts";
+import { ButtonText } from "./texts/texts";
 import { FC } from "react";
 
 interface NavbarType {

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import ExitIconComponent from "../../components/icons/exitIcon";
+import { FiX } from "react-icons/fi";
 
 export default function CollectionModalCloseButton() {
 	const router = useRouter();
@@ -13,7 +13,7 @@ export default function CollectionModalCloseButton() {
 		<button
 			className="cursor h-7 w-7 absolute right-2 top-2 flex justify-center items-center"
 			onClick={handleClose}>
-			<ExitIconComponent className="h-6"></ExitIconComponent>
+			<FiX className="h-6 w-6" />
 		</button>
 	);
 }

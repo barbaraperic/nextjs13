@@ -1,6 +1,6 @@
 import AuthForm from "../AuthForm";
 import Link from "next/link";
-import { Heading3, Paragraph } from "@/app/components/texts/Texts";
+import { Heading3, Paragraph } from "@/app/components/texts/texts";
 
 const SignupPage = () => {
 	return (

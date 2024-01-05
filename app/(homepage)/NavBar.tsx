@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { AuthUser } from "@supabase/supabase-js";
-import { ButtonText, Heading1 } from "../components/texts/Texts";
+import { ButtonText, Heading1 } from "../components/texts/texts";
 import LogoIcon from "../utils/animated-icon";
-import Button from "../components/Button";
+import Button from "../components/button";
 
 export default function Navbar({ user }: { user: AuthUser | undefined }) {
 	return (

@@ -1,47 +1,42 @@
-// "use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import ExitIconComponent from "../../components/icons/exitIcon";
-import Button from "@/app/components/Button";
-import SpacerComponent from "@/app/components/Spacer";
-import db from "@/utils/db";
+import SpacerComponent from "@/app/components/spacer";
 import { newCollection } from "@/utils/actions";
 import CollectionModalCloseButton from "./collection-modal-close";
+import Modal from "@/app/components/modal";
 
 export default function CollectionModal() {
 	return (
-		<div className="fixed z-10 inset-0 overflow-y-auto flex justify-center items-center bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="w-[400px] flex flex-col justify-center relative min-h-[530px] border-2 p-3 rounded-lg pb-5">
-				<CollectionModalCloseButton />
-				<div className="flex flex-col items-center space-y-6">
-					<form
-						action={newCollection}
-						className="flex flex-col space-y-4 items-center">
-						<label className="w-full">
-							<span>Front text</span>
+		<Modal title="Add new word">
+			<div className="flex flex-1 flex-col items-center justify-center space-y-6">
+				<form
+					action={newCollection}
+					className="flex flex-col space-y-4 items-center">
+					<label className="w-full">
+						<span>Front text</span>
+						<fieldset className="relative">
 							<input
 								name="front-text"
-								className="w-full border-2 p-2"
+								className="border-0 focus:after:scale-x-100 peer outline-none w-14 text-lg transition-padding duration-300 delay-200 ease-in-out"
 								required={true}
 								type="text"
 							/>
-						</label>
-						<label className="w-full">
-							<span>Back text</span>
-							<input
-								name="back-text"
-								className="w-full border-2 p-2"
-								required={true}
-								type="text"
-							/>
-						</label>
-						<SpacerComponent size="small"></SpacerComponent>
-						<button type="submit" className=" w-full">
-							<span>Add word</span>
-						</button>
-					</form>
-				</div>
+							<div className="peer-focus:scale-x-100 h-1 rounded-3xl absolute bg-orange-600 w-full after:content-[' '] after:absolute after:w-full after:h-1 after:scale-x-0 transition-transform bg-yellow-700"></div>
+						</fieldset>
+					</label>
+					<label className="w-full">
+						<span>Back text</span>
+						<input
+							name="back-text"
+							className="w-full border-2 p-2"
+							required={true}
+							type="text"
+						/>
+					</label>
+					<SpacerComponent size="small"></SpacerComponent>
+					<button type="submit" className=" w-full">
+						<span>Add word</span>
+					</button>
+				</form>
 			</div>
-		</div>
+		</Modal>
 	);
 }

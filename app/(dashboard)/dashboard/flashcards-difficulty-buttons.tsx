@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/button";
 import { CollectionType } from "@/app/types/types";
 import spacedRepetitionFn, {
 	EvaluationType,

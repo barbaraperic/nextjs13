@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { capitalize } from "@/app/utils/capitalize";
-import { Paragraph } from "@/app/components/texts/Texts";
+import { Paragraph } from "@/app/components/texts/texts";
 import { CollectionType } from "@/app/types/types";
 
 export default function CollectionList({

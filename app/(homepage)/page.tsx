@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Heading2, Paragraph } from "../components/texts/Texts";
+import { Heading2, Paragraph } from "../components/texts/texts";
 import Tartaruga from "../components/illustrations/Tartaruga.png";
-import SpacerComponent from "../components/Spacer";
+import SpacerComponent from "../components/spacer";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 

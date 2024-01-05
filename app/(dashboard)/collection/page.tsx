@@ -1,4 +1,4 @@
-import LinkPrimary from "@/app/components/LinkPrimary";
+import LinkPrimary from "@/app/components/link-primary";
 import CollectionList from "./collection-list";
 import CollectionModal from "./collection-modal";
 import { getAllCollections } from "@/utils/actions";

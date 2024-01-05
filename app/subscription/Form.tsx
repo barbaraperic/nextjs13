@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useState } from "react";
-import { SpacerComponent } from "../components/Spacer";
+import { SpacerComponent } from "../components/spacer";
 
 export default function SubscribeForm() {
 	const [email, setEmail] = useState("");

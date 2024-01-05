@@ -5,7 +5,7 @@ import { capitalize } from "@/app/utils/capitalize";
 import AreYouSureModal from "./AreYouSureModal";
 import Link from "next/link";
 import { FiTrash2 } from "react-icons/fi";
-import { Paragraph } from "@/app/components/texts/Texts";
+import { Paragraph } from "@/app/components/texts/texts";
 
 async function getWord(id: string) {
 	const supabase = createServerComponentClient({ cookies });

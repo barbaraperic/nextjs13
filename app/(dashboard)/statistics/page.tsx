@@ -1,4 +1,4 @@
-import { Heading3 } from "@/app/components/texts/Texts";
+import { Heading3 } from "@/app/components/texts/texts";
 import { getAllCollections, getAllCurrentCollections } from "@/utils/actions";
 import React from "react";
 import Graph from "./graph";

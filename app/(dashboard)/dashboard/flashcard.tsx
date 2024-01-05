@@ -1,5 +1,5 @@
 "use client";
-import { Paragraph } from "@/app/components/texts/Texts";
+import { Paragraph } from "@/app/components/texts/texts";
 import { CollectionType } from "@/app/types/types";
 import FlashcardsDifficultyButtons from "./flashcards-difficulty-buttons";
 import { useState } from "react";

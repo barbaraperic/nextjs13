@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiBook, FiHome, FiClipboard } from "react-icons/fi";
 import clsx from "clsx";
-import { Paragraph } from "../components/texts/Texts";
+import { Paragraph } from "../components/texts/texts";
 
 export default function NavLinks() {
 	const pathname = usePathname();

@@ -1,8 +1,8 @@
 "use client";
-import Button from "@/app/components/Button";
-import LinkPrimary from "@/app/components/LinkPrimary";
-import ExitIconComponent from "@/app/components/icons/exitIcon";
-import { Heading3 } from "@/app/components/texts/Texts";
+import Button from "@/app/components/button";
+import LinkPrimary from "@/app/components/link-primary";
+import ExitIconComponent from "@/app/components/icons/exit-icon";
+import { Heading3 } from "@/app/components/texts/texts";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
