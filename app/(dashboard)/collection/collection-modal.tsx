@@ -1,9 +1,6 @@
 import SpacerComponent from "@/app/components/spacer";
 import { newCollection } from "@/utils/actions";
-import CollectionModalCloseButton from "./collection-modal-close";
 import Modal from "@/app/components/modal";
-
-// shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]
 
 export default function CollectionModal() {
 	return (

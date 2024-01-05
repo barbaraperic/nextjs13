@@ -1,18 +1,22 @@
 "use client";
-import SpacerComponent from "@/app/components/spacer";
 import { useEffect } from "react";
 import { Heading3 } from "./texts/texts";
 import { FiX } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
 export default function Modal({
 	title,
 	children,
-	handleDismiss,
 }: {
 	title: string;
 	children: React.ReactNode;
-	handleDismiss: any;
 }) {
+	const router = useRouter();
+
+	function handleDismiss() {
+		router.replace("/collection");
+	}
+
 	useEffect(() => {
 		function handleKeydown(e: KeyboardEvent) {
 			if (e.key === "Escape") {
@@ -31,7 +35,9 @@ export default function Modal({
 			<div className="pointer-events-none absolute top-0 left-0 right-0 bottom-0 bg-black transition-opacity opacity-30"></div>
 			<div className="absolute top-0 left-0 w-full h-full transition-transform">
 				<div className="absolute flex flex-col justify-between items-center top-0 left-0 right-0 bottom-0 w-4/5 h-2/3 m-auto bg-white p-6 pointer-events-auto">
-					<button className="absolute top-14 right-4 -translate-y-full grid place-content-center w-10 h-10">
+					<button
+						onClick={handleDismiss}
+						className="absolute top-14 right-4 -translate-y-full grid place-content-center w-10 h-10">
 						<FiX className="w-6 h-6" />
 					</button>
 					<Heading3 className="mt-6">{title}</Heading3>
