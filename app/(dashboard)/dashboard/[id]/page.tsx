@@ -1,4 +1,4 @@
-import { getCollection } from "@/utils/actions";
+import { getAllCollections, getCollection } from "@/utils/actions";
 import Flashcard from "../flashcard";
 
 export default async function FlashcardPage({

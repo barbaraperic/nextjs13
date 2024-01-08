@@ -47,13 +47,3 @@ export const getAllCollections = async () => {
 
 	// revalidatePath("/collection");
 };
-
-export const getAllCurrentCollections = async () => {
-	const currentDate = new Date();
-	const currentMonth = currentDate.getMonth() + 1;
-	const currentYear = currentDate.getFullYear();
-
-	const collection = await db.collection.findMany({});
-
-	return { data: collection };
-};

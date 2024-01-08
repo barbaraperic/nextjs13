@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/app/components/button";
+import LinkPrimary from "@/app/components/link-primary";
 import { CollectionType } from "@/app/types/types";
 import spacedRepetitionFn, {
 	EvaluationType,
@@ -9,8 +10,10 @@ import React from "react";
 
 export default function FlashcardsDifficultyButtons({
 	flashcard,
+	nextFlashcardId,
 }: {
 	flashcard: CollectionType;
+	nextFlashcardId: string;
 }) {
 	const { interval, efactor, nextReview, id } = flashcard;
 
@@ -18,6 +21,8 @@ export default function FlashcardsDifficultyButtons({
 		const res = spacedRepetitionFn({ interval, efactor, nextReview }, score);
 		const collection = await updateCollection(res, id);
 	}
+
+	console.log(nextFlashcardId);
 
 	const buttons = [
 		{
@@ -38,12 +43,11 @@ export default function FlashcardsDifficultyButtons({
 		<div className="w-full flex justify-center space-x-5">
 			{buttons.map((button, index) => (
 				<React.Fragment key={index}>
-					<Button
-						intent="primary"
-						size="medium"
-						onClick={() => handleClick(button.score)}>
-						{button.title}
-					</Button>
+					<LinkPrimary href={`${nextFlashcardId ? nextFlashcardId : "end"}`}>
+						<button onClick={() => handleClick(button.score)}>
+							{button.title}
+						</button>
+					</LinkPrimary>
 				</React.Fragment>
 			))}
 		</div>

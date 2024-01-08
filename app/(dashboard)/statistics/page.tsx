@@ -1,10 +1,10 @@
 import { Heading3 } from "@/app/components/texts/texts";
-import { getAllCollections, getAllCurrentCollections } from "@/utils/actions";
+import { getAllCollections } from "@/utils/actions";
 import React from "react";
 import Graph from "./graph";
 
 export default async function Dashboard() {
-	const collection = await getAllCurrentCollections();
+	const collection = await getAllCollections();
 
 	console.log(collection);
 
