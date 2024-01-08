@@ -30,6 +30,16 @@ export const updateCollection = async (data: any, id: string) => {
 	};
 };
 
+export const getCollection = async (id: string) => {
+	const collection = await db.collection.findUnique({
+		where: { id },
+	});
+
+	return { data: collection };
+
+	// revalidatePath("/collection");
+};
+
 export const getAllCollections = async () => {
 	const collection = await db.collection.findMany({});
 

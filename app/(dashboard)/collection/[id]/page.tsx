@@ -23,7 +23,7 @@ type Props = {
 	areYouSureModal: boolean;
 };
 
-export default async function WordDetailsPage({
+export default async function CollectionDetailsPage({
 	params,
 	searchParams,
 }: {

@@ -4,6 +4,7 @@ import Button from "../components/button";
 import SpacerComponent from "../components/spacer";
 import { EmptyFormDataType } from "../types/types";
 import { useRouter } from "next/navigation";
+import { Paragraph } from "../components/texts/texts";
 
 const emptyFormData = {
 	email: "",
@@ -31,8 +32,6 @@ export default function AuthForm() {
 	// derived state
 	const errors = getErrors(formData);
 	const isValid = Object.keys(errors).length === 0;
-
-	const router = useRouter();
 
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {
 		const target = e.target as HTMLInputElement;
@@ -87,12 +86,12 @@ export default function AuthForm() {
 	return (
 		<>
 			<form onSubmit={handleSubmit} className="flex flex-col space-y-5 w-full">
-				<label htmlFor="" className="flex flex-col space-y-1">
-					<span>Your email</span>
+				<label htmlFor="" className="flex flex-col space-y-2">
+					<span className="mb-2">Your email</span>
 					<input
 						id="email"
 						type="email"
-						className="border p-2 border-dark"
+						className="w-full p-2 transition-shadow shadow focus:shadow-[0_0_0_3px_rgb(7,128,128)]  outline-none"
 						onChange={handleChange}
 						onBlur={handleBlur}
 						value={formData.email}
@@ -102,11 +101,11 @@ export default function AuthForm() {
 					</p>
 				</label>
 				<label htmlFor="" className="flex flex-col space-y-1">
-					<span>Your password</span>
+					<span className="mb-2">Your password</span>
 					<input
 						id="password"
 						type="password"
-						className="border p-2 border-dark"
+						className="w-full p-2 transition-shadow shadow focus:shadow-[0_0_0_3px_rgb(7,128,128)]  outline-none"
 						onChange={handleChange}
 						onBlur={handleBlur}
 						value={formData.password}
@@ -117,7 +116,11 @@ export default function AuthForm() {
 					</p>
 				</label>
 				<SpacerComponent size="small"></SpacerComponent>
-				<Button intent="secondary">Submit</Button>
+				<button
+					type="submit"
+					className="w-full hover:shadow-md hover:scale-105 transition duration-200 [border-image:linear-gradient(to_top_right,#078080,#4d9f0c)_10] border-4 border-solid border-transparent bg-white p-2">
+					<Paragraph>Submit</Paragraph>
+				</button>
 			</form>
 		</>
 	);
