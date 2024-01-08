@@ -43,7 +43,9 @@ export default function FlashcardsDifficultyButtons({
 		<div className="w-full flex justify-center space-x-5">
 			{buttons.map((button, index) => (
 				<React.Fragment key={index}>
-					<LinkPrimary href={`${nextFlashcardId ? nextFlashcardId : "end"}`}>
+					<LinkPrimary
+						className="w-28"
+						href={`${nextFlashcardId ? nextFlashcardId : "end"}`}>
 						<button onClick={() => handleClick(button.score)}>
 							{button.title}
 						</button>

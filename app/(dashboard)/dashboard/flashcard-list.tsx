@@ -1,4 +1,5 @@
 "use client";
+import LinkPrimary from "@/app/components/link-primary";
 import { CollectionType } from "@/app/types/types";
 import Link from "next/link";
 
@@ -13,7 +14,9 @@ export default function Flashcard({
 
 	return (
 		<div>
-			<Link href={`/dashboard/${flashcards[0].id}`}>Start practicing</Link>
+			<LinkPrimary href={`/dashboard/${flashcards[0].id}`}>
+				Start practicing
+			</LinkPrimary>
 		</div>
 	);
 }

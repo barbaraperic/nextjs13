@@ -11,8 +11,12 @@ export default function CollectionList({
 }) {
 	return (
 		<div className="min-h-[600px] flex flex-col space-y-6">
-			<div>
-				{collection?.map((c: CollectionType) => (
+			<div>Front text</div>
+			<div>Back text</div>
+			<div>Difficulty</div>
+			<div>Next review</div>
+			<>
+				{/* {collection?.map((c: CollectionType) => (
 					<div key={c.id}>
 						<Link href={`/collection/${c.id}`}>
 							<div
@@ -31,8 +35,8 @@ export default function CollectionList({
 							</div>
 						</Link>
 					</div>
-				))}
-			</div>
+				))} */}
+			</>
 		</div>
 	);
 }
