@@ -1,7 +1,3 @@
-"use client";
-import Link from "next/link";
-import { capitalize } from "@/app/utils/capitalize";
-import { Paragraph } from "@/app/components/texts/texts";
 import { CollectionType } from "@/app/types/types";
 
 export default function CollectionList({
@@ -10,33 +6,20 @@ export default function CollectionList({
 	collection: CollectionType[] | undefined;
 }) {
 	return (
-		<div className="min-h-[600px] flex flex-col space-y-6">
-			<div>Front text</div>
-			<div>Back text</div>
-			<div>Difficulty</div>
-			<div>Next review</div>
-			<>
-				{/* {collection?.map((c: CollectionType) => (
-					<div key={c.id}>
-						<Link href={`/collection/${c.id}`}>
-							<div
-								className={`py-5 cursor-pointer flex justify-between items-center transition-all`}>
-								<Paragraph className="text-xl">
-									{capitalize(c.frontText)}
-								</Paragraph>
-							</div>
-							<div className="flex flex-col space-y-2">
-								<div className="flex flex-col space-y-1">
-									<span className="uppercase font-bold text-xs">
-										Translation
-									</span>
-									<p>{capitalize(c.backText)}</p>
-								</div>
-							</div>
-						</Link>
-					</div>
-				))} */}
-			</>
+		<div className=" max-w-[80%] border-t-2 border-r-2 grid-cols-4 text-center grid">
+			<span className="table-cell font-bold uppercase">Front text</span>
+			<span className="table-cell font-bold uppercase">Back text</span>
+			<span className="table-cell font-bold uppercase">Difficulty</span>
+			<span className="table-cell font-bold uppercase">Next review</span>
+		
+			{collection?.map((c: CollectionType) => (
+				<>
+					<span className="table-cell lowercase">{c.frontText}</span>
+					<span className="table-cell lowercase">{c.backText}</span>
+					<span className="table-cell lowercase">{c.efactor}</span>
+					<span className="table-cell lowercase">{c.nextReview}</span>
+				</>
+			))}
 		</div>
 	);
 }

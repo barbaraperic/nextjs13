@@ -109,3 +109,10 @@ h6 {
 	isolation: isolate;
 	height: 100%;
 }
+
+
+@layer components {
+  .table-cell {
+    @apply p-4 border-l-2 border-b-2;
+  }
+}
