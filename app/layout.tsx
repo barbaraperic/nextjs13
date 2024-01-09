@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Inria_Sans } from "@next/font/google";
+import { ClerkProvider } from '@clerk/nextjs'
+
 
 export const metadata: Metadata = {
 	title: "Tartaruga",
@@ -32,8 +34,12 @@ export default async function RootLayout({
 	// }
 
 	return (
+		<ClerkProvider>
+
+
 		<html lang="en">
 			<body className={` ${body.variable}`}>{children}</body>
 		</html>
+		</ClerkProvider>
 	);
 }

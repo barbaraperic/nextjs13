@@ -35,11 +35,9 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${script.variable}`}>
-				<SpacerComponent size="small"></SpacerComponent>
-				<Link href="/" className="text-2xl">
-					tartaruga
-				</Link>
-				{children}
+				<div className="w-full space-y-6 h-full flex flex-col justify-center items-center">
+					{children}
+				</div>
 			</body>
 		</html>
 	);
