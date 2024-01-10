@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Inria_Sans } from "@next/font/google";
-import { ClerkProvider } from '@clerk/nextjs'
 
 
 export const metadata: Metadata = {
@@ -25,21 +24,10 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const cookieStore = cookies();
-	const supabase = createServerComponentClient({ cookies: () => cookieStore });
-	const data = await supabase.auth.getSession();
-
-	// if (!data.data.session) {
-	// 	redirect("/login");
-	// }
 
 	return (
-		<ClerkProvider>
-
-
 		<html lang="en">
 			<body className={` ${body.variable}`}>{children}</body>
 		</html>
-		</ClerkProvider>
 	);
 }
