@@ -7,6 +7,7 @@ import { Heading2, Paragraph } from '@/app/components/texts/texts'
 const SignInPage = async () => {
   const session = await getServerSession(authOptions)
 
+  console.log(session)
   if (session) {
     redirect('/dashboard')
   }
