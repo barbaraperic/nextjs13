@@ -39,8 +39,12 @@ module.exports = {
           'slide-in-from-top 0.3s cubic-bezier(.41,.73,.51,1.02)',
         leave: 'leave 150ms ease-in forwards',
         'progress-line': 'progress-line 450ms ease-in forwards',
+        shine: 'shine 1s',
       },
       keyframes: {
+        shine: {
+          '100%': { left: '125%' },
+        },
         enter: {
           '0%': { transform: 'scale(0.9)', opacity: 0 },
           '100%': { transform: 'scale(1)', opacity: 1 },

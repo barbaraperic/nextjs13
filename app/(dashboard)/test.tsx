@@ -35,16 +35,16 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] group grow items-center justify-center gap-2 bg-neutral p-3 text-sm font-medium hover:bg-base-content text-neutral-content hover:text-accent md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] group grow items-center justify-center gap-2 bg-neutral p-3 text-sm font-medium hover:bg-base-content text-neutral-content hover:text-base-100 md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-base-content text-accent': pathname === link.href,
+                'bg-base-content text-base-100': pathname === link.href,
               }
             )}
           >
-            <div className="transition-transform transform group-hover:scale-105 flex space-x-4">
+            {/* <div className="transition-transform transform group-hover:scale-105 flex space-x-4">
               <LinkIcon className="w-6 h-6 peer" />
               <Paragraph className="hidden md:block">{link.name}</Paragraph>
-            </div>
+            </div> */}
           </Link>
         )
       })}
