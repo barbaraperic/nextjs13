@@ -12,11 +12,11 @@ export default async function AuthLayout({
 
   return (
     <div className="w-screen bg-neutral h-screen relative">
-      <aside className="absolute pt-[60px] top-0 left-0 h-full  border-r border-secondary-content w-[200px]">
+      <aside className="absolute pt-[60px] top-0 left-0 h-full  border-r border-accent w-[200px]">
         <NavLinks />
       </aside>
       <div className="ml-[200px] h-full">
-        <header className="h-[60px] navbar flex items-center justify-end border-b border-secondary-content">
+        <header className="h-[60px] navbar flex items-center justify-end border-b border-accent">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
