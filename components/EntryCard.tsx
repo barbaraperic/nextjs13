@@ -1,7 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 
-const EntryCard = () => {
+export default function EntryCard() {
   const router = useRouter()
   function handleClick() {
     // create a new entry
@@ -16,5 +16,3 @@ const EntryCard = () => {
     </div>
   )
 }
-
-export default EntryCard

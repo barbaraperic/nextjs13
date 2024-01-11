@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { Heading2, Paragraph } from './components/texts/texts'
-import SpacerComponent from './components/Spacer'
+import { Heading2, Paragraph } from '../components/texts/texts'
+import SpacerComponent from '../components/Spacer'
 import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
 
@@ -13,7 +13,7 @@ export default function Home() {
           language journey
         </Heading2>
         <Link
-          href="/dashboard"
+          href="/dashboard/home"
           className="flex items-center justify-center space-x-5 group transition-all duration-200"
         >
           <Paragraph>Go to the dashboard</Paragraph>

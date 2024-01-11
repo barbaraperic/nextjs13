@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { authOptions } from '../api/auth/[...nextauth]/route'
-import NavLinks from './nav-links'
 import { getServerSession } from 'next-auth/next'
-import { Paragraph } from '../components/texts/texts'
+import NavLinks from '@/components/NavLinks'
+import { Paragraph } from '@/components/texts/texts'
 
 export default async function AuthLayout({
   children,

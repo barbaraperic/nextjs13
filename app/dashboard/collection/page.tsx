@@ -1,10 +1,6 @@
-import CollectionList from './collection-list'
-import CollectionModal from './collection-modal'
 // import { getAllCollections } from '@/utils/actions'
 import { Props } from '@/app/types/types'
-import SpacerComponent from '@/app/components/Spacer'
-import Link from 'next/link'
-import EntryCard from '@/app/components/EntryCard'
+import EntryCard from '@/components/EntryCard'
 
 const CollectionPage = async ({ searchParams }: Props) => {
   const showWordModal = searchParams?.wordModal

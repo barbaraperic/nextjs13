@@ -1,8 +1,8 @@
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { redirect } from 'next/navigation'
-import SignInButton from './SignInButton'
-import { Heading2, Paragraph } from '@/app/components/texts/texts'
+import { Heading2, Paragraph } from '@/components/texts/texts'
+import SignInButton from '@/components/SignInButton'
 
 const SignInPage = async () => {
   const session = await getServerSession(authOptions)

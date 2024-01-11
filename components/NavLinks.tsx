@@ -3,25 +3,25 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiBook, FiHome, FiClipboard } from 'react-icons/fi'
 import clsx from 'clsx'
-import { Paragraph } from '../components/texts/texts'
+import { Paragraph } from './texts/texts'
 
 export default function NavLinks() {
   const pathname = usePathname()
 
   const links = [
     {
-      name: 'Dashboard',
-      href: '/dashboard',
+      name: 'Home',
+      href: '/dashboard/home',
       icon: FiHome,
     },
     {
       name: 'Collection',
-      href: '/collection',
+      href: '/dashboard/collection',
       icon: FiBook,
     },
     {
       name: 'Statistics',
-      href: '/statistics',
+      href: '/dashboard/statistics',
       icon: FiClipboard,
     },
   ]
