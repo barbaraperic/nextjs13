@@ -1,4 +1,12 @@
-export { default } from 'next-auth/middleware'
+import { withAuth } from 'next-auth/middleware'
 
-// applies next-auth only to matching routes
-export const config = { matcher: ['/dashboard', '/collection', '/statistics'] }
+export default withAuth(function middleware(req) {}, {
+  callbacks: {
+    authorized: ({ req, token }) => {
+      if (req.nextUrl.pathname.startsWith('/dashboard') && token === null) {
+        return false
+      }
+      return true
+    },
+  },
+})

@@ -3,6 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import FlashcardList from './flashcard-list'
+import EntryCard from '@/app/components/EntryCard'
 
 export default async function Dashboard() {
   // const collection = await getAllCollections();
@@ -14,12 +15,8 @@ export default async function Dashboard() {
   // );
 
   return (
-    <div>
-      <section className="relative mb-6 rounded-lg space-y-10 flex-1 flex justify-center items-center">
-        <div className="min-w-3xl">
-          {/* <FlashcardList flashcards={collection.data}></FlashcardList> */}
-        </div>
-      </section>
+    <div className="relative mb-6 rounded-lg space-y-10 flex-1 flex justify-center items-center">
+      <div className="min-w-3xl"></div>
     </div>
   )
 }

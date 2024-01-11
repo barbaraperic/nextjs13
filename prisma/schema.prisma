@@ -6,18 +6,16 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  //provider = "mongo"
   url      = env("DATABASE_URL")
 }
 
 model Collection {
   id String @id @default(uuid())
   createdAt DateTime @default(now())
-  frontText String
-  backText String
-  interval Int @default(1)
-  efactor Float @default(2.5)
-  nextReview String @default("")
+  updatedAt DateTime @updatedAt
+  content String @db.Text
+  
 }
 
 model Deck {
