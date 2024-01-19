@@ -1,17 +1,17 @@
-import getUserId from '@/app/utils/auth'
+import { getUserId } from '@/app/utils/auth'
+import { prisma } from '@/utils/db'
+import { NextResponse } from 'next/server'
 
 export const POST = async (request: Request) => {
   const { content } = await request.json()
 
   const user = await getUserId()
+  const entry = await prisma.entry.create({
+    data: {
+      content: 'hello',
+      userId: user.id,
+    },
+  })
 
-  console.log('user', user)
-
-  // const entry = await prisma.entry.create({
-  //   data: {
-  //     content: 'hello',
-  //   },
-  // })
-
-  //return NextResponse.json({ data: entry })
+  return NextResponse.json({ data: entry })
 }

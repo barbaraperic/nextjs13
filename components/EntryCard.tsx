@@ -10,7 +10,7 @@ export default function EntryCard() {
     // create a new entry
     const entry = await newEntry()
     console.log(entry)
-    router.push(`/dashboard/collection/${entry.data.id}`)
+    router.push(`/dashboard/home/${entry.data.id}`)
   }
 
   return (
