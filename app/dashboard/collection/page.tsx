@@ -8,7 +8,6 @@ const CollectionPage = async ({ searchParams }: Props) => {
 
   return (
     <div className="flex  text-white justify-center items-center h-full">
-      <EntryCard />
       {/* <Link
         className="m-auto btn btn-wide text-lg"
         href={'/collection/?wordModal=true'}

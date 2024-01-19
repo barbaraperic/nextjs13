@@ -7,9 +7,8 @@ import SignInButton from '@/components/SignInButton'
 const SignInPage = async () => {
   const session = await getServerSession(authOptions)
 
-  console.log(session)
   if (session) {
-    redirect('/dashboard')
+    redirect('/dashboard/home')
   }
 
   return (

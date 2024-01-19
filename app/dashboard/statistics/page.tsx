@@ -1,5 +1,4 @@
 import { Heading2 } from '@/components/texts/texts'
-import { getAllCollections } from '@/utils/actions'
 import React from 'react'
 
 export default async function Dashboard() {
