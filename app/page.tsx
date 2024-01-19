@@ -6,7 +6,7 @@ import { FiArrowRight } from 'react-icons/fi'
 
 export default function Home() {
   return (
-    <div className="h-full w-full grid grid-cols-2 px-20 ">
+    <div className="h-full w-full grid grid-cols-2 px-20">
       <div className="flex flex-col space-y-10 justify-center items-start">
         <Heading2 className="text-7xl">
           Empower your <br />

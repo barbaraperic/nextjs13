@@ -27,7 +27,7 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions)
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={` ${body.variable}`}>
+      <body suppressHydrationWarning={true} className={`${body.variable}`}>
         <Provider session={session}>{children}</Provider>
       </body>
     </html>
