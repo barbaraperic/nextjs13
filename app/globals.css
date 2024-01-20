@@ -8,13 +8,13 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 /*
   2. Remove default margin
 */
 * {
-	margin: 0;
+  margin: 0;
 }
 /*
   Typographic tweaks!
@@ -23,39 +23,21 @@
 */
 
 html {
-	height: 100%;
+  height: 100%;
 }
 
 body {
-	line-height: 1.5;
-	/* margin-left: 36px;
+  line-height: 1.5;
+  /* margin-left: 36px;
 	margin-right: 36px; */
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	-webkit-font-smoothing: antialiased;
-	@apply text-brown-300;
-}
-
-main {
-	/* @apply mt-12 */
-	/* @apply max-w-5xl mt-12 mb-8 mx-auto px-8; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 }
 
 footer {
-	margin-top: auto;
-}
-
-h1 {
-	@apply font-headings text-4xl;
-}
-
-h2 {
-	@apply font-headings text-2xl;
-}
-
-h3 {
-	@apply font-headings text-xl;
+  margin-top: auto;
 }
 
 p,
@@ -63,11 +45,11 @@ a,
 button,
 label,
 span {
-	@apply font-body;
+  @apply font-body;
 }
 
 p > a {
-	@apply underline;
+  @apply underline;
 }
 /*
   5. Improve media defaults
@@ -77,8 +59,8 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 /*
   6. Remove built-in form typography styles
@@ -87,7 +69,7 @@ input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
 /*
   7. Avoid text overflows
@@ -99,17 +81,16 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 /*
   8. Create a root stacking context
 */
 #root,
 #__next {
-	isolation: isolate;
-	height: 100%;
+  isolation: isolate;
+  height: 100%;
 }
-
 
 @layer components {
   .table-cell {

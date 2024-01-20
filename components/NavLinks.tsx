@@ -5,15 +5,10 @@ import { FiBook, FiHome, FiClipboard } from 'react-icons/fi'
 import clsx from 'clsx'
 import { Paragraph } from './texts/texts'
 
-export default function NavLinks() {
+const NavLinks = () => {
   const pathname = usePathname()
 
   const links = [
-    {
-      name: 'Home',
-      href: '/dashboard/home',
-      icon: FiHome,
-    },
     {
       name: 'Collection',
       href: '/dashboard/collection',
@@ -51,3 +46,5 @@ export default function NavLinks() {
     </>
   )
 }
+
+export default NavLinks

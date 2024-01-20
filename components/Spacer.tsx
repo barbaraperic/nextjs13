@@ -8,6 +8,8 @@ interface SpacerComponentType {
   size: 'large' | 'medium' | 'small'
 }
 
-export default function Spacer({ size }) {
+const Spacer = ({ size }) => {
   return <div className={space[size]}></div>
 }
+
+export default Spacer

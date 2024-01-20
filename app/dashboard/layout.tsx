@@ -12,11 +12,11 @@ export default async function AuthLayout({
   const session = await getServerSession(authOptions)
 
   return (
-    <div className="w-screen bg-neutral h-screen relative text-base-100">
+    <div className="w-screen bg-neutral h-screen relative text-white">
       <aside className="absolute pt-[60px] top-0 left-0 h-full  border-r border-accent w-[200px]">
         <NavLinks />
       </aside>
-      <div className="ml-[200px] h-full">
+      <div className="ml-[200px] h-full text-white">
         <header className="h-[60px] navbar flex items-center justify-between border-b border-accent">
           {session && (
             <>

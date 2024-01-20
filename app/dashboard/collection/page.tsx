@@ -1,21 +1,38 @@
-// import { getAllCollections } from '@/utils/actions'
-import { Props } from '@/app/types/types'
+import { getUserId } from '@/app/utils/auth'
 import EntryCard from '@/components/EntryCard'
+import NewEntryCard from '@/components/NewEntryCard'
+import { prisma } from '@/utils/db'
 
-const CollectionPage = async ({ searchParams }: Props) => {
-  const showWordModal = searchParams?.wordModal
-  // const collection = await getAllCollections();
+export const getAllEntries = async () => {
+  const user = await getUserId()
 
+  const allEntries = prisma.entry.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
+  return allEntries
+}
+
+export default async function FlashcardPage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const allEntries = await getAllEntries()
+  console.log('all entryes', allEntries)
   return (
-    <div className="flex  text-white justify-center items-center h-full">
-      {/* <Link
-        className="m-auto btn btn-wide text-lg"
-        href={'/collection/?wordModal=true'}
-      >
-        Add new word
-      </Link> */}
+    <div className="m-auto flex items-center flex-col space-y-6 justify-center mt-4">
+      <NewEntryCard />
+      <div className="grid space-y-2">
+        {allEntries.map((entry) => (
+          <EntryCard key={entry.id} data={entry} />
+        ))}
+      </div>
     </div>
   )
 }
-
-export default CollectionPage

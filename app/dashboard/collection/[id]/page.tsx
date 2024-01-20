@@ -1,4 +1,5 @@
 import { getUserId } from '@/app/utils/auth'
+import Editor from '@/components/Editor'
 import { Paragraph } from '@/components/texts/texts'
 import { prisma } from '@/utils/db'
 
@@ -17,6 +18,13 @@ export const getEntry = async (id: string) => {
 export default async function EntryPage({ params }) {
   const entry = await getEntry(params.id)
 
+  const date = new Date(entry?.createdAt).toDateString()
+
   console.log(entry)
-  return <Paragraph>{entry?.content}</Paragraph>
+  return (
+    <div className="px-10 pt-4 space-y-2  h-full w-full">
+      <Paragraph>{date}</Paragraph>
+      <Editor data={entry} />
+    </div>
+  )
 }

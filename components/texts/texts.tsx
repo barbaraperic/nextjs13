@@ -36,9 +36,7 @@ const Heading3: FC<TextProps> = ({ children, className }) => {
 }
 
 const Paragraph: FC<TextProps> = ({ children, className }) => {
-  return (
-    <p className={clsx('text-xl text-base-content', className)}>{children}</p>
-  )
+  return <p className={clsx('text-xl ', className)}>{children}</p>
 }
 
 const ButtonText: FC<TextProps> = ({ children, className }) => {

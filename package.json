@@ -31,6 +31,7 @@
     "openai-sdk": "^1.0.1",
     "openai-streams": "^6.2.0",
     "react": "18.2.0",
+    "react-autosave": "^0.4.4",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.48.2",
     "react-icons": "^4.12.0",
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "daisyui": "^4.5.0",
+    "daisyui": "^4.6.0",
     "prisma": "^5.8.1"
   }
 }

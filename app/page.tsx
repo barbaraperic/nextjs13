@@ -13,7 +13,7 @@ export default function Home() {
           language journey
         </Heading2>
         <Link
-          href="/dashboard/home"
+          href="/dashboard/collection"
           className="flex items-center justify-center space-x-5 group transition-all duration-200"
         >
           <Paragraph>Go to the dashboard</Paragraph>
