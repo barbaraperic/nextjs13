@@ -14,7 +14,7 @@ const Modal = ({
   const router = useRouter()
 
   function handleDismiss() {
-    router.replace('/collection')
+    router.replace('/dashboard/collection')
   }
 
   useEffect(() => {

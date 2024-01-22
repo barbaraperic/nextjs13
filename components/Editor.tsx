@@ -20,7 +20,7 @@ const Editor = ({ data }) => {
     <div className="w-full h-[80%]">
       <p>{loading && 'loading...'}</p>
       <textarea
-        className="w-full text-xl h-full bg-neutral py-4"
+        className="w-full outline-none text-xl h-full bg-neutral py-4"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />

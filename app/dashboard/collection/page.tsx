@@ -26,9 +26,9 @@ export default async function FlashcardPage({
   const allEntries = await getAllEntries()
   console.log('all entryes', allEntries)
   return (
-    <div className="m-auto flex items-center flex-col space-y-6 justify-center mt-4">
+    <div className="flex flex-col space-y-6 p-10  mt-4">
       <NewEntryCard />
-      <div className="grid space-y-2">
+      <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
         {allEntries.map((entry) => (
           <EntryCard key={entry.id} data={entry} />
         ))}

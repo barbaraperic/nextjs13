@@ -9,14 +9,22 @@ const EntryCard = ({ data }) => {
     router.push(`/dashboard/collection/${data.id}`)
   }
 
+  function truncateString(string) {
+    if (string.length > 40) {
+      return string.slice(0, 40) + '...'
+    } else {
+      return string
+    }
+  }
+
   return (
     <div
       onClick={handleClick}
-      className="card w-60 border border-white cursor-pointer"
+      className="border p-4 rounded-lg btn-outline btn-accent cursor-pointer"
     >
-      <div className="card-body flex flex-col justify-center">
-        <p className="card-action text-center text-xl">{date}</p>
-        <p className="card-action text-center text-xl">{data.content}</p>
+      <div className="flex flex-col">
+        <p className="text-left text-xl font-bold">{date}</p>
+        <p className="text-left text-xl">{truncateString(data.content)}</p>
       </div>
     </div>
   )
