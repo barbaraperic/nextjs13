@@ -1,4 +1,5 @@
 import { getUserId } from '@/app/utils/auth'
+import DeleteEntryButton from '@/components/DeleteEntryButton'
 import Editor from '@/components/Editor'
 import Modal from '@/components/Modal'
 import { Paragraph } from '@/components/texts/texts'
@@ -19,20 +20,18 @@ export const getEntry = async (id: string) => {
 
 export default async function EntryPage({ params }) {
   const entry = await getEntry(params.id)
+  console.log(params)
 
   const date = new Date(entry?.createdAt).toDateString()
 
   console.log(entry)
   return (
-    <div className="px-10 relative pt-4 space-y-2  h-full w-full">
+    <div className="px-10 relative pt-4 space-y-2 h-full w-full">
       <Paragraph>{date}</Paragraph>
       <Editor data={entry} />
       <div className="absolute top-2 right-6">
-        <FiTrash2 className="w-6 h-6 cursor-pointer" />
+        <DeleteEntryButton id={params.id} />
       </div>
-      <Modal title="are you sure">
-        <p>are you sure</p>
-      </Modal>
     </div>
   )
 }

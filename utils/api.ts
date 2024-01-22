@@ -14,3 +14,16 @@ export const newEntry = async () => {
     throw new Error('Something went wrong on the API server')
   }
 }
+
+export const deleteEntry = async (id: string) => {
+  const res = await fetch(
+    new Request(createURL(`/api/entry/${id}`), {
+      method: 'DELETE',
+    })
+  )
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on the API server')
+  }
+}

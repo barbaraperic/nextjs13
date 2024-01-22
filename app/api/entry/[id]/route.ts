@@ -1,4 +1,5 @@
 import { getUserId } from '@/app/utils/auth'
+import { update } from '@/utils/actions'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 
@@ -14,6 +15,20 @@ export const PATCH = async (request: Request, { params }) => {
       content: updates,
     },
   })
+
+  return NextResponse.json({ data: entry })
+}
+
+export const DELETE = async (request: Request, { params }) => {
+  const user = await getUserId()
+  const entry = await prisma.entry.delete({
+    where: {
+      id: params.id,
+      userId: user.id,
+    },
+  })
+
+  update(['/dashboard/collection'])
 
   return NextResponse.json({ data: entry })
 }

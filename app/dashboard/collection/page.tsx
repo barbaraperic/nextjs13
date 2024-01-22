@@ -24,7 +24,6 @@ export default async function FlashcardPage({
   params: { id: string }
 }) {
   const allEntries = await getAllEntries()
-  console.log('all entryes', allEntries)
   return (
     <div className="flex flex-col space-y-6 p-10  mt-4">
       <NewEntryCard />
