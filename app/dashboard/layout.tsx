@@ -3,6 +3,7 @@ import { authOptions } from '../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth/next'
 import NavLinks from '@/components/NavLinks'
 import { Paragraph } from '@/components/texts/texts'
+import SignOutButton from '@/components/SignOutButton'
 
 export default async function AuthLayout({
   children,
@@ -42,10 +43,10 @@ export default async function AuthLayout({
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-neutral border-accent border text-base-100 hover:text-accent rounded-box w-52"
                 >
                   <li>
-                    <a className="text-lg">Sign out</a>
+                    <SignOutButton />
                   </li>
                 </ul>
               </div>

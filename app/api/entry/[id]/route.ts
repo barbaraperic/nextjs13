@@ -16,6 +16,8 @@ export const PATCH = async (request: Request, { params }) => {
     },
   })
 
+  update(['/dashboard/collection'])
+
   return NextResponse.json({ data: entry })
 }
 

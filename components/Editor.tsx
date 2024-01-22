@@ -17,14 +17,18 @@ const Editor = ({ data }) => {
   })
 
   return (
-    <div className="w-full h-[80%]">
-      <p>{loading && 'loading...'}</p>
-      <textarea
-        className="w-full outline-none text-xl h-full bg-neutral py-4"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-    </div>
+    <>
+      <div className="h-5">
+        {loading && <span className="loading loading-dots loading-md"></span>}
+      </div>
+      <div className="w-full h-[80%]">
+        <textarea
+          className="w-full outline-none text-xl h-full bg-neutral py-4"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </div>
+    </>
   )
 }
 
