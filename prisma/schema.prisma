@@ -32,8 +32,25 @@ model Entry {
   content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id])
-  reviews ReviewEntry[]
+  nodes Node[]
   @@unique([userId, id])
+}
+
+
+model Node {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  type String
+  name String
+  function String
+  style String
+  positionX Int
+  positionY Int
+  entryId String
+  entry Entry @relation(fields: [entryId], references: [id])
+  @@index([entryId])
+
 }
 
 
@@ -79,15 +96,4 @@ model VerificationRequest {
   updatedAt  DateTime @updatedAt
 
   @@unique([identifier, token])
-}
-
-
-model ReviewEntry {
-  id String @id @default(cuid())
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  content   String
-  entryId String
-  entry Entry @relation(fields: [entryId], references: [id])
-  @@index([entryId])
 }

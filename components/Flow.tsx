@@ -13,13 +13,13 @@ const initialNodes = [
   {
     id: '1',
     type: 'custom',
-    data: { name: 'Jane Doe', function: 'noun' },
+    data: { name: 'Jane Doe', function: 'noun', style: '' },
     position: { x: 100, y: 100 },
   },
   {
     id: '2',
     type: 'custom',
-    data: { name: 'Jane Doe', function: 'noun' },
+    data: { name: 'Jane Doe', function: 'noun', style: '' },
     position: { x: 100, y: 200 },
   },
 ]
@@ -76,7 +76,7 @@ const InteractiveFlow = () => {
     setNodes((nds) =>
       nds.map((node) => {
         if (node.id === nodeId) {
-          node.style = { ...node.style, backgroundColor: nodeBg }
+          node.style = { ...node.style, background: nodeBg }
         }
 
         return node
