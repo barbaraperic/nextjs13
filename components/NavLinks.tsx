@@ -20,8 +20,8 @@ const NavLinks = () => {
       icon: FiZap,
     },
     {
-      name: 'Statistics',
-      href: '/dashboard/statistics',
+      name: 'Mind Map',
+      href: '/dashboard/mindmap',
       icon: FiClipboard,
     },
   ]

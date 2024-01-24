@@ -22,6 +22,7 @@ model User {
   accounts              Account[]
   sessions              Session[]
   entries Entry[]
+  nodes Node[]
   @@map("users")
 }
 
@@ -32,7 +33,7 @@ model Entry {
   content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id])
-  nodes Node[]
+  // nodes Node[]
   @@unique([userId, id])
 }
 
@@ -47,10 +48,12 @@ model Node {
   style String
   positionX Int
   positionY Int
-  entryId String
-  entry Entry @relation(fields: [entryId], references: [id])
-  @@index([entryId])
-
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  @@unique([userId, id])
+  // entryId String
+  // entry Entry @relation(fields: [entryId], references: [id])
+  // @@index([entryId])
 }
 
 

@@ -27,3 +27,17 @@ export const deleteEntry = async (id: string) => {
     throw new Error('Something went wrong on the API server')
   }
 }
+
+export const createMindMap = async () => {
+  const res = await fetch(
+    new Request(createURL(`/api/node`), {
+      method: 'POST',
+      body: JSON.stringify({}),
+    })
+  )
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on the API server')
+  }
+}
