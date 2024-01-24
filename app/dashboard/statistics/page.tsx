@@ -1,3 +1,4 @@
+import Flow from '@/components/Flow'
 import { Heading2 } from '@/components/texts/texts'
 import React from 'react'
 
@@ -7,6 +8,7 @@ export default async function Dashboard() {
       <div className="relative mb-6 rounded-lg space-y-10 flex-1 flex flex-col justify-center items-center">
         {/* <Graph collection={collection.data} /> */}
         <Heading2>Statistics</Heading2>
+        <Flow></Flow>
       </div>
     </main>
   )
