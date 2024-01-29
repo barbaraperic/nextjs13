@@ -1,7 +1,7 @@
-import { getUserId } from '@/app/utils/auth'
 import MindMapCard from '@/components/MindMapCard'
 import NewMindMapCard from '@/components/NewMindMapCard'
 import { Heading2 } from '@/components/texts/texts'
+import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import React from 'react'
 

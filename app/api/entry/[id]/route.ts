@@ -1,5 +1,5 @@
-import { getUserId } from '@/app/utils/auth'
 import { update } from '@/utils/actions'
+import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 

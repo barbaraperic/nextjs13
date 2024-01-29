@@ -1,6 +1,6 @@
-import { getUserId } from '@/app/utils/auth'
 import EntryCard from '@/components/EntryCard'
 import NewEntryCard from '@/components/NewEntryCard'
+import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 
 export const getAllEntries = async () => {

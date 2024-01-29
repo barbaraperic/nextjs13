@@ -1,4 +1,3 @@
-import { getUserId } from '@/app/utils/auth'
 import Flow from '@/components/Flow'
 import MindMapCard from '@/components/MindMapCard'
 import NewNodeForm from '@/components/NewNodeForm'
@@ -42,7 +41,6 @@ const MindMap = async ({ params }) => {
         <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>
-      <div className=""></div>
       <Flow initialNodes={initialNodes} />
     </main>
   )

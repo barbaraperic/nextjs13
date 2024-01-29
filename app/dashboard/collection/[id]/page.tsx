@@ -1,8 +1,8 @@
-import { getUserId } from '@/app/utils/auth'
 import DeleteEntryButton from '@/components/DeleteEntryButton'
 import Editor from '@/components/Editor'
 import Modal from '@/components/Modal'
 import { Paragraph } from '@/components/texts/texts'
+import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { FiTrash2 } from 'react-icons/fi'
 
@@ -24,7 +24,6 @@ export default async function EntryPage({ params }) {
 
   const date = new Date(entry?.createdAt).toDateString()
 
-  console.log(entry)
   return (
     <div className="px-10 relative pt-4 space-y-2 h-full w-full">
       <Paragraph>{date}</Paragraph>

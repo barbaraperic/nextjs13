@@ -1,4 +1,4 @@
-import { getUserId } from '@/app/utils/auth'
+import { getUserId } from '@/utils/auth'
 import ReviewChecklist from '@/components/ReviewChecklist'
 import { prisma } from '@/utils/db'
 

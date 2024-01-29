@@ -5,6 +5,7 @@ import ReactFlow, { useNodesState, useEdgesState } from 'reactflow'
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
 import { Paragraph } from './texts/texts'
+import { useAutosave } from 'react-autosave'
 
 const nodeTypes = {
   custom: CustomNode,
@@ -27,6 +28,15 @@ const InteractiveFlow = ({ initialNodes }) => {
     setNodeId(node.id)
     setStyle({ backgroundColor: '#ff1493' })
   }
+
+  // useAutosave({
+  //   data: value,
+  //   onSave: async (_value) => {
+  //     setLoading(true)
+  //     const updated = await updateEntry(data.id, value)
+  //     setLoading(false)
+  //   },
+  // })
 
   useEffect(() => {
     setNodes((nds) =>
