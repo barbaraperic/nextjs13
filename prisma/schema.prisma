@@ -22,7 +22,7 @@ model User {
   accounts              Account[]
   sessions              Session[]
   entries Entry[]
-  nodes Node[]
+  nodes NodeList[]
   @@map("users")
 }
 
@@ -33,10 +33,20 @@ model Entry {
   content   String
   userId    String
   user      User     @relation(fields: [userId], references: [id])
-  // nodes Node[]
   @@unique([userId, id])
 }
 
+
+model NodeList {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  nodes Node[]
+  @@unique([userId, id])
+}
 
 model Node {
   id        String   @id @default(uuid())
@@ -44,16 +54,13 @@ model Node {
   updatedAt DateTime @updatedAt
   type String
   name String
-  function String
+  speechPart String
   style String
   positionX Int
   positionY Int
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  @@unique([userId, id])
-  // entryId String
-  // entry Entry @relation(fields: [entryId], references: [id])
-  // @@index([entryId])
+  nodeListId    String
+  node NodeList @relation(fields: [nodeListId], references: [id])
+  @@unique([nodeListId, id])
 }
 
 

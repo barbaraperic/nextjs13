@@ -9,25 +9,10 @@ const nodeTypes = {
   custom: CustomNode,
 }
 
-const initialNodes = [
-  {
-    id: '1',
-    type: 'custom',
-    data: { name: 'Jane Doe', function: 'noun', style: '' },
-    position: { x: 100, y: 100 },
-  },
-  {
-    id: '2',
-    type: 'custom',
-    data: { name: 'Jane Doe', function: 'noun', style: '' },
-    position: { x: 100, y: 200 },
-  },
-]
-
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }]
 const defaultViewport = { x: 0, y: 0, zoom: 1.5 }
 
-const InteractiveFlow = () => {
+const InteractiveFlow = ({ initialNodes }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
   const [nodeId, setNodeId] = useState(null)

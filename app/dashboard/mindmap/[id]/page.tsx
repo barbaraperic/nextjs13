@@ -1,26 +1,24 @@
 import { getUserId } from '@/app/utils/auth'
 import Flow from '@/components/Flow'
+import MindMapCard from '@/components/MindMapCard'
+import NewNodeForm from '@/components/NewNodeForm'
+import { Paragraph } from '@/components/texts/texts'
 import { prisma } from '@/utils/db'
 import React from 'react'
 
-export const getNodes = async (id: string) => {
-  const user = await getUserId()
-  const map = prisma.node.findMany({
+const getInitNodes = async (id) => {
+  const nodes = await prisma.node.findMany({
     where: {
-      userId: user.id,
-      id,
+      nodeListId: id,
     },
   })
 
-  return map
+  return nodes
 }
 
 const MindMap = async ({ params }) => {
-  const nodes = await getNodes(params.id)
-
-  console.log(nodes)
-
-  const initialNodes = nodes.map((node) => {
+  const initNodes = await getInitNodes(params.id)
+  const initialNodes = initNodes.map((node) => {
     const nodeModel = {
       ...node,
       id: node.id,
@@ -38,11 +36,16 @@ const MindMap = async ({ params }) => {
     return nodeModel
   })
 
+  console.log('<<<<<<<<<<', initNodes)
+
   return (
-    <main className="flex flex-col flex-1 h-full">
-      <div className="relative mb-6 rounded-lg space-y-10 flex-1 flex flex-col justify-center items-center">
-        <Flow initialNodes={initialNodes} />
+    <main className="flex flex-col flex-1 h-full p-10">
+      <div className="w-[400px] space-y-4 ">
+        <Paragraph>Create a node</Paragraph>
+        <NewNodeForm id={params.id} />
       </div>
+      <div className=""></div>
+      <Flow initialNodes={initialNodes} />
     </main>
   )
 }

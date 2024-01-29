@@ -1,9 +1,9 @@
 'use client'
-import { createMindMap, newEntry } from '@/utils/api'
+import { createMindMap } from '@/utils/api'
 import { useRouter } from 'next/navigation'
 import { FiFileText } from 'react-icons/fi'
 
-const NewNodeCard = () => {
+const NewMindMapCard = () => {
   const router = useRouter()
 
   async function handleOnClick() {
@@ -24,4 +24,4 @@ const NewNodeCard = () => {
   )
 }
 
-export default NewNodeCard
+export default NewMindMapCard

@@ -32,7 +32,25 @@ export const createMindMap = async () => {
   const res = await fetch(
     new Request(createURL(`/api/node`), {
       method: 'POST',
-      body: JSON.stringify({}),
+      body: JSON.stringify({ name: 'Init' }),
+    })
+  )
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on the API server')
+  }
+}
+
+export const createNode = async (
+  id: string,
+  name: string,
+  speechPart: string
+) => {
+  const res = await fetch(
+    new Request(createURL(`/api/node/${id}`), {
+      method: 'POST',
+      body: JSON.stringify({ id, name, speechPart }),
     })
   )
   if (res.ok) {

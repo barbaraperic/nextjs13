@@ -18,14 +18,14 @@ export const getAllEntries = async () => {
   return allEntries
 }
 
-export default async function FlashcardPage({
+export default async function CollectionPage({
   params,
 }: {
   params: { id: string }
 }) {
   const allEntries = await getAllEntries()
   return (
-    <div className="flex flex-col space-y-6 p-10  mt-4">
+    <div className="flex flex-col space-y-6 p-10">
       <NewEntryCard />
       <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
         {allEntries.map((entry) => (
