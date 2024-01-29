@@ -6,7 +6,7 @@ import { Paragraph } from '@/components/texts/texts'
 import { prisma } from '@/utils/db'
 import React from 'react'
 
-const getInitNodes = async (id) => {
+const getInitNodes = async (id: string) => {
   const nodes = await prisma.node.findMany({
     where: {
       nodeListId: id,
@@ -25,7 +25,7 @@ const MindMap = async ({ params }) => {
       type: 'custom',
       data: {
         name: node.name,
-        function: node.function,
+        function: node.speechPart,
         style: node.style,
       },
       position: {
@@ -36,12 +36,10 @@ const MindMap = async ({ params }) => {
     return nodeModel
   })
 
-  console.log('<<<<<<<<<<', initNodes)
-
   return (
     <main className="flex flex-col flex-1 h-full p-10">
       <div className="w-[400px] space-y-4 ">
-        <Paragraph>Create a node</Paragraph>
+        <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>
       <div className=""></div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import ReactFlow, { useNodesState, useEdgesState } from 'reactflow'
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
+import { Paragraph } from './texts/texts'
 
 const nodeTypes = {
   custom: CustomNode,
@@ -83,23 +84,26 @@ const InteractiveFlow = ({ initialNodes }) => {
       onNodeClick={onNodeClick}
       nodeTypes={nodeTypes}
     >
-      <div className="absolute right-3 top-3 z-10 text-base text-black space-y-2">
-        <label className="block text-white">Word:</label>
+      <div className="absolute text-center right-3 top-3 z-10 text-base text-black  flex flex-col space-y-4 items-start">
+        <Paragraph className="text-white">Edit node</Paragraph>
         <input
-          className="p-1 rounded"
+          placeholder="Name"
+          type="text"
+          className="input input-bordered w-full max-w-xs"
           value={nodeName}
           onChange={(evt) => setNodeName(evt.target.value)}
         />
-        <label className="block text-white">Function:</label>
         <input
-          className="p-1 rounded"
+          placeholder="Speech Part"
+          type="text"
+          className="input input-bordered w-full max-w-xs"
           value={nodeFunction}
           onChange={(evt) => setNodeFunction(evt.target.value)}
         />
-
-        <label className="mt-3 block text-white">Background:</label>
         <input
-          className="p-1 rounded"
+          type="color"
+          placeholder="Background"
+          className="input input-bordered w-full max-w-xs"
           value={nodeBg}
           onChange={(evt) => setNodeBg(evt.target.value)}
         />
