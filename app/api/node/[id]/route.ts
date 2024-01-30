@@ -1,18 +1,22 @@
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 
-export const PATCH = async (req: Request, { params }) => {
-  const { updates } = await req.json()
+export const PATCH = async (req: Request) => {
+  const { node } = await req.json()
 
-  const node = await prisma.node.update({
+  const newNode = await prisma.node.update({
     where: {
-      id: params.id,
+      id: node.id,
     },
     data: {
-      name: updates.name,
-      speechPart: updates.speechPart,
+      name: node.data.name,
+      speechPart: node.data.speechPart,
+      positionX: node.position.x,
+      positionY: node.position.y,
     },
   })
 
-  return NextResponse.json({ data: node })
+  console.log('new node', newNode)
+
+  return NextResponse.json({ data: newNode })
 }

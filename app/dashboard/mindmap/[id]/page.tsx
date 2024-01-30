@@ -19,13 +19,11 @@ const MindMap = async ({ params }) => {
   const initNodes = await getInitNodes(params.id)
   const initialNodes = initNodes.map((node) => {
     const nodeModel = {
-      ...node,
       id: node.id,
       type: 'custom',
       data: {
         name: node.name,
-        function: node.speechPart,
-        style: node.style,
+        speechPart: node.speechPart,
       },
       position: {
         x: node.positionX,
@@ -36,8 +34,8 @@ const MindMap = async ({ params }) => {
   })
 
   return (
-    <main className="flex flex-col flex-1 h-full p-10">
-      <div className="w-[400px] space-y-4 ">
+    <main className="flex flex-col items-end flex-1 h-full p-10 space-y-10">
+      <div className="w-[400px] space-y-4">
         <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>

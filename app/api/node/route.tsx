@@ -11,17 +11,5 @@ export const POST = async (req: Request) => {
     },
   })
 
-  const node = await prisma.node.create({
-    data: {
-      name: 'Init',
-      speechPart: 'Verb',
-      positionX: 100,
-      positionY: 100,
-      type: 'custom',
-      style: '',
-      nodeListId: mindMap.id,
-    },
-  })
-
   return NextResponse.json({ data: mindMap })
 }
