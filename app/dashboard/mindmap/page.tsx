@@ -26,9 +26,8 @@ const MindMapPage = async () => {
     <main className="flex flex-col space-y-10 h-full p-10">
       <NewMindMapCard />
       <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
-        {allNodeLists.map((n) => (
-          <MindMapCard key={n.id} data={n} />
-        ))}
+        {allNodeLists &&
+          allNodeLists.map((n) => <MindMapCard key={n.id} data={n} />)}
       </div>
     </main>
   )

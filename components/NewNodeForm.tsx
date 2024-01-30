@@ -14,7 +14,6 @@ const NewNodeForm = ({ id }) => {
 
   async function handleSubmit(e: any) {
     e.preventDefault()
-
     const newNode = await createNode(id, name, speechPart)
     console.log(newNode)
   }

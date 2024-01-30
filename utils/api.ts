@@ -48,7 +48,6 @@ export const createMindMap = async () => {
   const res = await fetch(
     new Request(createURL(`/api/node`), {
       method: 'POST',
-      body: JSON.stringify({ name: 'Init' }),
     })
   )
   if (res.ok) {

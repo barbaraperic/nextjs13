@@ -1,6 +1,24 @@
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 
+export const POST = async (req: Request) => {
+  const { name, speechPart, id } = await req.json()
+
+  const newNode = await prisma.node.create({
+    data: {
+      type: 'custom',
+      name,
+      speechPart,
+      style: '',
+      positionX: 100,
+      positionY: 100,
+      nodeListId: id,
+    },
+  })
+
+  return NextResponse.json({ data: newNode })
+}
+
 export const PATCH = async (req: Request) => {
   const { node } = await req.json()
 
@@ -15,8 +33,6 @@ export const PATCH = async (req: Request) => {
       positionY: node.position.y,
     },
   })
-
-  console.log('new node', newNode)
 
   return NextResponse.json({ data: newNode })
 }
