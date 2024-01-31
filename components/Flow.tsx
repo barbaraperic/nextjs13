@@ -25,6 +25,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
 
   const [nodeTitle, setNodeTitle] = useState('')
   const [nodeSubtitle, setNodeSubtitle] = useState('')
+  const [disabled, setDisabled] = useState(true)
 
   function onNodeClick(event, node) {
     setNodeId(node.id)
@@ -33,6 +34,12 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   async function handleClick() {
     const updatedNodes = await updateNode(id, nodes, edges)
   }
+
+  useEffect(() => {
+    if (JSON.stringify(initialNodes) !== JSON.stringify(nodes)) {
+      setDisabled(false)
+    }
+  }, [initialNodes, nodes])
 
   useEffect(() => {
     setNodes((nds) =>
@@ -70,7 +77,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   return (
     <>
       <button
-        disabled={!nodeId}
+        disabled={disabled}
         onClick={handleClick}
         className="btn  btn-wide btn-accent"
       >
