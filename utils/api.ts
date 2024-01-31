@@ -75,11 +75,11 @@ export const createNode = async (
   }
 }
 
-export const updateNode = async (id: string, nodeList) => {
+export const updateNode = async (id: string, nodeList, nodeEdgeList) => {
   const res = await fetch(
     new Request(createURL(`/api/node/${id}`), {
       method: 'PATCH',
-      body: JSON.stringify({ nodeList }),
+      body: JSON.stringify({ nodeList, nodeEdgeList }),
     })
   )
 

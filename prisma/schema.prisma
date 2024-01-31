@@ -45,6 +45,7 @@ model NodeList {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   nodes Node[]
+  nodeEdges NodeEdge[]
   @@unique([userId, id])
 }
 
@@ -59,7 +60,18 @@ model Node {
   positionX Int
   positionY Int
   nodeListId    String
-  node NodeList @relation(fields: [nodeListId], references: [id])
+  nodeList NodeList @relation(fields: [nodeListId], references: [id])
+  @@unique([nodeListId, id])
+}
+
+model NodeEdge {
+  id        String   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  source String
+  target String
+  nodeListId    String
+  nodeList NodeList @relation(fields: [nodeListId], references: [id])
   @@unique([nodeListId, id])
 }
 

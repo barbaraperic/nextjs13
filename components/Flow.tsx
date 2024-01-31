@@ -1,7 +1,12 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import ReactFlow, { useNodesState, useEdgesState, Background } from 'reactflow'
+import React, { useCallback, useEffect, useState } from 'react'
+import ReactFlow, {
+  useNodesState,
+  useEdgesState,
+  Background,
+  addEdge,
+} from 'reactflow'
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
 import { Paragraph } from './texts/texts'
@@ -11,24 +16,24 @@ const nodeTypes = {
   custom: CustomNode,
 }
 
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }]
 const defaultViewport = { x: 0, y: 0, zoom: 1.5 }
 
-const InteractiveFlow = ({ initialNodes, id }) => {
+const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(nodeEdges)
   const [nodeId, setNodeId] = useState(null)
 
   const [nodeTitle, setNodeTitle] = useState('')
   const [nodeSubtitle, setNodeSubtitle] = useState('')
-  const [newTitle, setNewTitle] = useState('')
 
   function onNodeClick(event, node) {
     setNodeId(node.id)
   }
 
   async function handleClick() {
-    const updated = await updateNode(id, nodes)
+    // add edges to nodes
+    console.log('here', edges)
+    const updatedNodes = await updateNode(id, nodes, edges)
   }
 
   useEffect(() => {
@@ -59,6 +64,11 @@ const InteractiveFlow = ({ initialNodes, id }) => {
     )
   }, [nodeSubtitle, setNodes, nodeId])
 
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    []
+  )
+
   return (
     <>
       <button
@@ -79,6 +89,7 @@ const InteractiveFlow = ({ initialNodes, id }) => {
         attributionPosition="bottom-left"
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
+        onConnect={onConnect}
       >
         <div className="absolute text-center right-3 top-3 z-10 text-base text-black  flex flex-col space-y-4 items-start">
           <Paragraph className="text-white">Edit node</Paragraph>

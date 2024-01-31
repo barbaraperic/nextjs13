@@ -23,7 +23,7 @@ export const POST = async (req: Request) => {
 }
 
 export const PATCH = async (req: Request, { params }) => {
-  const { nodeList } = await req.json()
+  const { nodeList, nodeEdgeList } = await req.json()
 
   const newNode = nodeList.forEach(async (node) => {
     const updated = await prisma.node.update({
@@ -40,5 +40,17 @@ export const PATCH = async (req: Request, { params }) => {
     return updated
   })
 
-  return NextResponse.json({ data: newNode })
+  const newNodeEdge = nodeEdgeList.forEach(async (edge) => {
+    const updated = await prisma.nodeEdge.create({
+      data: {
+        source: edge.source,
+        target: edge.target,
+        id: edge.id,
+        nodeListId: params.id,
+      },
+    })
+    return updated
+  })
+
+  return NextResponse.json({ data: { newNode, newNodeEdge } })
 }
