@@ -1,14 +1,15 @@
+import { update } from '@/utils/actions'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 
 export const POST = async (req: Request) => {
-  const { name, speechPart, id } = await req.json()
+  const { title, subtitle, id } = await req.json()
 
   const newNode = await prisma.node.create({
     data: {
       type: 'custom',
-      name,
-      speechPart,
+      title,
+      subtitle,
       style: '',
       positionX: 100,
       positionY: 100,
@@ -16,22 +17,27 @@ export const POST = async (req: Request) => {
     },
   })
 
+  update([`/dashboard/mindmap/${id}`])
+
   return NextResponse.json({ data: newNode })
 }
 
-export const PATCH = async (req: Request) => {
-  const { node } = await req.json()
+export const PATCH = async (req: Request, { params }) => {
+  const { nodeList } = await req.json()
 
-  const newNode = await prisma.node.update({
-    where: {
-      id: node.id,
-    },
-    data: {
-      name: node.data.name,
-      speechPart: node.data.speechPart,
-      positionX: node.position.x,
-      positionY: node.position.y,
-    },
+  const newNode = nodeList.forEach(async (node) => {
+    const updated = await prisma.node.update({
+      where: {
+        id: node.id,
+      },
+      data: {
+        title: node.data.title,
+        subtitle: node.data.subtitle,
+        positionX: node.position.x,
+        positionY: node.position.y,
+      },
+    })
+    return updated
   })
 
   return NextResponse.json({ data: newNode })

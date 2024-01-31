@@ -59,13 +59,13 @@ export const createMindMap = async () => {
 
 export const createNode = async (
   id: string,
-  name: string,
-  speechPart: string
+  title: string,
+  subtitle: string
 ) => {
   const res = await fetch(
     new Request(createURL(`/api/node/${id}`), {
       method: 'POST',
-      body: JSON.stringify({ id, name, speechPart }),
+      body: JSON.stringify({ id, title, subtitle }),
     })
   )
   if (res.ok) {
@@ -75,11 +75,11 @@ export const createNode = async (
   }
 }
 
-export const updateNode = async (id: string, node) => {
+export const updateNode = async (id: string, nodeList) => {
   const res = await fetch(
     new Request(createURL(`/api/node/${id}`), {
       method: 'PATCH',
-      body: JSON.stringify({ node }),
+      body: JSON.stringify({ nodeList }),
     })
   )
 

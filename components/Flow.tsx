@@ -5,7 +5,6 @@ import ReactFlow, { useNodesState, useEdgesState, Background } from 'reactflow'
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
 import { Paragraph } from './texts/texts'
-import { useAutosave } from 'react-autosave'
 import { updateNode } from '@/utils/api'
 
 const nodeTypes = {
@@ -20,20 +19,16 @@ const InteractiveFlow = ({ initialNodes, id }) => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges)
   const [nodeId, setNodeId] = useState(null)
 
-  const [nodeName, setNodeName] = useState('')
-  const [nodeSpeechPart, setNodeSpeechPart] = useState('')
-
-  console.log(nodes)
-  console.log(nodes)
+  const [nodeTitle, setNodeTitle] = useState('')
+  const [nodeSubtitle, setNodeSubtitle] = useState('')
+  const [newTitle, setNewTitle] = useState('')
 
   function onNodeClick(event, node) {
     setNodeId(node.id)
   }
 
   async function handleClick() {
-    const currentNode = nodes.find((node) => node.id === nodeId)
-    console.log('>>>>>>>>', currentNode)
-    const updated = await updateNode(id, currentNode)
+    const updated = await updateNode(id, nodes)
   }
 
   useEffect(() => {
@@ -42,13 +37,13 @@ const InteractiveFlow = ({ initialNodes, id }) => {
         if (node.id === nodeId) {
           node.data = {
             ...node.data,
-            name: nodeName,
+            name: nodeTitle,
           }
         }
         return node
       })
     )
-  }, [nodeName, setNodes])
+  }, [nodeTitle, setNodes, nodeId])
 
   useEffect(() => {
     setNodes((nds) =>
@@ -56,25 +51,13 @@ const InteractiveFlow = ({ initialNodes, id }) => {
         if (node.id === nodeId) {
           node.data = {
             ...node.data,
-            speechPart: nodeSpeechPart,
+            subtitle: nodeSubtitle,
           }
         }
         return node
       })
     )
-  }, [nodeSpeechPart, setNodes])
-
-  // useEffect(() => {
-  //   setNodes((nds) =>
-  //     nds.map((node) => {
-  //       if (node.id === nodeId) {
-  //         node.style = { ...node.style, background: nodeBg }
-  //       }
-
-  //       return node
-  //     })
-  //   )
-  // }, [nodeBg, setNodes])
+  }, [nodeSubtitle, setNodes, nodeId])
 
   return (
     <>
@@ -103,15 +86,15 @@ const InteractiveFlow = ({ initialNodes, id }) => {
             placeholder="Name"
             type="text"
             className="input input-bordered w-full max-w-xs"
-            value={nodeName}
-            onChange={(evt) => setNodeName(evt.target.value)}
+            value={nodeTitle}
+            onChange={(evt) => setNodeTitle(evt.target.value)}
           />
           <input
             placeholder="Speech Part"
             type="text"
             className="input input-bordered w-full max-w-xs"
-            value={nodeSpeechPart}
-            onChange={(evt) => setNodeSpeechPart(evt.target.value)}
+            value={nodeSubtitle}
+            onChange={(evt) => setNodeSubtitle(evt.target.value)}
           />
           {/* <input
             type="color"

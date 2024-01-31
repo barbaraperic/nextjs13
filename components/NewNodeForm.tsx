@@ -3,42 +3,31 @@ import { createNode } from '@/utils/api'
 import { useState } from 'react'
 
 const NewNodeForm = ({ id }) => {
-  const [name, setName] = useState('')
-  const [speechPart, setSpeechPart] = useState('')
-
-  const speechPartOptions = [
-    { value: 'Verb' },
-    { value: 'Noun' },
-    { value: 'Adjective' },
-  ]
+  const [title, setTitle] = useState('')
+  const [subtitle, setSubtitle] = useState('')
 
   async function handleSubmit(e: any) {
     e.preventDefault()
-    const newNode = await createNode(id, name, speechPart)
-    console.log(newNode)
+    const newNode = await createNode(id, title, subtitle)
+    setTitle('')
+    setSubtitle('')
   }
   return (
     <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
       <input
-        value={name}
+        value={title}
         type="text"
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Name"
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
         className="input input-bordered text-black w-full"
       />
-      <select
-        onChange={(e) => setSpeechPart(e.target.value)}
-        className="select text-black select-bordered w-full"
-      >
-        <option disabled defaultValue="Speech Part">
-          Speech Part
-        </option>
-        {speechPartOptions.map((speechPartOption, index) => (
-          <option value={speechPartOption.value} key={index}>
-            {speechPartOption.value}
-          </option>
-        ))}
-      </select>
+      <input
+        value={subtitle}
+        type="text"
+        onChange={(e) => setSubtitle(e.target.value)}
+        placeholder="Subtitle"
+        className="input input-bordered text-black w-full"
+      />
       <button type="submit" className="btn btn-accent">
         Create
       </button>

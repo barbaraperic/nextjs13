@@ -14,8 +14,8 @@ const CustomNode = ({ data }) => {
     >
       <div className="flex">
         <div>
-          <div className="text-md font-bold text-gray-500">{data.name}</div>
-          <div className="text-gray-500">{data.speechPart}</div>
+          <div className="text-md font-bold text-gray-500">{data.title}</div>
+          <div className="text-gray-500">{data.subtitle}</div>
         </div>
       </div>
 

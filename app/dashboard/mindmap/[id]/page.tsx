@@ -12,18 +12,28 @@ const getInitNodes = async (id: string) => {
     },
   })
 
-  return nodes
+  const nodeList = await prisma.nodeList.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      name: true,
+    },
+  })
+
+  return { nodes, nodeList }
 }
 
 const MindMap = async ({ params }) => {
-  const initNodes = await getInitNodes(params.id)
-  const initialNodes = initNodes.map((node) => {
+  const { nodes, nodeList } = await getInitNodes(params.id)
+
+  const initialNodes = nodes.map((node) => {
     const nodeModel = {
       id: node.id,
       type: 'custom',
       data: {
-        name: node.name,
-        speechPart: node.speechPart,
+        title: node.title,
+        subtitle: node.subtitle,
       },
       position: {
         x: node.positionX,
@@ -39,7 +49,7 @@ const MindMap = async ({ params }) => {
         <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>
-      <Flow initialNodes={initialNodes} />
+      <Flow id={params.id} initialNodes={initialNodes} />
     </main>
   )
 }
