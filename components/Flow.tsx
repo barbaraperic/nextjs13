@@ -31,8 +31,6 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   }
 
   async function handleClick() {
-    // add edges to nodes
-    console.log('here', edges)
     const updatedNodes = await updateNode(id, nodes, edges)
   }
 
@@ -42,7 +40,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         if (node.id === nodeId) {
           node.data = {
             ...node.data,
-            name: nodeTitle,
+            title: nodeTitle,
           }
         }
         return node
@@ -72,8 +70,9 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   return (
     <>
       <button
+        disabled={!nodeId}
         onClick={handleClick}
-        className="btn btn-outline btn-wide btn-accent"
+        className="btn  btn-wide btn-accent"
       >
         Save
       </button>
@@ -94,28 +93,21 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         <div className="absolute text-center right-3 top-3 z-10 text-base text-black  flex flex-col space-y-4 items-start">
           <Paragraph className="text-white">Edit node</Paragraph>
           <input
-            placeholder="Name"
+            placeholder="Title"
             type="text"
             className="input input-bordered w-full max-w-xs"
             value={nodeTitle}
             onChange={(evt) => setNodeTitle(evt.target.value)}
           />
           <input
-            placeholder="Speech Part"
+            placeholder="Subtitle"
             type="text"
             className="input input-bordered w-full max-w-xs"
             value={nodeSubtitle}
             onChange={(evt) => setNodeSubtitle(evt.target.value)}
           />
-          {/* <input
-            type="color"
-            placeholder="Background"
-            className="input input-bordered w-full max-w-xs"
-            value={nodeBg}
-            onChange={(evt) => setNodeBg(evt.target.value)}
-          /> */}
         </div>
-        <Background color="#aaa" gap={16} />
+        <Background color="#d6d4d4" gap={16} />
       </ReactFlow>
     </>
   )

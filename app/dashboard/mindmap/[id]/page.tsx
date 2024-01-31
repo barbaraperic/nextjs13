@@ -41,12 +41,18 @@ const MindMap = async ({ params }) => {
   })
 
   return (
-    <main className="flex flex-col items-end flex-1 h-full p-10 space-y-10">
-      <div className="w-[400px] space-y-4">
+    <main className="grid grid-cols-[25%_75%] h-full p-10">
+      <div className="w-[260px] space-y-4 flex flex-col justify-center">
         <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>
-      <Flow id={params.id} initialNodes={initialNodes} nodeEdges={nodeEdges} />
+      <div className="flex-1">
+        <Flow
+          id={params.id}
+          initialNodes={initialNodes}
+          nodeEdges={nodeEdges}
+        />
+      </div>
     </main>
   )
 }

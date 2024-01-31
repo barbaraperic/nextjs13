@@ -28,7 +28,7 @@ const NewNodeForm = ({ id }) => {
         placeholder="Subtitle"
         className="input input-bordered text-black w-full"
       />
-      <button type="submit" className="btn btn-accent">
+      <button type="submit" className="btn btn-outline btn-accent">
         Create
       </button>
     </form>

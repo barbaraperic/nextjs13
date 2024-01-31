@@ -20,7 +20,6 @@ export const getEntry = async (id: string) => {
 
 export default async function EntryPage({ params }) {
   const entry = await getEntry(params.id)
-  console.log(params)
 
   const date = new Date(entry?.createdAt).toDateString()
 
