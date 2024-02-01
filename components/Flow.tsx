@@ -31,7 +31,10 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
     setNodeId(node.id)
   }
 
+  console.log('edges', edges)
+
   async function handleClick() {
+    console.log(nodes)
     const updatedNodes = await updateNode(id, nodes, edges)
   }
 

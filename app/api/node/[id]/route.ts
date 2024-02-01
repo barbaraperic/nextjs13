@@ -40,17 +40,39 @@ export const PATCH = async (req: Request, { params }) => {
     return updated
   })
 
-  const newNodeEdge = nodeEdgeList.forEach(async (edge) => {
-    const updated = await prisma.nodeEdge.create({
-      data: {
-        source: edge.source,
-        target: edge.target,
-        id: edge.id,
-        nodeListId: params.id,
+  nodeList.forEach(async (node) => {
+    await prisma.node.deleteMany({
+      where: {
+        NOT: {
+          id: node.id,
+        },
       },
     })
-    return updated
   })
 
-  return NextResponse.json({ data: { newNode, newNodeEdge } })
+  if (nodeEdgeList.length > 0) {
+    const newNodeEdge = nodeEdgeList.forEach(async (edge) => {
+      const updated = await prisma.nodeEdge.create({
+        data: {
+          source: edge.source,
+          target: edge.target,
+          id: edge.id,
+          nodeListId: params.id,
+        },
+      })
+      return updated
+    })
+
+    nodeEdgeList.forEach(async (edge) => {
+      await prisma.nodeEdge.deleteMany({
+        where: {
+          NOT: {
+            id: edge.id,
+          },
+        },
+      })
+    })
+  }
+
+  return NextResponse.json({ data: { newNode } })
 }
