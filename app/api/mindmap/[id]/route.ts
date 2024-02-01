@@ -1,6 +1,8 @@
-import { update } from '@/utils/actions'
+import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
+
+export const revalidated = true
 
 export const POST = async (req: Request) => {
   const { title, subtitle, id } = await req.json()
@@ -17,9 +19,9 @@ export const POST = async (req: Request) => {
     },
   })
 
-  update([`/dashboard/mindmap/${id}`])
+  //update([`/dashboard/mindmap/${id}`])
 
-  return NextResponse.json({ data: newNode })
+  return NextResponse.json({ data: newNode, revalidated })
 }
 
 export const PATCH = async (req: Request, { params }) => {
@@ -38,16 +40,6 @@ export const PATCH = async (req: Request, { params }) => {
       },
     })
     return updated
-  })
-
-  nodeList.forEach(async (node) => {
-    await prisma.node.deleteMany({
-      where: {
-        NOT: {
-          id: node.id,
-        },
-      },
-    })
   })
 
   if (nodeEdgeList.length > 0) {
@@ -75,4 +67,16 @@ export const PATCH = async (req: Request, { params }) => {
   }
 
   return NextResponse.json({ data: { newNode } })
+}
+
+export const DELETE = async (req: Request, { params }) => {
+  const user = await getUserId()
+  const nodeList = await prisma.nodeList.delete({
+    where: {
+      id: params.id,
+      userId: user.id,
+    },
+  })
+
+  return NextResponse.json({ data: nodeList, revalidated })
 }

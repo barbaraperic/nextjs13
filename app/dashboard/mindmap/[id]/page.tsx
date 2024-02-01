@@ -1,3 +1,4 @@
+import DeleteMindMapButton from '@/components/DeleteMindMapButton'
 import Flow from '@/components/Flow'
 import MindMapCard from '@/components/MindMapCard'
 import NewNodeForm from '@/components/NewNodeForm'
@@ -41,8 +42,11 @@ const MindMap = async ({ params }) => {
   })
 
   return (
-    <main className="grid grid-cols-[25%_75%] h-full p-10">
-      <div className="w-[260px] space-y-4 flex flex-col justify-center">
+    <main className="grid grid-cols-[25%_75%] h-full p-10 relative">
+      <div className="absolute top-2 right-6">
+        <DeleteMindMapButton id={params.id} />
+      </div>
+      <div className="w-[260px]  space-y-4 flex flex-col justify-center">
         <Paragraph>Create node</Paragraph>
         <NewNodeForm id={params.id} />
       </div>

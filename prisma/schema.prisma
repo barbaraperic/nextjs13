@@ -60,7 +60,7 @@ model Node {
   positionX Int
   positionY Int
   nodeListId    String
-  nodeList NodeList @relation(fields: [nodeListId], references: [id])
+  nodeList NodeList @relation(fields: [nodeListId], references: [id], onDelete: Cascade)
   @@unique([nodeListId, id])
 }
 
@@ -71,7 +71,7 @@ model NodeEdge {
   source String
   target String
   nodeListId    String
-  nodeList NodeList @relation(fields: [nodeListId], references: [id])
+  nodeList NodeList @relation(fields: [nodeListId], references: [id], onDelete: Cascade)
   @@unique([nodeListId, id])
 }
 

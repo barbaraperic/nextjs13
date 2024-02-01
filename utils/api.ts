@@ -46,7 +46,7 @@ export const updateEntry = async (id: string, updates: string) => {
 
 export const createMindMap = async () => {
   const res = await fetch(
-    new Request(createURL(`/api/node`), {
+    new Request(createURL(`/api/mindmap`), {
       method: 'POST',
     })
   )
@@ -63,10 +63,11 @@ export const createNode = async (
   subtitle: string
 ) => {
   const res = await fetch(
-    new Request(createURL(`/api/node/${id}`), {
+    new Request(createURL(`/api/mindmap/${id}`), {
       method: 'POST',
       body: JSON.stringify({ id, title, subtitle }),
-    })
+    }),
+    { cache: 'no-store' }
   )
   if (res.ok) {
     return res.json()
@@ -77,7 +78,7 @@ export const createNode = async (
 
 export const updateNode = async (id: string, nodeList, nodeEdgeList) => {
   const res = await fetch(
-    new Request(createURL(`/api/node/${id}`), {
+    new Request(createURL(`/api/mindmap/${id}`), {
       method: 'PATCH',
       body: JSON.stringify({ nodeList, nodeEdgeList }),
     })
@@ -88,5 +89,19 @@ export const updateNode = async (id: string, nodeList, nodeEdgeList) => {
     return data.data
   } else {
     throw new Error('Something went wrong')
+  }
+}
+
+export const deleteMindMap = async (id: string) => {
+  const res = await fetch(
+    new Request(createURL(`/api/mindmap/${id}`), {
+      method: 'DELETE',
+    }),
+    { cache: 'no-store' }
+  )
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on the API server')
   }
 }
