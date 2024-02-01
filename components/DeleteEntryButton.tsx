@@ -1,7 +1,7 @@
 'use client'
 import { FiTrash2 } from 'react-icons/fi'
 import { useTransition } from 'react'
-import { deleteEntry } from '@/utils/api'
+import { deleteEntry } from '@/utils/mindmap/api'
 
 const DeleteEntryButton = ({ id }: { id: string }) => {
   const [isPending, startTransition] = useTransition()

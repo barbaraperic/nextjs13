@@ -1,5 +1,5 @@
 'use client'
-import { createNode } from '@/utils/api'
+import { createNode } from '@/utils/mindmap/api'
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -13,7 +13,6 @@ const NewNodeForm = ({ id }) => {
   async function handleSubmit(e: any) {
     e.preventDefault()
     const newNode = await createNode(id, title, subtitle)
-
     router.push(window.location.href)
     router.refresh()
     //startTransition(() => router.reload())

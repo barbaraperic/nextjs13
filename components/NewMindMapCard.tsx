@@ -1,5 +1,5 @@
 'use client'
-import { createMindMap } from '@/utils/api'
+import { createMindMap } from '@/utils/mindmap/api'
 import { useRouter } from 'next/navigation'
 import { FiFileText } from 'react-icons/fi'
 

@@ -10,7 +10,7 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
 import { Paragraph } from './texts/texts'
-import { updateNode } from '@/utils/api'
+import { updateNode, updateNodeEdge } from '@/utils/mindmap/api'
 
 const nodeTypes = {
   custom: CustomNode,
@@ -35,7 +35,9 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
 
   async function handleClick() {
     console.log(nodes)
-    const updatedNodes = await updateNode(id, nodes, edges)
+    const updatedNodes = await updateNode(id, nodes)
+
+    const updatedEdges = await updateNodeEdge(id, edges)
   }
 
   useEffect(() => {
@@ -71,6 +73,8 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
       })
     )
   }, [nodeSubtitle, setNodes, nodeId])
+
+  useEffect(() => {}, [edges])
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),

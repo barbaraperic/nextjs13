@@ -1,5 +1,5 @@
 'use client'
-import { newEntry } from '@/utils/api'
+import { newEntry } from '@/utils/entry/api'
 import { useRouter } from 'next/navigation'
 import { FiFileText } from 'react-icons/fi'
 
