@@ -59,9 +59,17 @@ export const PATCH = async (req: Request, { params }) => {
   )
 
   if (formatRecordsToCreate.length > 0) {
-    await prisma.node.createMany({
-      data: formatRecordsToCreate,
-    })
+    for (const record of formatRecordsToCreate) {
+      await prisma.node.updateMany({
+        where: { id: record.id, nodeListId: record.nodeListId },
+        data: {
+          title: record.title,
+          subtitle: record.subtitle,
+          positionX: record.positionX,
+          positionY: record.positionY,
+        },
+      })
+    }
   }
 
   if (formatRecordsToUpdate.length > 0) {

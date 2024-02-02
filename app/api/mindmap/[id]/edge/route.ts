@@ -29,18 +29,27 @@ export const PATCH = async (req: Request, { params }) => {
 
   const nodeEdgeIds = nodeEdgeList.map((edge) => edge.id)
 
-  const recordsToCreate = nodeEdgeList.filter((edge) => {
-    existingRecords.some((record) => record.id !== edge.id)
-  })
+  const recordsToCreate = nodeEdgeList.filter(
+    (edge) => !existingRecords.some((record) => record.id === edge.id)
+  )
+
+  console.log(recordsToCreate)
 
   const recordsToDelete = existingRecords.filter(
     (existing) => !nodeEdgeIds.includes(existing.id)
   )
 
   if (recordsToCreate.length > 0) {
-    const newNodeEdge = await prisma.nodeEdge.create({
-      data: recordsToCreate,
-    })
+    for (const record of recordsToCreate) {
+      await prisma.nodeEdge.createMany({
+        data: {
+          target: record.target,
+          source: record.source,
+          id: record.id,
+          nodeListId: params.id,
+        },
+      })
+    }
   }
 
   const deletedNodeEdge = await prisma.nodeEdge.deleteMany({
