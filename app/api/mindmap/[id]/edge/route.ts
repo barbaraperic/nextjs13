@@ -21,29 +21,17 @@ export const POST = async (req: Request, { params }) => {
 export const PATCH = async (req: Request, { params }) => {
   const { nodeEdgeList } = await req.json()
 
-  console.log('nodeEdgeList', nodeEdgeList)
-
   const existingRecords = await prisma.nodeEdge.findMany({
     where: {
       nodeListId: params.id,
     },
   })
 
-  console.log('existingRecords', existingRecords)
-
   const nodeEdgeIds = nodeEdgeList.map((edge) => edge.id)
-
-  // const recordsToCreate = nodeEdgeList.filter((edge) =>
-  //   existingRecords.some((record) => record.id !== edge.id)
-  // )
-
-  // if you find the element in the list return
 
   const recordsToCreate = nodeEdgeList.filter((edge) => {
     existingRecords.some((record) => record.id !== edge.id)
   })
-
-  console.log('recordsToCreate', recordsToCreate)
 
   const recordsToDelete = existingRecords.filter(
     (existing) => !nodeEdgeIds.includes(existing.id)
