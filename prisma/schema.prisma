@@ -53,10 +53,10 @@ model Node {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  type String
+  type String?
   title String
   subtitle String
-  style String
+  style String?
   positionX Int
   positionY Int
   nodeListId    String

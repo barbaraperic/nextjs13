@@ -1,4 +1,5 @@
 import { prisma } from '@/utils/db'
+import { formatNodeObject } from '@/utils/formatNodeObject'
 import { NextResponse } from 'next/server'
 
 export const revalidated = false
@@ -21,27 +22,6 @@ export const POST = async (req: Request) => {
   return NextResponse.json({ data: newNode, revalidated })
 }
 
-// export const PATCH = async (req: Request, { params }) => {
-//   const { nodeList } = await req.json()
-
-//   const newNode = nodeList.forEach(async (node) => {
-//     const updated = await prisma.node.update({
-//       where: {
-//         id: node.id,
-//       },
-//       data: {
-//         title: node.data.title,
-//         subtitle: node.data.subtitle,
-//         positionX: node.position.x,
-//         positionY: node.position.y,
-//       },
-//     })
-//     return updated
-//   })
-
-//   return NextResponse.json({ data: { newNode } })
-// }
-
 export const PATCH = async (req: Request, { params }) => {
   const { nodeList } = await req.json()
 
@@ -51,29 +31,62 @@ export const PATCH = async (req: Request, { params }) => {
     },
   })
 
-  const nodeIds = nodeList.map((edge) => edge.id)
+  const nodeIds = nodeList.map((node) => node.id)
 
-  const recordsToCreate = nodeList.filter((edge) => {
-    existingRecords.some((record) => record.id !== edge.id)
-  })
+  const recordsToCreate = nodeList.filter(
+    (node) => !existingRecords.some((record) => record.id === node.id)
+  )
+
+  const recordsToUpdate = nodeList.filter((edge) =>
+    existingRecords.some((record) => {
+      if (record.id === edge.id) {
+        return (
+          record.title !== edge.data.title ||
+          record.subtitle !== edge.data.subtitle ||
+          record.positionX !== edge.position.x ||
+          record.positionY !== edge.position.y
+        )
+      }
+      return false
+    })
+  )
+
+  const formatRecordsToUpdate = formatNodeObject(recordsToUpdate, params.id)
+  const formatRecordsToCreate = formatNodeObject(recordsToCreate, params.id)
 
   const recordsToDelete = existingRecords.filter(
     (existing) => !nodeIds.includes(existing.id)
   )
 
-  if (recordsToCreate.length > 0) {
-    const newNode = await prisma.node.create({
-      data: recordsToCreate,
+  if (formatRecordsToCreate.length > 0) {
+    await prisma.node.createMany({
+      data: formatRecordsToCreate,
     })
   }
 
-  const deleteNode = await prisma.node.deleteMany({
-    where: {
-      id: {
-        in: recordsToDelete.map((record) => record.id),
+  if (formatRecordsToUpdate.length > 0) {
+    for (const record of formatRecordsToUpdate) {
+      await prisma.node.updateMany({
+        where: { id: record.id, nodeListId: record.nodeListId },
+        data: {
+          title: record.title,
+          subtitle: record.subtitle,
+          positionX: record.positionX,
+          positionY: record.positionY,
+        },
+      })
+    }
+  }
+
+  if (recordsToDelete.length > 0) {
+    await prisma.node.deleteMany({
+      where: {
+        id: {
+          in: recordsToDelete.map((record) => record.id),
+        },
       },
-    },
-  })
+    })
+  }
 
   return NextResponse.json({ status: 200 })
 }
