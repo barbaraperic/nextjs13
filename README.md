@@ -11,23 +11,3 @@ yarn dev
 # or
 pnpm dev
 ```
-
-### Color palette
-
-Primary (green):
-
-- `hsl(160deg, 100%, 30%)`
-
-Secondary (gold):
-
-- `hsl(45deg, 100%, 50%)` (lighter)
-- `hsl(45deg, 100%, 40%)` (darker)
-
-Grays:
-
-- `hsl(0deg, 0%, 0%)` (black)
-- `hsl(0deg, 0%, 10%)` (very dark)
-- `hsl(0deg, 0%, 30%)` (dark)
-- `hsl(0deg, 0%, 40%)` (medium)
-- `hsl(0deg, 0%, 60%)` (light)
-- `hsl(0deg, 0%, 100%)` (white)
