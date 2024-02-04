@@ -1,6 +1,5 @@
 import DeleteMindMapButton from '@/components/DeleteMindMapButton'
 import Flow from '@/components/Flow'
-import MindMapCard from '@/components/MindMapCard'
 import NewNodeForm from '@/components/NewNodeForm'
 import { Paragraph } from '@/components/texts/texts'
 import { prisma } from '@/utils/db'

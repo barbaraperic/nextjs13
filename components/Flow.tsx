@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useTransition } from 'react'
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -26,6 +26,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   const [nodeTitle, setNodeTitle] = useState('')
   const [nodeSubtitle, setNodeSubtitle] = useState('')
   const [disabled, setDisabled] = useState(true)
+  const [isPending, startTransition] = useTransition()
 
   function onNodeClick(event, node) {
     setNodeId(node.id)
@@ -80,11 +81,12 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   return (
     <>
       <button
-        disabled={disabled}
-        onClick={handleClick}
-        className="btn  btn-wide btn-accent"
+        onClick={() => startTransition(() => handleClick())}
+        disabled={isPending}
+        className="btn btn-wide btn-accent mb-6 disabled:text-accent disabled:border-2 disabled:border-accent"
       >
-        Save
+        {isPending && <>Saving...</>}
+        {!isPending && <>Save</>}
       </button>
       <ReactFlow
         nodes={nodes}

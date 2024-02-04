@@ -33,8 +33,6 @@ export const PATCH = async (req: Request, { params }) => {
     (edge) => !existingRecords.some((record) => record.id === edge.id)
   )
 
-  console.log(recordsToCreate)
-
   const recordsToDelete = existingRecords.filter(
     (existing) => !nodeEdgeIds.includes(existing.id)
   )

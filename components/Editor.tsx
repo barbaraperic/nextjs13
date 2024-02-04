@@ -1,5 +1,5 @@
 'use client'
-import { updateEntry } from '@/app/utils/api'
+import { updateEntry } from '@/utils/entry/api'
 import { useCallback, useState } from 'react'
 import { useAutosave } from 'react-autosave'
 
@@ -15,6 +15,8 @@ const Editor = ({ data }) => {
       setLoading(false)
     },
   })
+
+  console.log(value)
 
   return (
     <>

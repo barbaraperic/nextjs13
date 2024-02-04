@@ -1,15 +1,14 @@
 'use client'
 import { FiTrash2 } from 'react-icons/fi'
 import { useTransition } from 'react'
-import { deleteEntry } from '@/utils/entry/api'
 
-const DeleteEntryButton = ({ id }: { id: string }) => {
+const SaveReviewButton = ({ id }: { id: string }) => {
   const [isPending, startTransition] = useTransition()
 
   return (
     <button
       className="flex items-center hover:text-accent "
-      onClick={() => startTransition(() => deleteEntry(id))}
+      onClick={() => startTransition(() => deleteMindMap(id))}
       disabled={isPending}
     >
       {isPending && (
@@ -20,7 +19,7 @@ const DeleteEntryButton = ({ id }: { id: string }) => {
       )}
       {!isPending && (
         <>
-          Delete Entry
+          Delete Mind Map
           <FiTrash2 className="ml-2 w-6 h-6 cursor-pointer" />
         </>
       )}
@@ -28,4 +27,4 @@ const DeleteEntryButton = ({ id }: { id: string }) => {
   )
 }
 
-export default DeleteEntryButton
+export default SaveReviewButton

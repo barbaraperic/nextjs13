@@ -2,20 +2,26 @@
 import { createNode } from '@/utils/mindmap/api'
 import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 const NewNodeForm = ({ id }) => {
   const [title, setTitle] = useState('')
   const [subtitle, setSubtitle] = useState('')
   const [isTransitionStarted, startTransition] = useTransition()
 
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const router = useRouter()
 
   async function handleSubmit(e: any) {
+    const url = `${pathname}?${searchParams}`
+
     e.preventDefault()
     const newNode = await createNode(id, title, subtitle)
-    router.push(window.location.href)
-    router.refresh()
-    //startTransition(() => router.reload())
+    startTransition(() => {
+      router.push(url)
+    })
     setTitle('')
     setSubtitle('')
   }
