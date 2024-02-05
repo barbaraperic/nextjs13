@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'
 export const getAllEntries = cache(async () => {
   const user = await getUserId()
 
-  const allEntries = prisma.entry.findMany({
+  const allEntries = await prisma.entry.findMany({
     where: {
       userId: user.id,
     },

@@ -1,7 +1,6 @@
 'use client'
 import { updateEntry } from '@/utils/entry/api'
-import { revalidatePath } from 'next/cache'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { useAutosave } from 'react-autosave'
 import { useRouter } from 'next/navigation'
 
@@ -13,12 +12,10 @@ const Editor = ({ data }) => {
   useAutosave({
     data: value,
     onSave: async (_value) => {
-      if (data) {
-        setLoading(true)
-        const updated = await updateEntry(data.id, value)
-        router.refresh()
-        setLoading(false)
-      }
+      setLoading(true)
+      const updated = await updateEntry(data.id, value)
+      router.refresh()
+      setLoading(false)
     },
   })
 

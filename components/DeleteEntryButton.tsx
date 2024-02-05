@@ -1,15 +1,15 @@
 'use client'
 import { FiTrash2 } from 'react-icons/fi'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { deleteEntry } from '@/utils/entry/api'
 
 const DeleteEntryButton = ({ id }: { id: string }) => {
   const router = useRouter()
 
-  function handleDelete() {
-    deleteEntry(id)
+  async function handleDelete() {
+    const deleted = await deleteEntry(id)
     router.push('/dashboard/collection')
-    router.reload()
+    router.refresh()
   }
   return (
     <button
