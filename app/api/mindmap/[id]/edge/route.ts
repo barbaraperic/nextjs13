@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 export const revalidated = false
 
-export const POST = async (req: Request, { params }) => {
+export async function POST(req: Request, { params }) {
   const { source, target, id } = await req.json()
 
   const newNodeEdge = await prisma.nodeEdge.create({
@@ -18,7 +18,7 @@ export const POST = async (req: Request, { params }) => {
   return NextResponse.json({ data: newNodeEdge, revalidated })
 }
 
-export const PATCH = async (req: Request, { params }) => {
+export async function PATCH(req: Request, { params }) {
   const { nodeEdgeList } = await req.json()
 
   const existingRecords = await prisma.nodeEdge.findMany({

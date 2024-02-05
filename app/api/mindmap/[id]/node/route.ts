@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 
 export const revalidated = false
 
-export const POST = async (req: Request) => {
+export async function POST(req: Request) {
   const { title, subtitle, id } = await req.json()
 
   const newNode = await prisma.node.create({
@@ -22,7 +22,7 @@ export const POST = async (req: Request) => {
   return NextResponse.json({ data: newNode, revalidated })
 }
 
-export const PATCH = async (req: Request, { params }) => {
+export async function PATCH(req: Request, { params }) {
   const { nodeList } = await req.json()
 
   const existingRecords = await prisma.node.findMany({

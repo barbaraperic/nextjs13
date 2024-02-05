@@ -5,6 +5,7 @@ import { Paragraph } from '@/components/texts/texts'
 import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { FiTrash2 } from 'react-icons/fi'
+import { deleteEntry } from '@/utils/entry/api'
 
 export const getEntry = async (id: string) => {
   const user = await getUserId()

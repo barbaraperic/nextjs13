@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 
 export const revalidated = true
 
-export const DELETE = async (req: Request, { params }) => {
+export async function DELETE(req: Request, { params }) {
   const user = await getUserId()
   const nodeList = await prisma.nodeList.delete({
     where: {

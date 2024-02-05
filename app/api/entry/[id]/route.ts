@@ -1,10 +1,9 @@
-'use server'
+import revalidateDashboard from '@/app/actions'
 import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
-import { revalidatePath } from 'next/cache'
 import { NextResponse } from 'next/server'
 
-export const PATCH = async (request: Request, { params }) => {
+export async function PATCH(request: Request, { params }) {
   const { updates } = await request.json()
   const user = await getUserId()
   const entry = await prisma.entry.update({
@@ -17,12 +16,12 @@ export const PATCH = async (request: Request, { params }) => {
     },
   })
 
-  revalidatePath('/dashboard/collection')
+  revalidateDashboard()
 
   return NextResponse.json({ data: entry })
 }
 
-export const DELETE = async (request: Request, { params }) => {
+export async function DELETE(request: Request, { params }) {
   const user = await getUserId()
   const entry = await prisma.entry.delete({
     where: {
@@ -31,7 +30,7 @@ export const DELETE = async (request: Request, { params }) => {
     },
   })
 
-  revalidatePath('/dashboard/collection')
+  revalidateDashboard()
 
   return NextResponse.json({ data: entry })
 }
