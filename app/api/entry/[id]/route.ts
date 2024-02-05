@@ -1,6 +1,7 @@
-import { update } from '@/utils/actions'
+'use server'
 import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
+import { revalidatePath } from 'next/cache'
 import { NextResponse } from 'next/server'
 
 export const PATCH = async (request: Request, { params }) => {
@@ -16,7 +17,7 @@ export const PATCH = async (request: Request, { params }) => {
     },
   })
 
-  update(['/dashboard/collection'])
+  revalidatePath('/dashboard/collection')
 
   return NextResponse.json({ data: entry })
 }
@@ -30,7 +31,7 @@ export const DELETE = async (request: Request, { params }) => {
     },
   })
 
-  update(['/dashboard/collection'])
+  revalidatePath('/dashboard/collection')
 
   return NextResponse.json({ data: entry })
 }
