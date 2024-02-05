@@ -2,28 +2,25 @@
 import { FiTrash2 } from 'react-icons/fi'
 import { useTransition } from 'react'
 import { deleteMindMap } from '@/utils/mindmap/api'
+import { useRouter } from 'next/navigation'
 
 const DeleteMindMapButton = ({ id }: { id: string }) => {
-  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
+
+  function handleDelete() {
+    deleteMindMap(id)
+    router.push('/dashboard/mindmap')
+  }
 
   return (
     <button
       className="flex items-center hover:text-accent "
-      onClick={() => startTransition(() => deleteMindMap(id))}
-      disabled={isPending}
+      onClick={handleDelete}
     >
-      {isPending && (
-        <>
-          Deleting...
-          <FiTrash2 className="ml-2 w-6 h-6 cursor-pointer" />
-        </>
-      )}
-      {!isPending && (
-        <>
-          Delete Mind Map
-          <FiTrash2 className="ml-2 w-6 h-6 cursor-pointer" />
-        </>
-      )}
+      <>
+        Delete Mind Map
+        <FiTrash2 className="ml-2 w-6 h-6 cursor-pointer" />
+      </>
     </button>
   )
 }

@@ -2,7 +2,7 @@ const createURL = (path: string) => window.location.origin + path
 
 export const createMindMap = async () => {
   const res = await fetch(
-    new Request(`${process.env.URL}/api/mindmap`, {
+    new Request(createURL(`/api/mindmap`), {
       method: 'POST',
     })
   )
