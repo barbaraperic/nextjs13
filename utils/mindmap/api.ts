@@ -95,3 +95,19 @@ export const updateNodeEdge = async (id: string, nodeEdgeList) => {
     throw new Error('Something went wrong')
   }
 }
+
+export const updateMindMap = async (name: string, id: string) => {
+  const res = await fetch(
+    new Request(createURL(`/api/mindmap/${id}`), {
+      method: 'PATCH',
+      body: JSON.stringify({ name }),
+    })
+  )
+
+  if (res.ok) {
+    const data = await res.json()
+    return data.data
+  } else {
+    throw new Error('Something went wrong')
+  }
+}

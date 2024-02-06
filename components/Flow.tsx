@@ -88,6 +88,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         {isPending && <>Saving...</>}
         {!isPending && <>Save</>}
       </button>
+
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -107,14 +108,14 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
           <input
             placeholder="Title"
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered input-accent  w-full max-w-xs"
             value={nodeTitle}
             onChange={(evt) => setNodeTitle(evt.target.value)}
           />
           <input
             placeholder="Subtitle"
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered input-accent w-full max-w-xs"
             value={nodeSubtitle}
             onChange={(evt) => setNodeSubtitle(evt.target.value)}
           />

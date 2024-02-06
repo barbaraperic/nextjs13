@@ -15,3 +15,20 @@ export async function DELETE(req: Request, { params }) {
 
   return NextResponse.json({ data: nodeList, revalidated })
 }
+
+export async function PATCH(req: Request, { params }) {
+  const { name } = await req.json()
+
+  const user = await getUserId()
+  const nodeList = await prisma.nodeList.update({
+    where: {
+      id: params.id,
+      userId: user.id,
+    },
+    data: {
+      name,
+    },
+  })
+
+  return NextResponse.json({ data: nodeList })
+}

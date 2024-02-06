@@ -1,4 +1,4 @@
-const createURL = (path: string) => window.location.origin + path
+export const createURL = (path: string) => window.location.origin + path
 
 export const newEntry = async () => {
   const res = await fetch(

@@ -25,7 +25,7 @@ const NewNodeForm = ({ id }) => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
-        className="input input-bordered text-black w-full"
+        className="input input-bordered input-accent text-black w-full"
       />
       <input
         required
@@ -33,7 +33,7 @@ const NewNodeForm = ({ id }) => {
         type="text"
         onChange={(e) => setSubtitle(e.target.value)}
         placeholder="Subtitle"
-        className="input input-bordered text-black w-full"
+        className="input input-bordered input-accent text-black w-full"
       />
       <button
         disabled={!title && !subtitle}
