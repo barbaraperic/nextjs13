@@ -11,6 +11,7 @@ import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
 import { Paragraph } from './texts/texts'
 import { updateNode, updateNodeEdge } from '@/utils/mindmap/api'
+import { useRouter } from 'next/navigation'
 
 const nodeTypes = {
   custom: CustomNode,
@@ -25,8 +26,9 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
 
   const [nodeTitle, setNodeTitle] = useState('')
   const [nodeSubtitle, setNodeSubtitle] = useState('')
-  const [disabled, setDisabled] = useState(true)
   const [isPending, startTransition] = useTransition()
+
+  const router = useRouter()
 
   function onNodeClick(event, node) {
     setNodeId(node.id)
@@ -35,13 +37,8 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   async function handleClick() {
     const updatedNodes = await updateNode(id, nodes)
     const updatedEdges = await updateNodeEdge(id, edges)
+    router.refresh()
   }
-
-  useEffect(() => {
-    if (JSON.stringify(initialNodes) !== JSON.stringify(nodes)) {
-      setDisabled(false)
-    }
-  }, [initialNodes, nodes])
 
   useEffect(() => {
     setNodes((nds) =>
@@ -79,7 +76,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
   )
 
   return (
-    <>
+    <div className="h-[90%]">
       <button
         onClick={() => startTransition(() => handleClick())}
         disabled={isPending}
@@ -102,6 +99,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
         onConnect={onConnect}
+        className=""
       >
         <div className="absolute text-center right-3 top-3 z-10 text-base text-black  flex flex-col space-y-4 items-start">
           <Paragraph className="text-white">Edit node</Paragraph>
@@ -122,7 +120,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         </div>
         <Background color="#d6d4d4" gap={16} />
       </ReactFlow>
-    </>
+    </div>
   )
 }
 

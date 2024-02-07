@@ -18,7 +18,7 @@ const NewMindMapNameForm = ({ id }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-6 flex flex-col space-y-4">
-      <Paragraph className="mb-4">Mind Map Name</Paragraph>
+      <Paragraph>Mind Map Name</Paragraph>
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}

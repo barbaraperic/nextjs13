@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 import {
   AreaChart,
   Legend,
@@ -9,9 +8,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { Heading2 } from './texts/texts'
+import { Heading2, Paragraph } from './texts/texts'
 import useSWR from 'swr'
-import { createURL } from '@/utils/entry/api'
 
 const HistoryChart = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -26,7 +24,9 @@ const HistoryChart = () => {
     return <span>Something went wrong</span>
   }
 
-  console.log(entries)
+  if (entries.data.length === 0) {
+    return <Paragraph>You have no entries</Paragraph>
+  }
 
   const model = entries.data.map((entry) => {
     const entryModel = {

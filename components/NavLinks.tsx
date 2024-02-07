@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FiBook, FiClipboard, FiZap, FiActivity } from 'react-icons/fi'
+import { FiBook, FiClipboard, FiActivity, FiHome } from 'react-icons/fi'
 import clsx from 'clsx'
 import { Paragraph } from './texts/texts'
 
@@ -10,15 +10,15 @@ const NavLinks = () => {
 
   const links = [
     {
+      name: 'Home',
+      href: '/dashboard/home',
+      icon: FiHome,
+    },
+    {
       name: 'Collection',
       href: '/dashboard/collection',
       icon: FiBook,
     },
-    // {
-    //   name: 'Review',
-    //   href: '/dashboard/review',
-    //   icon: FiZap,
-    // },
     {
       name: 'Mind Map',
       href: '/dashboard/mindmap',

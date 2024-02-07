@@ -1,24 +1,4 @@
-import EntryCard from '@/components/EntryCard'
 import HistoryChart from '@/components/HistoryChart'
-import NewEntryCard from '@/components/NewEntryCard'
-import { getUserId } from '@/utils/auth'
-import { prisma } from '@/utils/db'
-import { SWRProvider } from './swr-provider'
-
-// export const getEntryCount = async () => {
-//   const user = await getUserId()
-
-//   const entries = await prisma.entry.findMany({
-//     where: {
-//       userId: user.id,
-//     },
-//     orderBy: {
-//       createdAt: 'desc',
-//     },
-//   })
-
-//   return model
-// }
 
 export default async function StatisticsPage({
   params,
