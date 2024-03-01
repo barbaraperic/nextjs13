@@ -4,7 +4,7 @@ export default withAuth(function middleware(req) {}, {
   callbacks: {
     authorized: ({ req, token }) => {
       if (
-        req.nextUrl.pathname.startsWith('/dashboard/collection') &&
+        req.nextUrl.pathname.startsWith('/dashboard/home') &&
         token === null
       ) {
         return false

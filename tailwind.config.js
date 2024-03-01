@@ -8,19 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        green: {
-          300: '#078080',
-          400: '#066d6d',
+        primary: {
+          dark: 'hsl(174, 100%, 42%)',
         },
-        brown: {
-          300: '#232323',
+        secondary: {
+          dark: 'hsl(215, 28%, 17%)',
+          light: 'hsl(214, 20%, 21%)',
         },
-        snow: {
-          50: '#fffffe',
-          100: '#f8f5f2',
-        },
-        orange: {
-          300: '#f45d48',
+        text: {
+          dark: 'hsl(215, 28%, 17%)',
+          light: 'hsl(0, 0%, 100%)',
         },
       },
       boxShadow: {

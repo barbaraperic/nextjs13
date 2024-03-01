@@ -80,7 +80,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
       <button
         onClick={() => startTransition(() => handleClick())}
         disabled={isPending}
-        className="btn btn-wide btn-accent mb-6 disabled:text-accent disabled:border-2 disabled:border-accent"
+        className="btn btn-wide bg-secondary-light mb-6 disabled:text-primary-dark disabled:border-2 disabled:border-primary-dark"
       >
         {isPending && <>Saving...</>}
         {!isPending && <>Save</>}

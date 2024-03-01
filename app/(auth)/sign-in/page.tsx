@@ -8,7 +8,7 @@ const SignInPage = async () => {
   const session = await getServerSession(authOptions)
 
   if (session) {
-    redirect('/dashboard/collection')
+    redirect('/dashboard/home')
   }
 
   return (

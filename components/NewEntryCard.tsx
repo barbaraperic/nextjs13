@@ -7,7 +7,6 @@ const NewEntryCard = () => {
   const router = useRouter()
 
   async function handleOnClick() {
-    // create a new entry
     const entry = await newEntry()
     router.push(`/dashboard/collection/${entry.data.id}`)
   }

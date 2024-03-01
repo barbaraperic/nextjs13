@@ -20,7 +20,7 @@ const EntryCard = ({ data }) => {
   return (
     <div
       onClick={handleClick}
-      className="border p-4 rounded-lg btn-outline btn-accent cursor-pointer"
+      className="border p-4 rounded-lg btn-outline bg-primary-dark cursor-pointer"
     >
       <div className="flex flex-col">
         <p className="text-left text-xl font-bold">{date}</p>

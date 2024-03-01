@@ -13,7 +13,7 @@ const DeleteEntryButton = ({ id }: { id: string }) => {
   }
   return (
     <button
-      className="flex items-center hover:text-accent "
+      className="flex items-center hover:text-primary-dark "
       onClick={handleDelete}
     >
       <>

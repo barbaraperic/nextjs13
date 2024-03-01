@@ -7,7 +7,7 @@ const SaveReviewButton = ({ id }: { id: string }) => {
 
   return (
     <button
-      className="flex items-center hover:text-accent "
+      className="flex items-center hover:text-primary-dark "
       onClick={() => startTransition(() => deleteMindMap(id))}
       disabled={isPending}
     >

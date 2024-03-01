@@ -14,11 +14,11 @@ export default async function AuthLayout({
 
   return (
     <div className="w-screen bg-neutral h-screen relative text-white">
-      <aside className="absolute pt-[60px] top-0 left-0 h-full  border-r border-accent w-[200px]">
+      <aside className="absolute pt-[60px] top-0 left-0 h-full  border-r border-primary-dark w-[200px]">
         <NavLinks />
       </aside>
       <div className="ml-[200px] h-full text-white">
-        <header className="h-[60px] navbar flex items-center justify-between border-b border-accent">
+        <header className="h-[60px] navbar flex items-center justify-between border-b border-primary-dark">
           {session && (
             <>
               <Paragraph>Welcome {session?.user?.name}</Paragraph>
@@ -28,7 +28,7 @@ export default async function AuthLayout({
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="w-10 rounded-full border border-accent">
+                  <div className="w-10 rounded-full border border-primary-dark">
                     <Image
                       width={32}
                       height={32}
@@ -43,7 +43,7 @@ export default async function AuthLayout({
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-neutral border-accent border text-base-100 hover:text-accent rounded-box w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-neutral border-primary-dark border text-base-100 hover:text-primary-dark rounded-box w-52"
                 >
                   <li>
                     <SignOutButton />

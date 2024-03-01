@@ -26,6 +26,7 @@
     "eslint-config-next": "13.4.19",
     "eventsource-parser": "^1.1.1",
     "framer-motion": "^10.18.0",
+    "gsap": "^3.12.5",
     "next": "13.4.19",
     "next-connect": "^1.0.0",
     "openai": "^4.11.0",
