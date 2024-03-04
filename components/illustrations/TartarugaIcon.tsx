@@ -8,7 +8,7 @@ export default function TartarugaIconComponent() {
         height="100%"
         stroke-miterlimit="10"
         version="1.1"
-        viewBox="310.028 23.6469 61.3965 61.3977"
+        viewBox="308.028 20.6469 70 70"
         width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
