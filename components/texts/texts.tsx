@@ -1,46 +1,20 @@
 import clsx from 'clsx'
 import { FC } from 'react'
+import styles from './texts.module.css'
 
 interface TextProps {
   children: React.ReactNode
   className?: string
 }
 
-const Heading1: FC<TextProps> = ({ children, className }) => {
-  return (
-    <h1
-      className={clsx(
-        'text-4xl font-bold leading-tight text-green-400',
-        className
-      )}
-    >
-      {children}
-    </h1>
-  )
+export function Heading1({ children, className }: TextProps) {
+  return <h1 className={`${styles.heading1} ${className}`}>{children}</h1>
 }
 
-const Heading2: FC<TextProps> = ({ children, className }) => {
-  return (
-    <h2 className={clsx('text-3xl text-bold leading-tight', className)}>
-      {children}
-    </h2>
-  )
+export function Heading2({ children, className }: TextProps) {
+  return <h2 className={`${styles.heading2} ${className}`}>{children}</h2>
 }
 
-const Heading3: FC<TextProps> = ({ children, className }) => {
-  return (
-    <h3 className={clsx('text-xl leading-tight font-bold', className)}>
-      {children}
-    </h3>
-  )
+export function Paragraph({ children, className }: TextProps) {
+  return <h2 className={`${styles.paragraph} ${className}`}>{children}</h2>
 }
-
-const Paragraph: FC<TextProps> = ({ children, className }) => {
-  return <p className={clsx('text-xl ', className)}>{children}</p>
-}
-
-const ButtonText: FC<TextProps> = ({ children, className }) => {
-  return <p className={clsx('text-base font-bold', className)}>{children}</p>
-}
-
-export { Heading1, Heading2, Heading3, Paragraph, ButtonText }

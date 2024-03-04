@@ -1,4 +1,4 @@
-import revalidateDashboard from '@/app/actions'
+import revalidateDashboard from '@/utils/actions'
 import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
@@ -15,8 +15,6 @@ export async function PATCH(request: Request, { params }) {
       content: updates,
     },
   })
-
-  revalidateDashboard()
 
   return NextResponse.json({ data: entry })
 }
