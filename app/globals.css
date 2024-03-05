@@ -48,9 +48,6 @@ span {
   @apply font-body;
 }
 
-p > a {
-  @apply underline;
-}
 /*
   5. Improve media defaults
 */

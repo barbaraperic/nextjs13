@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FiArrowRight } from 'react-icons/fi'
 import TartarugaIconComponent from '@/components/illustrations/TartarugaIcon'
 import { Heading1, Paragraph } from '@/components/texts/texts'
-import styles from './styles/homepage.module.css'
+import styles from './styles/homepage.module.scss'
 
 export default function Home() {
   return (
@@ -13,12 +13,9 @@ export default function Home() {
           Empower your <br />
           language journey
         </Heading1>
-        <Link
-          href="/dashboard/home"
-          className="flex items-center justify-center space-x-5 group transition-all duration-200"
-        >
-          <Paragraph>Go to the dashboard</Paragraph>
-          <FiArrowRight className="w-6 h-6 transition-transform transform group-hover:translate-x-1.5" />
+        <Link href="/dashboard/home" className={styles.link}>
+          Go to the dashboard
+          {/* <FiArrowRight className="w-6 h-6 transition-transform transform group-hover:translate-x-1.5" /> */}
         </Link>
         <SpacerComponent size="medium"></SpacerComponent>
       </div>
