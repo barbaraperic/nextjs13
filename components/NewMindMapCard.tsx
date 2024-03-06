@@ -2,6 +2,7 @@
 import { createMindMap } from '@/utils/mindmap/api'
 import { useRouter } from 'next/navigation'
 import { FiFileText } from 'react-icons/fi'
+import styles from './NewCard.module.scss'
 
 const NewMindMapCard = () => {
   const router = useRouter()
@@ -12,14 +13,9 @@ const NewMindMapCard = () => {
   }
 
   return (
-    <div
-      className="btn btn-lg flex border space-x-4 w-80 rounded-lg cursor-pointer"
-      onClick={handleOnClick}
-    >
-      <div className="flex flex-col justify-center">
-        <h2 className="text-center text-xl">Create a new mind map</h2>
-      </div>
-      <FiFileText className="w-6 h-6" />
+    <div className={styles.card} onClick={handleOnClick}>
+      <p>New mind map</p>
+      <FiFileText />
     </div>
   )
 }

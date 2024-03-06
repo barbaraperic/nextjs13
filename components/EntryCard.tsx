@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import styles from './EntryCard.module.scss'
+import styles from './CardItem.module.scss'
 
 const EntryCard = ({ data }: { data: any }) => {
   const date = new Date(data.createdAt).toDateString()

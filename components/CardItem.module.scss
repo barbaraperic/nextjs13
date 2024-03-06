@@ -5,6 +5,8 @@
   border-radius: 4px;
   padding: 0.5em 1em;
   cursor: pointer;
+  transition: all;
+  transition-duration: 0.25s;
 
   .card-content {
     display: flex;
@@ -17,5 +19,11 @@
     .text {
       text-align: left;
     }
+  }
+
+  &:hover {
+    background-color: var(--mainColor);
+    color: var(--backgroundColor);
+    border-color: var(--backgroundColor);
   }
 }

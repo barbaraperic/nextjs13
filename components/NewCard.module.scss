@@ -8,6 +8,9 @@
   cursor: pointer;
   border: 1.5px solid var(--accentColor);
   color: var(--accentColor);
+  transition: all;
+  transition-duration: 0.25s;
+
   p {
     text-align: center;
     font-size: 18px;
@@ -16,5 +19,11 @@
   svg {
     width: 24px;
     height: 24px;
+  }
+
+  &:hover {
+    background-color: var(--accentColor);
+    color: var(--backgroundColor);
+    border-color: var(--backgroundColor);
   }
 }

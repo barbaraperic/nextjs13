@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import styles from './CardItem.module.scss'
 
 const MindMapCard = ({ data }) => {
   const date = new Date(data.createdAt).toDateString()
@@ -18,13 +19,10 @@ const MindMapCard = ({ data }) => {
   }
 
   return (
-    <div
-      onClick={handleClick}
-      className="border p-4 rounded-lg btn-outline btn-accent cursor-pointer"
-    >
-      <div className="flex flex-col">
-        <p className="text-left text-xl font-bold">{date}</p>
-        <p className="text-left text-xl">{truncateString(data.name)}</p>
+    <div onClick={handleClick} className={styles.card}>
+      <div className={styles['card-content']}>
+        <p className={styles.title}>{date}</p>
+        <p className={styles.text}>{truncateString(data.name)}</p>
       </div>
     </div>
   )
