@@ -20,11 +20,11 @@ const NavLinks = () => {
       href: '/dashboard/collection',
       icon: FiBook,
     },
-    {
-      name: 'Mind Map',
-      href: '/dashboard/mindmap',
-      icon: FiClipboard,
-    },
+    // {
+    //   name: 'Mind Map',
+    //   href: '/dashboard/mindmap',
+    //   icon: FiClipboard,
+    // },
     { name: 'Statistics', href: '/dashboard/statistics', icon: FiActivity },
   ]
 

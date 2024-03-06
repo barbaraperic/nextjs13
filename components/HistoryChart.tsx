@@ -39,7 +39,7 @@ const HistoryChart = () => {
   return (
     <>
       <div id="area-chart">
-        <Heading2 className="mb-6">Number of words</Heading2>
+        <p className="mb-6">Number of words</p>
         <AreaChart width={700} height={400} data={model}>
           <Tooltip />
           <Area dataKey="wordCount" stroke="#bb86fc" fill="#bb86fc" />
