@@ -1,27 +1,43 @@
-import { Paragraph } from '@/components/texts/texts'
+import EntryCard from '@/components/EntryCard'
+import NewEntryCard from '@/components/NewEntryCard'
+import { getUserId } from '@/utils/auth'
+import { prisma } from '@/utils/db'
+import { cache } from 'react'
+import styles from './page.module.scss'
 
-const HomePage = ({ params }: { params: { id: string } }) => {
+export const dynamic = 'force-dynamic'
+
+export const getAllEntries = cache(async () => {
+  const user = await getUserId()
+
+  const allEntries = await prisma.entry.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
+  return allEntries
+})
+
+export default async function CollectionHomePage({
+  params,
+}: {
+  params: { id: string }
+}) {
+  const allEntries = await getAllEntries()
+
   return (
-    <div className="flex flex-col space-y-6 p-10 ">
-      <Paragraph>How to use Tartaruga</Paragraph>
-      {/* <div className="flex flex-col w-full text-black">
-        <div className="grid h-40 text-center px-8  card bg-base-300 rounded-box place-items-center">
-          <Paragraph>
-            🌱 Create entries and mind maps <br></br> as a reference materials
-            when practicing speaking, writing, or listening in your target
-            language
-          </Paragraph>
-        </div>
-        <div className="divider divide-primary-dark"></div>
-        <div className="grid text-center px-8 h-40 card bg-base-300 rounded-box place-items-center">
-          <Paragraph>
-            🎯 Regularly review your notes and mind maps to reinforce your
-            learning
-          </Paragraph>
-        </div>
-      </div> */}
+    <div className={styles['page-wrapper']}>
+      <NewEntryCard />
+      <p>All notes</p>
+      <div className={styles['cards-wrapper']}>
+        {allEntries?.map((entry) => (
+          <EntryCard key={entry.id} data={entry} />
+        ))}
+      </div>
     </div>
   )
 }
-
-export default HomePage

@@ -10,14 +10,14 @@ const NavLinks = () => {
   const pathname = usePathname()
 
   const links = [
-    {
-      name: 'Get started',
-      href: '/dashboard/home',
-      icon: FiHome,
-    },
+    // {
+    //   name: 'Get started',
+    //   href: '/dashboard/home',
+    //   icon: FiHome,
+    // },
     {
       name: 'Collection',
-      href: '/dashboard/collection',
+      href: '/dashboard/home',
       icon: FiBook,
     },
     // {

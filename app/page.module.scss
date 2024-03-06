@@ -31,11 +31,11 @@
   }
 
   .link {
-    color: hsl(120, 100%, 25%);
+    color: var(--mainColor);
     font-size: clamp(1em, 2vw, 1.4em);
     position: relative;
     display: inline-block;
-    padding: 0 0.25em;
+    padding: 0 0.45em;
     font-weight: 500;
 
     &:hover {
@@ -67,7 +67,6 @@
 
 .wrapper-right {
   display: none;
-  --color2: hsl(188, 100%, 73%);
   --transparent: hsla(0, 0%, 0%, 0);
 }
 
@@ -84,8 +83,8 @@
     background: linear-gradient(
       -45deg,
       var(--transparent) 73%,
-      var(--color2) 50%,
-      var(--color2) 60%,
+      var(--mainColor) 30%,
+      var(--mainColor) 30%,
       var(--transparent) 78%
     );
     background-size: 2em 2em;
