@@ -22,6 +22,13 @@
   4. Improve text rendering
 */
 
+:root {
+  --backgroundColor: hsl(260, 50%, 98%);
+  --mainColor: hsl(183, 99%, 30%);
+  --accentColor: hsl(25, 98%, 62%);
+  --greyColor: hsl(0, 0%, 40%);
+}
+
 html {
   height: 100%;
 }
@@ -34,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
+  background: var(--backgroundColor);
 }
 
 footer {

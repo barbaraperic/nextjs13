@@ -1,5 +1,5 @@
 'use client'
-import styles from './TartartugaIcon.module.css'
+import styles from './TartartugaIcon.module.scss'
 
 export default function TartarugaIconComponent() {
   return (

@@ -14,7 +14,7 @@ export default function Home() {
           language journey
         </Heading1>
         <Link href="/dashboard/home" className={styles.link}>
-          Go to the dashboard
+          Get started
           {/* <FiArrowRight className="w-6 h-6 transition-transform transform group-hover:translate-x-1.5" /> */}
         </Link>
         <SpacerComponent size="medium"></SpacerComponent>

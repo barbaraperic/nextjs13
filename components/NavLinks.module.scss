@@ -1,0 +1,17 @@
+.link {
+  display: flex;
+  height: 48px;
+  width: 100%;
+  align-items: center;
+
+  .icon {
+    min-width: 24px;
+    min-height: 24px;
+    margin-right: 12px;
+    stroke: var(--mainColor);
+  }
+
+  p {
+    flex: 1;
+  }
+}

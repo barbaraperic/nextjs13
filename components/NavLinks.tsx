@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { FiBook, FiClipboard, FiActivity, FiHome } from 'react-icons/fi'
 import clsx from 'clsx'
 import { Paragraph } from './texts/texts'
+import styles from './NavLinks.module.scss'
 
 const NavLinks = () => {
   const pathname = usePathname()
@@ -30,21 +31,19 @@ const NavLinks = () => {
   return (
     <>
       {links.map((link) => {
-        console.log(pathname === link.href)
         const LinkIcon = link.icon
         return (
           <Link
             key={link.name}
             href={link.href}
-            className={clsx(
-              'flex h-[48px] group grow items-center justify-center gap-2 bg-neutral p-3 text-sm font-medium hover:bg-base-content text-neutral-content hover:text-primary-dark md:flex-none md:justify-start md:p-2 md:px-3',
-              pathname === link.href && 'text-primary-dark bg-base-content'
-            )}
+            className={styles.link}
+            // className={clsx(
+            //   'flex h-[48px] group grow items-center justify-center gap-2 bg-neutral p-3 text-sm font-medium hover:bg-base-content text-neutral-content hover:text-primary-dark md:flex-none md:justify-start md:p-2 md:px-3',
+            //   pathname === link.href && 'text-primary-dark bg-base-content'
+            // )}
           >
-            <div className="transition-transform transform group-hover:scale-105 flex space-x-4">
-              <LinkIcon className="w-6 h-6 peer" />
-              <Paragraph className="hidden md:block">{link.name}</Paragraph>
-            </div>
+            <LinkIcon className={styles.icon} />
+            <Paragraph>{link.name}</Paragraph>
           </Link>
         )
       })}

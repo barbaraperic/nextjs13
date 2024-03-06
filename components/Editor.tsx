@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useAutosave } from 'react-autosave'
 import { useRouter } from 'next/navigation'
 
-const Editor = ({ data }) => {
+const Editor = ({ data }: { data: any }) => {
   const [value, setValue] = useState(data.content)
   const [loading, setLoading] = useState(false)
   const router = useRouter()

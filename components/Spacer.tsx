@@ -8,7 +8,7 @@ interface SpacerComponentType {
   size: 'large' | 'medium' | 'small'
 }
 
-const Spacer = ({ size }) => {
+const Spacer = ({ size }: SpacerComponentType) => {
   return <div className={space[size]}></div>
 }
 

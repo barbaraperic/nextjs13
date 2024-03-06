@@ -1,7 +1,8 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import styles from './EntryCard.module.scss'
 
-const EntryCard = ({ data }) => {
+const EntryCard = ({ data }: { data: any }) => {
   const date = new Date(data.createdAt).toDateString()
   const router = useRouter()
 
@@ -9,7 +10,7 @@ const EntryCard = ({ data }) => {
     router.push(`/dashboard/collection/${data.id}`)
   }
 
-  function truncateString(string) {
+  function truncateString(string: string) {
     if (string.length > 40) {
       return string.slice(0, 40) + '...'
     } else {
@@ -18,13 +19,10 @@ const EntryCard = ({ data }) => {
   }
 
   return (
-    <div
-      onClick={handleClick}
-      className="border p-4 rounded-lg btn-outline bg-primary-dark cursor-pointer"
-    >
-      <div className="flex flex-col">
-        <p className="text-left text-xl font-bold">{date}</p>
-        <p className="text-left text-xl">{truncateString(data.content)}</p>
+    <div onClick={handleClick} className={styles.card}>
+      <div className={styles['card-content']}>
+        <p className={styles.title}>{date}</p>
+        <p className={styles.text}>{truncateString(data.content)}</p>
       </div>
     </div>
   )

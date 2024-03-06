@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import React, { memo } from 'react'
 import { Handle, Position } from 'reactflow'
 
-const CustomNode = ({ data }) => {
+const CustomNode = ({ data }: { data: any }) => {
   return (
     <div
       className={clsx(

@@ -1,6 +1,4 @@
-import clsx from 'clsx'
-import { FC } from 'react'
-import styles from './texts.module.css'
+import styles from './texts.module.scss'
 
 interface TextProps {
   children: React.ReactNode
@@ -16,5 +14,5 @@ export function Heading2({ children, className }: TextProps) {
 }
 
 export function Paragraph({ children, className }: TextProps) {
-  return <h2 className={`${styles.paragraph} ${className}`}>{children}</h2>
+  return <p className={`${styles.paragraph} ${className}`}>{children}</p>
 }

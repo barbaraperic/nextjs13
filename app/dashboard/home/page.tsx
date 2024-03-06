@@ -4,7 +4,7 @@ const HomePage = ({ params }: { params: { id: string } }) => {
   return (
     <div className="flex flex-col space-y-6 p-10 ">
       <Paragraph>How to use Tartaruga</Paragraph>
-      <div className="flex flex-col w-full text-black">
+      {/* <div className="flex flex-col w-full text-black">
         <div className="grid h-40 text-center px-8  card bg-base-300 rounded-box place-items-center">
           <Paragraph>
             🌱 Create entries and mind maps <br></br> as a reference materials
@@ -19,7 +19,7 @@ const HomePage = ({ params }: { params: { id: string } }) => {
             learning
           </Paragraph>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
