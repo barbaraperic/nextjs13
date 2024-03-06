@@ -23,10 +23,6 @@ module.exports = {
       boxShadow: {
         basic: '9px 9px 16px #b5bbc2 , -9px -9px 16px #f8fbff',
       },
-      fontFamily: {
-        body: 'var(--body-font)',
-        headings: 'var(--headings-font)',
-      },
       animation: {
         enter: 'enter 200ms ease-out',
         'fade-out-in': 'fade-out-in 300ms linear',

@@ -1,4 +1,4 @@
-import './globals.css'
+import './globals.scss'
 import type { Metadata } from 'next'
 import { Maven_Pro, Mulish } from '@next/font/google'
 import Provider from '@/app/context/client-provider'

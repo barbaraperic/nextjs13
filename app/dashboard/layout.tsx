@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth/next'
 import NavLinks from '@/components/NavLinks'
-import { Paragraph } from '@/components/texts/texts'
 import SignOutButton from '@/components/SignOutButton'
 import styles from './layout.module.scss'
 
@@ -21,7 +20,7 @@ export default async function AuthLayout({
       <header className={styles.header}>
         {session && (
           <>
-            <Paragraph>Welcome {session?.user?.name}</Paragraph>
+            <p>Welcome {session?.user?.name}</p>
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}

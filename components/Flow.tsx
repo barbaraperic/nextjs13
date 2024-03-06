@@ -9,7 +9,6 @@ import ReactFlow, {
 } from 'reactflow'
 import 'reactflow/dist/style.css'
 import CustomNode from './CustomNode'
-import { Paragraph } from './texts/texts'
 import { updateNode, updateNodeEdge } from '@/utils/mindmap/api'
 import { useRouter } from 'next/navigation'
 
@@ -102,7 +101,7 @@ const InteractiveFlow = ({ id, initialNodes, nodeEdges }) => {
         className=""
       >
         <div className="absolute text-center right-3 top-3 z-10 text-base text-black  flex flex-col space-y-4 items-start">
-          <Paragraph className="text-white">Edit node</Paragraph>
+          <p className="text-white">Edit node</p>
           <input
             placeholder="Title"
             type="text"

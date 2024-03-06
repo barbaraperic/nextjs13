@@ -1,6 +1,5 @@
 'use client'
 import { useEffect } from 'react'
-import { Heading3 } from './texts/texts'
 import { FiX } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
 
@@ -41,7 +40,7 @@ const Modal = ({
           >
             <FiX className="w-6 h-6" />
           </button>
-          <Heading3 className="mt-6">{title}</Heading3>
+          <h3 className="mt-6">{title}</h3>
           {children}
         </div>
       </div>

@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { Paragraph } from './texts/texts'
 import { useRouter } from 'next/navigation'
 import { updateMindMap } from '@/utils/mindmap/api'
 
@@ -18,7 +17,7 @@ const NewMindMapNameForm = ({ id }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mb-6 flex flex-col space-y-4">
-      <Paragraph>Mind Map Name</Paragraph>
+      <p>Mind Map Name</p>
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}

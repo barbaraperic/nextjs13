@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiBook, FiClipboard, FiActivity, FiHome } from 'react-icons/fi'
 import clsx from 'clsx'
-import { Paragraph } from './texts/texts'
 import styles from './NavLinks.module.scss'
 
 const NavLinks = () => {
@@ -43,7 +42,7 @@ const NavLinks = () => {
             // )}
           >
             <LinkIcon className={styles.icon} />
-            <Paragraph>{link.name}</Paragraph>
+            <p>{link.name}</p>
           </Link>
         )
       })}

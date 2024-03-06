@@ -8,7 +8,6 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { Heading2, Paragraph } from './texts/texts'
 import useSWR from 'swr'
 
 const HistoryChart = () => {
@@ -25,7 +24,7 @@ const HistoryChart = () => {
   }
 
   if (entries.data.length === 0) {
-    return <Paragraph>You have no entries</Paragraph>
+    return <p>You have no entries</p>
   }
 
   const model = entries.data.map((entry) => {

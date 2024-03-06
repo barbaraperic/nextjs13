@@ -2,7 +2,6 @@ import DeleteMindMapButton from '@/components/DeleteMindMapButton'
 import Flow from '@/components/Flow'
 import NewMindMapNameForm from '@/components/NewMindMapNameForm'
 import NewNodeForm from '@/components/NewNodeForm'
-import { Paragraph } from '@/components/texts/texts'
 import { prisma } from '@/utils/db'
 import React from 'react'
 
@@ -49,7 +48,7 @@ const MindMap = async ({ params }) => {
 
       <div className="w-[260px] space-y-4 flex flex-col justify-center">
         <NewMindMapNameForm id={params.id} />
-        <Paragraph>Create node</Paragraph>
+        <p>Create node</p>
         <NewNodeForm id={params.id} />
       </div>
       <div className="flex-1">

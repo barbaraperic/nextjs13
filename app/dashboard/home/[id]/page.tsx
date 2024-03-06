@@ -1,7 +1,6 @@
 import DeleteEntryButton from '@/components/DeleteEntryButton'
 import Editor from '@/components/Editor'
 import Modal from '@/components/Modal'
-import { Paragraph } from '@/components/texts/texts'
 import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { FiTrash2 } from 'react-icons/fi'
@@ -28,7 +27,7 @@ export default async function EntryPage({ params }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.top}>
-        <Paragraph>{date}</Paragraph>
+        <p>{date}</p>
         <DeleteEntryButton id={params.id} />
       </div>
       <Editor data={entry} />
