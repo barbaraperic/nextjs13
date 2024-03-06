@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inria_Sans } from '@next/font/google'
+import { Maven_Pro, Mulish } from '@next/font/google'
 import Provider from '@/app/context/client-provider'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
@@ -13,10 +13,16 @@ export const metadata: Metadata = {
   },
 }
 
-const body = Inria_Sans({
-  variable: '--body-font',
+const maven = Maven_Pro({
+  subsets: ['latin'],
+  variable: '--font-maven',
+  display: 'swap',
+})
+
+const muli = Mulish({
+  subsets: ['latin'],
+  variable: '--font-muli',
   weight: '400',
-  preload: false,
 })
 
 export default async function RootLayout({
@@ -27,7 +33,10 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions)
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={`${body.variable}`}>
+      <body
+        suppressHydrationWarning={true}
+        className={`${maven.variable} ${muli.variable}`}
+      >
         <Provider session={session}>{children}</Provider>
       </body>
     </html>

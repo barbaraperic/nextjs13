@@ -29,8 +29,13 @@
   --greyColor: hsl(0, 0%, 40%);
 }
 
+h1 {
+  font-family: var(--font-maven);
+}
+
 html {
   height: 100%;
+  font-family: var(--font-muli);
 }
 
 body {
@@ -42,6 +47,7 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   background: var(--backgroundColor);
+  font-family: var(--font-muli);
 }
 
 footer {
