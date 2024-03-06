@@ -1,0 +1,11 @@
+.wrapper {
+  padding: 20px;
+  height: 100%;
+  scroll-behavior: auto;
+  overflow-y: scroll;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+  }
+}

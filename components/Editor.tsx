@@ -3,6 +3,7 @@ import { updateEntry } from '@/utils/entry/api'
 import { useState } from 'react'
 import { useAutosave } from 'react-autosave'
 import { useRouter } from 'next/navigation'
+import styles from './Editor.module.scss'
 
 const Editor = ({ data }: { data: any }) => {
   const [value, setValue] = useState(data.content)
@@ -21,16 +22,14 @@ const Editor = ({ data }: { data: any }) => {
 
   return (
     <>
-      <div className="h-5">
+      <div className={styles.loader}>
         {loading && <span className="loading loading-dots loading-md"></span>}
       </div>
-      <div className="w-full h-[80%]">
-        <textarea
-          className="w-full outline-none text-xl h-full bg-neutral py-4"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
+      <textarea
+        className={styles.textarea}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     </>
   )
 }

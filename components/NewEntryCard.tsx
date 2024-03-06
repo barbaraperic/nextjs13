@@ -2,6 +2,7 @@
 import { newEntry } from '@/utils/entry/api'
 import { useRouter } from 'next/navigation'
 import { FiFileText } from 'react-icons/fi'
+import styles from './NewEntryCard.module.scss'
 
 const NewEntryCard = () => {
   const router = useRouter()
@@ -12,14 +13,9 @@ const NewEntryCard = () => {
   }
 
   return (
-    <div
-      className="btn btn-lg flex border space-x-4 w-80 rounded-lg cursor-pointer"
-      onClick={handleOnClick}
-    >
-      <div className="flex flex-col justify-center">
-        <h2 className="text-center text-xl">Create a new entry</h2>
-      </div>
-      <FiFileText className="w-6 h-6" />
+    <div className={styles.card} onClick={handleOnClick}>
+      <p>Create a new entry</p>
+      <FiFileText />
     </div>
   )
 }

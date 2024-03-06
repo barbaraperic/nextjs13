@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  width: 240px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1.5px solid var(--accentColor);
+  color: var(--accentColor);
+  p {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

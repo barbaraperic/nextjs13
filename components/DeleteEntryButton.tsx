@@ -2,6 +2,7 @@
 import { FiTrash2 } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
 import { deleteEntry } from '@/utils/entry/api'
+import styles from './DeleteEntryButton.module.scss'
 
 const DeleteEntryButton = ({ id }: { id: string }) => {
   const router = useRouter()
@@ -12,13 +13,10 @@ const DeleteEntryButton = ({ id }: { id: string }) => {
     router.refresh()
   }
   return (
-    <button
-      className="flex items-center hover:text-primary-dark "
-      onClick={handleDelete}
-    >
+    <button className={styles.button} onClick={handleDelete}>
       <>
         Delete Entry
-        <FiTrash2 className="ml-2 w-6 h-6 cursor-pointer" />
+        <FiTrash2 />
       </>
     </button>
   )

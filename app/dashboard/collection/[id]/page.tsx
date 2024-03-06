@@ -6,6 +6,7 @@ import { getUserId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { FiTrash2 } from 'react-icons/fi'
 import { deleteEntry } from '@/utils/entry/api'
+import styles from './page.module.scss'
 
 export const getEntry = async (id: string) => {
   const user = await getUserId()
@@ -25,12 +26,12 @@ export default async function EntryPage({ params }) {
   const date = new Date(entry?.createdAt).toDateString()
 
   return (
-    <div className="px-10 relative pt-4 space-y-2 h-full w-full">
-      <Paragraph>{date}</Paragraph>
-      <Editor data={entry} />
-      <div className="absolute top-2 right-6">
+    <div className={styles.wrapper}>
+      <div className={styles.top}>
+        <Paragraph>{date}</Paragraph>
         <DeleteEntryButton id={params.id} />
       </div>
+      <Editor data={entry} />
     </div>
   )
 }
