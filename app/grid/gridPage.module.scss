@@ -1,0 +1,48 @@
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+  background-image: url('../ex3.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  display: grid;
+  grid-gap: 1vw;
+  grid-template-rows: 9vw;
+  grid-auto-rows: 9vw;
+  grid-template-columns: 1fr repeat(6, 3fr) 1fr;
+
+  div {
+    position: relative;
+    outline-color: #124559;
+    outline-width: 1vw;
+    outline-style: solid;
+  }
+}
+
+.box {
+  font-size: 150%;
+  background-color: #124559;
+  background-clip: content-box; /* Clipping the background to the content box */
+}
+
+.a {
+  background-color: rgba(64, 67, 78, 0.4);
+}
+
+.expand {
+  grid-row-start: span 2;
+  grid-column-start: span 2;
+  color: whitesmoke;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expand2 {
+  grid-column-start: span 2;
+  color: whitesmoke;
+  margin-left: 1vw;
+}
