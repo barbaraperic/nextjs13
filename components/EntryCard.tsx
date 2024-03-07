@@ -7,7 +7,7 @@ const EntryCard = ({ data }: { data: any }) => {
   const router = useRouter()
 
   function handleClick() {
-    router.push(`/dashboard/collection/${data.id}`)
+    router.push(`/dashboard/home/${data.id}`)
   }
 
   function truncateString(string: string) {

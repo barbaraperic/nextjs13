@@ -9,7 +9,7 @@ const NewEntryCard = () => {
 
   async function handleOnClick() {
     const entry = await newEntry()
-    router.push(`/dashboard/collection/${entry.data.id}`)
+    router.push(`/dashboard/home/${entry.data.id}`)
   }
 
   return (

@@ -13,7 +13,7 @@ const Modal = ({
   const router = useRouter()
 
   function handleDismiss() {
-    router.replace('/dashboard/collection')
+    router.replace('/dashboard/home')
   }
 
   useEffect(() => {

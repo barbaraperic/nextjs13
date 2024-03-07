@@ -9,7 +9,7 @@ const DeleteEntryButton = ({ id }: { id: string }) => {
 
   async function handleDelete() {
     const deleted = await deleteEntry(id)
-    router.push('/dashboard/collection')
+    router.push('/dashboard/home')
     router.refresh()
   }
   return (
