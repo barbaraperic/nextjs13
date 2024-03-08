@@ -9,6 +9,7 @@ import {
   YAxis,
 } from 'recharts'
 import useSWR from 'swr'
+import Loader from './Loader'
 
 const HistoryChart = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -16,7 +17,7 @@ const HistoryChart = () => {
   const { data: entries, error, isLoading } = useSWR('/api/entry', fetcher)
 
   if (isLoading) {
-    return <span className="loading loading-dots loading-lg"></span>
+    return <Loader />
   }
 
   if (error) {
@@ -36,19 +37,21 @@ const HistoryChart = () => {
   })
 
   return (
-    <>
-      <div id="area-chart">
-        <p className="mb-6">Number of words</p>
-        <AreaChart width={700} height={400} data={model}>
-          <Tooltip />
-          <Area dataKey="wordCount" stroke="#bb86fc" fill="#bb86fc" />
-          <CartesianGrid stroke="#666" strokeDasharray="3 3" />
-          <XAxis dataKey="date" stroke="#FFF" />
-          <Legend />
-          <YAxis stroke="#FFF" />
-        </AreaChart>
-      </div>
-    </>
+    <div id="area-chart">
+      <p className="mb-6">Number of words</p>
+      <AreaChart width={700} height={400} data={model}>
+        <Tooltip />
+        <Area
+          dataKey="wordCount"
+          stroke="hsl(224, 98%, 26%)"
+          fill="hsl(224, 98%, 26%)"
+        />
+        <CartesianGrid stroke="hsl(3, 93%, 60%)" strokeDasharray="3 3" />
+        <XAxis dataKey="date" stroke="hsl(224, 98%, 26%)" />
+        <Legend />
+        <YAxis stroke="hsl(224, 98%, 26%)" />
+      </AreaChart>
+    </div>
   )
 }
 
