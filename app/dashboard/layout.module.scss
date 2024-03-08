@@ -24,7 +24,7 @@
 .wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: minmax(auto, 220px) auto;
+  grid-template-columns: minmax(auto, 180px) auto;
   grid-template-rows: 80px 1fr 80px;
   grid-template-areas:
     'sidebar header header'

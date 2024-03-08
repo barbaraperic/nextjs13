@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useAutosave } from 'react-autosave'
 import { useRouter } from 'next/navigation'
 import styles from './Editor.module.scss'
+import Loader from './Loader'
 
 const Editor = ({ data }: { data: any }) => {
   const [value, setValue] = useState(data.content)
@@ -13,18 +14,18 @@ const Editor = ({ data }: { data: any }) => {
   useAutosave({
     data: value,
     onSave: async (_value) => {
-      setLoading(true)
-      const updated = await updateEntry(data.id, value)
-      router.refresh()
-      setLoading(false)
+      if (value) {
+        setLoading(true)
+        const updated = await updateEntry(data.id, value)
+        router.refresh()
+        setLoading(false)
+      }
     },
   })
 
   return (
     <>
-      <div className={styles.loader}>
-        {loading && <span className="loading loading-dots loading-md"></span>}
-      </div>
+      <div className={styles.loader}>{loading && <Loader />}</div>
       <textarea
         className={styles.textarea}
         value={value}
