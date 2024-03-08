@@ -28,7 +28,7 @@ const NavLinks = () => {
   ]
 
   return (
-    <>
+    <div>
       {links.map((link) => {
         const LinkIcon = link.icon
         return (
@@ -38,7 +38,7 @@ const NavLinks = () => {
           </Link>
         )
       })}
-    </>
+    </div>
   )
 }
 
