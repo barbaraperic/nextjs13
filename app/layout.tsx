@@ -1,6 +1,6 @@
 import './globals.scss'
 import type { Metadata } from 'next'
-import { Maven_Pro, Mulish } from '@next/font/google'
+import { Covered_By_Your_Grace, Chivo, Mulish } from '@next/font/google'
 import Provider from '@/app/context/client-provider'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
@@ -13,9 +13,16 @@ export const metadata: Metadata = {
   },
 }
 
-const maven = Maven_Pro({
+const covered_by_your_grace = Covered_By_Your_Grace({
   subsets: ['latin'],
-  variable: '--font-maven',
+  variable: '--font-covered-by-your-grace',
+  display: 'swap',
+  weight: '400',
+})
+
+const chivo = Chivo({
+  subsets: ['latin'],
+  variable: '--font-chivo',
   display: 'swap',
 })
 
@@ -35,7 +42,7 @@ export default async function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning={true}
-        className={`${maven.variable} ${muli.variable}`}
+        className={`${covered_by_your_grace.variable} ${chivo.variable} ${muli.variable}`}
       >
         <Provider session={session}>{children}</Provider>
       </body>

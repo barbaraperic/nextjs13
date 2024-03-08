@@ -12,7 +12,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  background-color: hsl(0, 0, 96.1%);
+  background-image: url(./concrete-wall-3.png);
 }
 
 .wrapper-left {
@@ -31,7 +31,7 @@
   }
 
   .link {
-    color: var(--mainColor);
+    color: var(--accentColor);
     position: relative;
     display: inline-block;
     padding: 0 0.45em;
@@ -82,8 +82,8 @@
     background: linear-gradient(
       -45deg,
       var(--transparent) 73%,
-      var(--mainColor) 30%,
-      var(--mainColor) 30%,
+      var(--mainColor) 10%,
+      var(--mainColor) 10%,
       var(--transparent) 78%
     );
     background-size: 2em 2em;

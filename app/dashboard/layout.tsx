@@ -21,36 +21,27 @@ export default async function AuthLayout({
         {session && (
           <>
             <p>Welcome {session?.user?.name}</p>
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full border border-primary-dark">
-                  <Image
-                    width={32}
-                    height={32}
-                    alt="profile"
-                    src={
-                      session?.user?.image ??
-                      'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-                    }
-                    className="rounded-full"
-                  />
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-neutral border-primary-dark border text-base-100 hover:text-primary-dark rounded-box w-52"
-              >
-                <li>
-                  <SignOutButton />
-                </li>
-              </ul>
-            </div>
           </>
         )}
+        <ul role="navigation" className={styles['avatar-navigation']}>
+          <li className={styles['avatar-dropdown']}>
+            <Image
+              width={36}
+              height={36}
+              alt="profile"
+              src={
+                session?.user?.image ??
+                'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
+              }
+              className={styles.avatar}
+            />
+            <ul className={styles.dropdown}>
+              <li>
+                <SignOutButton />
+              </li>
+            </ul>
+          </li>
+        </ul>
       </header>
       <div className={styles.content}>{children}</div>
     </div>

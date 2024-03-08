@@ -27,9 +27,11 @@ $max_font: 18;
 
 :root {
   --backgroundColor: hsl(260, 50%, 98%);
-  --mainColor: hsl(183, 99%, 30%);
-  --accentColor: hsl(25, 98%, 62%);
+  --textColor: hsl(224, 98%, 26%);
+  --mainColor: hsl(224, 98%, 26%);
+  --accentColor: hsl(3, 93%, 60%);
   --greyColor: hsl(0, 0%, 40%);
+  --textWhiteColor: hsl(260, 50%, 98%);
   font-size: #{$min_font}px;
 }
 // This part is a little bit ugly, I will explain what is going on in a blog post soon.
@@ -48,7 +50,11 @@ $max_font: 18;
 }
 
 h1 {
-  font-family: var(--font-maven);
+  font-family: var(--font-covered-by-your-grace);
+}
+
+h2 {
+  font-family: var(--font-chivo);
 }
 
 html {
@@ -65,6 +71,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background: var(--backgroundColor);
   font-family: var(--font-muli);
+  color: var(--textColor);
 }
 
 footer {

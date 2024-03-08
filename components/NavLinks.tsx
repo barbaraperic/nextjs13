@@ -32,15 +32,7 @@ const NavLinks = () => {
       {links.map((link) => {
         const LinkIcon = link.icon
         return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={styles.link}
-            // className={clsx(
-            //   'flex h-[48px] group grow items-center justify-center gap-2 bg-neutral p-3 text-sm font-medium hover:bg-base-content text-neutral-content hover:text-primary-dark md:flex-none md:justify-start md:p-2 md:px-3',
-            //   pathname === link.href && 'text-primary-dark bg-base-content'
-            // )}
-          >
+          <Link key={link.name} href={link.href} className={styles.link}>
             <LinkIcon className={styles.icon} />
             <p>{link.name}</p>
           </Link>
